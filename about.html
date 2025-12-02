@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Trendtactics Digital</title>
+    <meta name="description" content="Learn about Trendtactics Digital - our story, mission, team, and commitment to engineering digital growth for businesses worldwide.">
+    <meta name="keywords" content="digital marketing, web design, AI solutions, SEO, branding, growth marketing">
+    <meta name="author" content="Akinola Olujobi">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="About Us - Trendtactics Digital">
+    <meta property="og:description" content="Learn about Trendtactics Digital - our story, mission, team, and commitment to engineering digital growth for businesses worldwide.">
+    <meta property="og:url" content="https://trendtacticsdigital.com/about">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./images/og-image.jpg">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Us - Trendtactics Digital">
+    <meta name="twitter:description" content="Learn about Trendtactics Digital - our story, mission, team, and commitment to engineering digital growth for businesses worldwide.">
+    <meta name="twitter:image" content="./images/og-image.jpg">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- React CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/about.css">
+    <script src="https://js.puter.com/v2/"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Trendtactics Digital",
+      "url": "https://trendtacticsdigital.com/",
+      "logo": "https://trendtacticsdigital.com/images/og-image.jpg",
+      "sameAs": [
+        "https://linkedin.com/company/trendtactics-digital",
+        "https://twitter.com/trendtactics",
+        "https://instagram.com/trendtactics",
+        "https://facebook.com/trendtactics",
+        "https://youtube.com/trendtactics"
+      ],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+234-800-000-0000",
+        "contactType": "customer service",
+        "areaServed": "NG, US, UK, CA",
+        "availableLanguage": ["English"]
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "url": "https://trendtacticsdigital.com/about.html",
+      "name": "About Us - Trendtactics Digital",
+      "description": "Learn about Trendtactics Digital - our story, mission, team, and commitment to engineering digital growth for businesses worldwide."
+    }
+    </script>
+</head>
+<body>
+    <nav id="navigation" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Trendtactics Digital</span>
+            </div>
+            <div class="nav-actions">
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="portfolio.html" class="nav-link">Portfolio</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav-cta">
+                    <a href="quiz.html" class="btn btn-outline">Take Quiz</a>
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+            <!-- Add dark mode toggle button to nav -->
+            <div class="nav-darkmode" style="display:inline-block;margin-left:1em;">
+              <button id="darkModeToggle" aria-label="Toggle dark mode" style="background:none;border:none;cursor:pointer;font-size:1.3em;color:#00FFFF;">
+                <i class="fas fa-moon"></i>
+              </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">About Trendtactics Digital</h1>
+                    <p class="hero-subtitle">
+                        We don't just market brands — we engineer digital growth. 
+                        Discover our story, mission, and the team behind your success.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Story -->
+        <section class="company-story">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=400&h=400&fit=crop&crop=faces" alt="Trendtactics Digital Team" loading="lazy">
+                    </div>
+                    <div class="story-content">
+                        <h2>Our Story</h2>
+                        <p class="story-intro">
+                            Founded in 2020 by Akinola Olujobi, Trendtactics Digital emerged from a simple belief: 
+                            that every business deserves access to world-class digital marketing expertise.
+                        </p>
+                        <p>
+                            What started as a one-person operation in Lagos has grown into a global team of 
+                            strategists, designers, developers, and marketers working across four continents. 
+                            We've helped over 500 businesses transform their digital presence and achieve 
+                            remarkable growth.
+                        </p>
+                        <p>
+                            Our journey has been driven by innovation, creativity, and an unwavering commitment 
+                            to delivering measurable results. From small startups to Fortune 500 companies, 
+                            we've proven that the right digital strategy can change everything.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision -->
+        <section class="mission-vision">
+            <div class="container">
+                <div class="mv-grid">
+                    <div class="mv-card">
+                        <div class="mv-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Our Mission</h3>
+                        <p>
+                            To democratize access to world-class digital marketing by providing innovative, 
+                            data-driven solutions that drive real business growth for companies of all sizes.
+                        </p>
+                    </div>
+                    <div class="mv-card">
+                        <div class="mv-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3>Our Vision</h3>
+                        <p>
+                            To be the leading digital growth partner for ambitious businesses worldwide, 
+                            known for delivering exceptional results through creativity, technology, and 
+                            strategic thinking.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values -->
+        <section class="values">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Core Values</h2>
+                    <p>These principles guide everything we do and every decision we make.</p>
+                </div>
+                <div class="values-grid" id="values-grid">
+                    <!-- Values will be loaded from JSON -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section class="team">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Meet Our Team</h2>
+                    <p>The brilliant minds behind your digital success.</p>
+                </div>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=400&h=400&fit=crop&crop=faces" alt="Akinola Olujobi - Founder & CEO" loading="lazy">
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Akinola Olujobi</h3>
+                            <div class="member-position">Founder & CEO</div>
+                            <p class="member-bio">Digital marketing expert with 10+ years of experience helping brands grow online. Passionate about democratizing access to world-class digital solutions.</p>
+                            <div class="member-social">
+                                <a href="https://linkedin.com/in/akinola-olujobi" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://twitter.com/akinola_olujobi" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://instagram.com/akinola_olujobi" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://facebook.com/akinola.olujobi" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop&crop=faces" alt="Sarah Johnson - Creative Director" loading="lazy">
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Sarah Johnson</h3>
+                            <div class="member-position">Creative Director</div>
+                            <p class="member-bio">Award-winning designer passionate about creating beautiful, functional digital experiences that drive results and delight users.</p>
+                            <div class="member-social">
+                                <a href="https://linkedin.com/in/sarah-johnson" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://twitter.com/sarah_johnson" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://instagram.com/sarah_johnson" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://facebook.com/sarah.johnson" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" alt="Michael Chen - Technical Lead" loading="lazy">
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Michael Chen</h3>
+                            <div class="member-position">Technical Lead</div>
+                            <p class="member-bio">Full-stack developer specializing in modern web technologies and AI integration. Expert in building scalable, high-performance solutions.</p>
+                            <div class="member-social">
+                                <a href="https://linkedin.com/in/michael-chen" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://github.com/michaelchen" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://instagram.com/michael_chen" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://facebook.com/michael.chen" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face" alt="Emily Rodriguez - Marketing Strategist" loading="lazy">
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Emily Rodriguez</h3>
+                            <div class="member-position">Marketing Strategist</div>
+                            <p class="member-bio">Data-driven marketing expert with a proven track record of scaling businesses through strategic digital campaigns and growth hacking.</p>
+                            <div class="member-social">
+                                <a href="https://linkedin.com/in/emily-rodriguez" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://twitter.com/emily_rodriguez" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://instagram.com/emily_rodriguez" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://facebook.com/emily.rodriguez" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face" alt="David Thompson - AI Solutions Architect" loading="lazy">
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">David Thompson</h3>
+                            <div class="member-position">AI Solutions Architect</div>
+                            <p class="member-bio">AI specialist focused on implementing cutting-edge machine learning solutions that automate processes and drive business intelligence.</p>
+                            <div class="member-social">
+                                <a href="https://linkedin.com/in/david-thompson" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://github.com/davidthompson" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://instagram.com/david_thompson" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://facebook.com/david.thompson" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face" alt="Lisa Wang - UX/UI Designer" loading="lazy">
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Lisa Wang</h3>
+                            <div class="member-position">UX/UI Designer</div>
+                            <p class="member-bio">User experience expert who creates intuitive, accessible designs that enhance user engagement and drive conversion rates.</p>
+                            <div class="member-social">
+                                <a href="https://linkedin.com/in/lisa-wang" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://dribbble.com/lisawang" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-dribbble"></i>
+                                </a>
+                                <a href="https://instagram.com/lisa_wang" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://facebook.com/lisa.wang" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid" id="stats-grid">
+                    <!-- Stats will be loaded from JSON -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="timeline">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Journey</h2>
+                    <p>Key milestones in our growth story.</p>
+                </div>
+                <div class="timeline-container" id="timeline-container">
+                    <!-- Timeline will be loaded from JSON -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta">
+            <div class="container">
+                <h2 class="cta-title">Ready to Work with Us?</h2>
+                <p class="cta-subtitle">
+                    Let's discuss how we can help your business achieve its digital growth goals.
+                </p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-outline btn-large">Get Free Consultation</a>
+                    <a href="portfolio.html" class="btn btn-outline btn-large">View Our Work</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- After Ready to Work with Us section -->
+        <div id="ebookPromoMarquee" style="background:#A8FF8A; color:#0A1E3F; padding:0.5em 0; font-weight:600; font-size:1.1em; white-space:nowrap; overflow:hidden; margin-bottom:1.5em;">
+          <marquee behavior="scroll" direction="left" scrollamount="7">🔥 Discover my premium ebooks for business growth! Visit the <a href="shop.html" style="color:#0A1E3F; text-decoration:underline;">Author Shop</a> to buy now and unlock your success! 🔥</marquee>
+        </div>
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span>Trendtactics Digital</span>
+                    </div>
+                    <p class="footer-description">
+                        We don't just market brands — we engineer digital growth. 
+                        Unlock strategy, creativity, and AI power — all in one studio.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/company/trendtactics-digital" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/trendtactics" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/trendtactics" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/trendtactics" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://youtube.com/trendtactics" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <div id="google_translate_element"></div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html#web-design">Web Design</a></li>
+                        <li><a href="services.html#digital-marketing">Digital Marketing</a></li>
+                        <li><a href="services.html#seo">SEO Optimization</a></li>
+                        <li><a href="services.html#brand-strategy">Brand Strategy</a></li>
+                        <li><a href="services.html#ecommerce">E-commerce Development</a></li>
+                        <li><a href="services.html#content-marketing">Content Marketing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="portfolio.html">Our Work</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="academy.html">Academy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="ebooks.html">Free Ebooks</a></li>
+                        <li><a href="tools.html">Marketing Tools</a></li>
+                        <li><a href="quiz.html">Growth Quiz</a></li>
+                        <li><a href="blog.html">Latest Articles</a></li>
+                        <li><a href="academy.html">Online Courses</a></li>
+                        <li><a href="contact.html">Free Consultation</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-newsletter-section">
+                <div class="footer-newsletter">
+                    <h3>Stay Updated</h3>
+                    <p>Get the latest digital marketing insights and tips delivered to your inbox.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Trendtactics Digital. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#cookies">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Only keep necessary scripts here -->
+    <script src="./js/about.js"></script>
+    <script>
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    window.addEventListener('scroll', function() {
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    });
+    </script>
+</body>
+</html> 

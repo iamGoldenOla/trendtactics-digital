@@ -1,0 +1,56 @@
+[
+  {
+    "icon": "FaRocket",
+    "title": "Web Design",
+    "description": "Custom, responsive websites that convert visitors into customers with modern design and seamless user experience.",
+    "price": "From $2,500",
+    "duration": "/project",
+    "link": "/services#web-design",
+    "linkText": "Learn More →"
+  },
+  {
+    "icon": "FaBullhorn",
+    "title": "Digital Marketing",
+    "description": "Strategic marketing campaigns across all digital channels to increase brand awareness and drive conversions.",
+    "price": "From $1,500",
+    "duration": "/month",
+    "link": "/services#digital-marketing",
+    "linkText": "Learn More →"
+  },
+  {
+    "icon": "FaSearch",
+    "title": "SEO Optimization",
+    "description": "Search engine optimization to improve your website's visibility and drive organic traffic to your business.",
+    "price": "From $800",
+    "duration": "/month",
+    "link": "/services#seo",
+    "linkText": "Learn More →"
+  },
+  {
+    "icon": "FaCrown",
+    "title": "Brand Strategy",
+    "description": "Comprehensive brand development and positioning to create a memorable and impactful brand identity.",
+    "price": "From $3,000",
+    "duration": "/project",
+    "link": "/services#brand-strategy",
+    "linkText": "Learn More →"
+  },
+  {
+    "icon": "FaShoppingCart",
+    "title": "E-commerce Development",
+    "description": "Full-featured online stores with secure payment processing and inventory management systems.",
+    "price": "From $4,500",
+    "duration": "/project",
+    "link": "/services#ecommerce",
+    "linkText": "Learn More →"
+  },
+  {
+    "icon": "FaEdit",
+    "title": "Content Marketing",
+    "description": "Strategic content creation and distribution to engage your audience and build brand authority.",
+    "price": "From $1,200",
+    "duration": "/month",
+    "link": "/services#content-marketing",
+    "linkText": "Learn More →"
+  }
+] 

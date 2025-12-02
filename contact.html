@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Trendtactics Digital</title>
+    <meta name="description" content="Get in touch with Trendtactics Digital. Contact us for digital marketing, web design, AI solutions, and growth strategy consultations.">
+    <meta name="keywords" content="digital marketing, web design, AI solutions, SEO, branding, growth marketing">
+    <meta name="author" content="Akinola Olujobi">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Contact Us - Trendtactics Digital">
+    <meta property="og:description" content="Get in touch with Trendtactics Digital. Contact us for digital marketing, web design, AI solutions, and growth strategy consultations.">
+    <meta property="og:url" content="https://trendtacticsdigital.com/contact">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./images/og-image.jpg">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Us - Trendtactics Digital">
+    <meta name="twitter:description" content="Get in touch with Trendtactics Digital. Contact us for digital marketing, web design, AI solutions, and growth strategy consultations.">
+    <meta name="twitter:image" content="./images/og-image.jpg">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- React CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/compact-header.css">
+    <link rel="stylesheet" href="./styles/contact.css">
+    <script src="https://js.puter.com/v2/"></script>
+    <script src="./js/puter-integration.js"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Trendtactics Digital",
+      "url": "https://trendtacticsdigital.com/",
+      "logo": "https://trendtacticsdigital.com/images/og-image.jpg",
+      "sameAs": [
+        "https://linkedin.com/company/trendtactics-digital",
+        "https://twitter.com/trendtactics",
+        "https://instagram.com/trendtactics",
+        "https://facebook.com/trendtactics",
+        "https://youtube.com/trendtactics"
+      ],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+234-800-000-0000",
+        "contactType": "customer service",
+        "areaServed": "NG, US, UK, CA",
+        "availableLanguage": ["English"]
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "url": "https://trendtacticsdigital.com/contact.html",
+      "name": "Contact Us - Trendtactics Digital",
+      "description": "Get in touch with Trendtactics Digital. Contact us for digital marketing, web design, AI solutions, and growth strategy consultations."
+    }
+    </script>
+    <!-- Add dark mode toggle button to nav -->
+    <div class="nav-darkmode" style="display:inline-block;margin-left:1em;">
+      <button id="darkModeToggle" aria-label="Toggle dark mode" style="background:none;border:none;cursor:pointer;font-size:1.3em;color:#00FFFF;">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+</head>
+<body>
+    <nav id="navigation" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Trendtactics Digital</span>
+            </div>
+            <div class="nav-actions">
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="portfolio.html" class="nav-link">Portfolio</a>
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav-cta">
+                    <a href="quiz.html" class="btn btn-outline">Take Quiz</a>
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Get In Touch</h1>
+                    <p class="hero-subtitle">
+                        Ready to transform your business? Let's discuss your digital growth strategy.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="contact-info">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p>hello@trendtacticsdigital.com</p>
+                        <p>support@trendtacticsdigital.com</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Call Us</h3>
+                        <p>+2349068133874</p>
+                        <p>Mon-Fri: 9AM-6PM WAT</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Visit Us</h3>
+                        <p>123 Digital Avenue</p>
+                        <p>Lagos, Nigeria</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form and Map -->
+        <section class="contact-main">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-form-section">
+                        <h2>Send Us a Message</h2>
+                        <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+                        
+                        <!-- Contact Form (AI-powered) -->
+                        <form id="contactForm" style="max-width:500px;margin:2em auto 0 auto;">
+                            <label for="contactName">Name</label>
+                            <input type="text" id="contactName" name="name" required placeholder="Your Name" aria-label="Name" style="width:100%;margin-bottom:1em;padding:0.7em;">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" name="email" required placeholder="Your Email" aria-label="Email" style="width:100%;margin-bottom:1em;padding:0.7em;">
+                            <label for="contactSubject">Subject</label>
+                            <input type="text" id="contactSubject" name="subject" required placeholder="Subject" aria-label="Subject" style="width:100%;margin-bottom:1em;padding:0.7em;">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" name="message" required rows="5" placeholder="Type your message..." aria-label="Message" style="width:100%;margin-bottom:1em;padding:0.7em;"></textarea>
+                            <div id="aiSentiment" style="margin-bottom:1em;font-size:0.98em;color:#888;"></div>
+                            <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+                            <div id="aiThankYou" style="margin-top:1.5em;font-size:1.1em;color:#0A1E3F;"></div>
+                            <!-- Add honeypot field for spam protection -->
+                            <input type="text" name="website" id="website" style="display:none;" tabindex="-1" autocomplete="off">
+                        </form>
+                    </div>
+                    
+                    <div class="contact-map-section">
+                        <h2>Our Offices</h2>
+                        <div class="office-locations" id="office-locations">
+                            <!-- Office locations will be loaded from JSON -->
+                        </div>
+                        
+                        <!-- Google Maps Embed -->
+                        <div class="map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.5!2d3.3792!3d6.5244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1234567890"
+                                width="100%" 
+                                height="400" 
+                                style="border:0; border-radius: 12px;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                            <div class="map-overlay">
+                                <div class="map-info">
+                                    <h3><i class="fas fa-map-marker-alt"></i> Our Main Office</h3>
+                                    <p>123 Digital Avenue, Lagos, Nigeria</p>
+                                    <a href="https://maps.google.com/?q=123+Digital+Avenue+Lagos+Nigeria" target="_blank" class="btn btn-outline btn-sm">Get Directions</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSS Feed Section -->
+        <section class="rss-feed-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Latest from Our Blog</h2>
+                    <p>Stay updated with our latest insights, tips, and industry news.</p>
+                </div>
+                
+                <div class="rss-feed-container">
+                    <div class="rss-feed" id="rss-feed">
+                        <!-- RSS feed items will be loaded here -->
+                        <div class="rss-loading">
+                            <i class="fas fa-rss"></i>
+                            <p>Loading latest posts...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="rss-actions">
+                        <a href="blog.html" class="btn btn-primary">View All Posts</a>
+                        <a href="rss.xml" class="btn btn-outline" target="_blank">
+                            <i class="fas fa-rss"></i> RSS Feed
+                        </a>
+                        <div class="rss-subscribe">
+                            <h4>Subscribe to Updates</h4>
+                            <p>Get our latest posts delivered to your inbox</p>
+                            <form class="rss-form">
+                                <input type="email" placeholder="Enter your email" required>
+                                <button type="submit">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Quick answers to common questions about working with us.</p>
+                </div>
+                
+                <div class="faq-grid" id="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What services do you offer?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer comprehensive digital marketing services including web design, SEO, social media marketing, AI solutions, brand strategy, e-commerce development, and consulting. Our team specializes in creating custom solutions that drive real business growth.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>How long does a typical project take?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Project timelines vary based on scope and complexity. A simple website might take 2-4 weeks, while comprehensive digital marketing campaigns typically run 3-6 months. We'll provide a detailed timeline during our initial consultation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What are your pricing options?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer flexible pricing models including project-based pricing, monthly retainers, and performance-based packages. Our rates start from $500/hour for consulting and vary based on project scope. Contact us for a custom quote.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>Do you work with international clients?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! We work with clients globally and have experience serving businesses in various time zones. We use modern collaboration tools to ensure smooth communication regardless of location.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What makes your AI solutions different?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our AI solutions are custom-built for each business, not generic templates. We combine cutting-edge AI technology with deep marketing expertise to create intelligent systems that actually improve your business processes and ROI.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>How do you measure success?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We track key performance indicators (KPIs) specific to your goals, including traffic growth, conversion rates, lead generation, revenue impact, and ROI. You'll receive regular reports and insights to see your progress.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>Do you provide ongoing support?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! We offer ongoing support, maintenance, and optimization services. Many clients choose our monthly retainer packages for continuous improvement and support.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>Can I see examples of your work?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! Check out our <a href="portfolio.html" style="color: var(--primary);">portfolio page</a> to see case studies and examples of our work. We're proud of our track record and happy to share specific examples relevant to your industry.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ebook Promo Section -->
+        <section class="ebook-promo-section">
+            <div class="container">
+                <div class="ebook-promo-content">
+                    <h2>Discover My Premium Ebooks for Business Growth!</h2>
+                    <p>Visit the <a href="shop.html" class="ebook-shop-link">Author Shop</a> to buy now and unlock your success! <span style="font-size:1.2em;">🔥</span></p>
+                    <a href="shop.html" class="btn btn-primary btn-large">Shop Ebooks Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta">
+            <div class="container">
+                <h2 class="cta-title">Ready to Start Your Project?</h2>
+                <p class="cta-subtitle">
+                    Join hundreds of businesses that have transformed their digital presence with us.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contact-form" class="btn btn-primary btn-large">Start Your Project</a>
+                    <a href="portfolio.html" class="btn btn-outline btn-large">View Our Work</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scroll to Top Button -->
+        <div class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span>Trendtactics Digital</span>
+                    </div>
+                    <p class="footer-description">
+                        We don't just market brands — we engineer digital growth. 
+                        Unlock strategy, creativity, and AI power — all in one studio.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/company/trendtactics-digital" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/trendtactics" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/trendtactics" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/trendtactics" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://youtube.com/trendtactics" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html#web-design">Web Design</a></li>
+                        <li><a href="services.html#digital-marketing">Digital Marketing</a></li>
+                        <li><a href="services.html#brand-strategy">Brand Strategy</a></li>
+                        <li><a href="services.html#ecommerce">E-commerce</a></li>
+                        <li><a href="services.html#consulting">Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="portfolio.html">Our Work</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="academy.html">Academy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="ebooks.html">Free Ebooks</a></li>
+                        <li><a href="tools.html">Marketing Tools</a></li>
+                        <li><a href="quiz.html">Growth Quiz</a></li>
+                        <li><a href="blog.html">Latest Articles</a></li>
+                        <li><a href="academy.html">Online Courses</a></li>
+                        <li><a href="contact.html">Free Consultation</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-newsletter-section">
+                <div class="footer-newsletter">
+                    <h3>Stay Updated</h3>
+                    <p>Get the latest digital marketing insights and tips delivered to your inbox.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Trendtactics Digital. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#cookies">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <link rel="stylesheet" href="styles/about.css">
+
+    <!-- Only keep necessary scripts here, remove <div id="react-app"></div> and floating translate button/widget from after the footer -->
+    <script src="./js/email-service.js"></script>
+    <script>
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    window.addEventListener('scroll', function() {
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    });
+    </script>
+</body>
+</html> 

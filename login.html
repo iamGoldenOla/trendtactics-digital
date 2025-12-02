@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login - Trendtactics Digital Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .login-container { background: white; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 24px rgba(102,126,234,0.15); width: 100%; max-width: 400px; }
+        .login-header { text-align: center; margin-bottom: 25px; }
+        .login-header h1 { color: #667eea; margin-bottom: 8px; }
+        .login-header p { color: #666; font-size: 1rem; }
+        .login-form { display: flex; flex-direction: column; gap: 18px; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label { color: #333; font-weight: 500; margin-bottom: 6px; }
+        .form-group input { padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
+        .form-group input:focus { border-color: #667eea; outline: none; }
+        .btn { padding: 12px; border: none; border-radius: 6px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.2s; }
+        .btn:hover { background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); }
+        .demo-info { background: #e3f2fd; color: #1976d2; padding: 12px; border-radius: 8px; margin-bottom: 18px; font-size: 0.98rem; }
+        .error-msg { color: #d32f2f; margin-bottom: 10px; text-align: center; }
+        .success-msg { color: #388e3c; margin-bottom: 10px; text-align: center; }
+        .register-link { text-align: center; margin-top: 10px; }
+        .register-link a { color: #667eea; text-decoration: none; }
+        .register-link a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<div class="social-links">
+    <a href="https://linkedin.com/company/trendtactics-digital" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://twitter.com/trendtactics" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://instagram.com/trendtactics" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://facebook.com/trendtactics" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://youtube.com/trendtactics" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-youtube"></i>
+    </a>
+</div>
+<div id="google_translate_element"></div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Student Login</h1>
+            <p>Sign in to access your dashboard</p>
+        </div>
+        <div class="demo-info">
+            <strong>Demo Credentials:</strong><br>
+            Email: <b>student1@example.com</b><br>
+            Password: <b>password123</b><br>
+            <span style="color:#666; font-size:0.95em;">(In a real system, you would receive your login details by email after registration.)</span>
+        </div>
+        <form class="login-form" id="studentLoginForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required autocomplete="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password">
+            </div>
+            <div class="error-msg" id="errorMsg"></div>
+            <button type="submit" class="btn">Login</button>
+            <div style="text-align:right; margin-top:8px;">
+                <a href="#" style="color:#667eea; font-size:0.97em; text-decoration:none;" onclick="forgotPassword(event)">Forgot Password?</a>
+            </div>
+        </form>
+        <div class="register-link">
+            <span>Don't have an account? <a href="#" onclick="alert('Registration is demo-only. Please use the demo credentials above.')">Register</a></span>
+        </div>
+    </div>
+    <script>
+        // Demo student credentials
+        const demoStudent = {
+            email: 'student1@example.com',
+            password: 'password123',
+            name: 'Akinola Olujobi',
+            course: 'Creative Design'
+        };
+        document.getElementById('studentLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
+            errorMsg.textContent = '';
+            if (email === demoStudent.email && password === demoStudent.password) {
+                // Set localStorage for dashboard personalization
+                localStorage.setItem('studentLoggedIn', 'true');
+                localStorage.setItem('studentName', demoStudent.name);
+                localStorage.setItem('enrolledCourse', demoStudent.course);
+                window.location.href = 'dashboard.html';
+            } else {
+                errorMsg.textContent = 'Invalid email or password. Please use the demo credentials.';
+            }
+        });
+        function forgotPassword(e) {
+            e.preventDefault();
+            alert('In a real system, a password reset link would be sent to your email. For this demo, please use the demo credentials shown above.');
+        }
+    </script>
+    <!-- Floating Language Selector -->
+    <div id="floating-translate-btn" style="position:fixed;bottom:30px;left:30px;z-index:9999;display:flex;align-items:center;gap:8px;">
+        <button id="toggle-translate" style="background:#0A1E3F;color:#00FFFF;border:none;border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(10,30,63,0.18);cursor:pointer;font-size:1.6rem;transition:background 0.2s;">
+            <i class="fas fa-globe"></i>
+        </button>
+        <div id="floating-translate-widget" style="display:none;"></div>
+    </div>
+    <div id="google_translate_element" style="display:none;"></div>
+    <script>
+    // Move Google Translate widget into floating widget and toggle visibility
+    document.addEventListener('DOMContentLoaded', function() {
+        var translateWidget = document.getElementById('google_translate_element');
+        var floatingWidget = document.getElementById('floating-translate-widget');
+        var toggleBtn = document.getElementById('toggle-translate');
+        if (translateWidget && floatingWidget && toggleBtn) {
+            floatingWidget.appendChild(translateWidget);
+            toggleBtn.addEventListener('click', function() {
+                if (floatingWidget.style.display === 'none' || floatingWidget.style.display === '') {
+                    floatingWidget.style.display = 'block';
+                } else {
+                    floatingWidget.style.display = 'none';
+                }
+            });
+        }
+    });
+    </script>
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html> 

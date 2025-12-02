@@ -1,0 +1,400 @@
+# PROMPT.TXT - Trendtacticsdigital.com Development Prompts
+
+## 🏗️ PROJECT SETUP PROMPTS
+
+### Initialize Project Structure
+"Create the initial project structure for Trendtacticsdigital.com following the .cursor-rule specifications. Set up the folder structure with /pages/, /components/, /utils/, /styles/, /data/, /images/, /admin/, and /academy/ directories. Include package.json with React, Next.js, TypeScript, Tailwind CSS, and Framer Motion dependencies."
+
+### Setup Email & ClientFlow Integration
+"Set up the email and ClientFlow integration system. Create the /pages/api/send.js file with Nodemailer configuration, environment variables setup, and ClientFlow agent integration. Include form validation and error handling."
+
+## 🎨 LAYOUT & DESIGN PROMPTS
+
+### Homepage Hero Section
+"Create a cinematic split-screen video hero section for the homepage (65vh-80vh) using Framer Motion. Include layered background gradients, headline, subtext, and CTA overlay. Use Z-pattern layout with proper contrast sections."
+
+### Page Hero Sections
+"Create static image-based hero sections for [PAGE_NAME] (65vh-80vh) with headline, subtext, and CTA overlay. Use layered background gradients and ensure mobile-first responsive design."
+
+### Layout Systems
+"Implement [Z-pattern/Split Grid/Bento] layout for the [SECTION_NAME] with proper contrast sections and layered background gradients. Ensure mobile-first responsive design and accessibility compliance."
+
+## 📄 PAGE CREATION PROMPTS
+
+### Homepage
+"Build the complete homepage for TrendtacticsDigital.com with cinematic split-screen video hero, Z-pattern layout, services showcase, testimonials, and contact CTA. Include SEO meta tags, analytics tracking, and mobile responsiveness."
+
+### About Us Page
+"Create the About Us page with static hero section, company story, team section, and mission/vision. Use layered background gradients and ensure proper contrast sections."
+
+### Services Page
+"Develop the Services page with subcategories, service cards, pricing information, and CTA sections. Include form integration for service inquiries with email and ClientFlow triggers."
+
+### Pricing Page
+"Build the Pricing page with pricing tiers, feature comparisons, and payment integration. Include form handling for pricing inquiries with proper email and ClientFlow integration."
+
+### Blog Page
+"Create the Blog page with article listings, categories, search functionality, and SEO optimization. Include admin controls for content management."
+
+### Ebook Hub
+"Develop the Ebook Hub with downloadable resources, lead capture forms, and ClientFlow integration. Include proper form validation and email automation."
+
+### Portfolio Page
+"Build the Portfolio page showcasing client work, case studies, and project galleries. Use Bento layout with proper image optimization and lazy loading."
+
+### LMS (Academy)
+"Create the Learning Management System (Academy) with paywall functionality, video lessons, PDF tasks, and student dashboard. Include admin controls for content uploads."
+
+### Client Quiz
+"Develop an interactive client quiz with form validation, results processing, and ClientFlow integration. Include email automation for quiz results."
+
+### Contact Page
+"Build the Contact page with contact form, location information, and social media links. Ensure proper form validation and email/ClientFlow integration."
+
+### Admin Dashboard
+"Create the admin dashboard for managing blog posts, pricing, ebooks, and LMS content. Include authentication, CRUD operations, and content management tools."
+
+### Smart Tools Hub
+"Develop the Smart Tools Hub with various digital marketing tools and utilities. Include proper user authentication and tool functionality."
+
+## 🔧 FUNCTIONALITY PROMPTS
+
+### SEO Optimization
+"Implement comprehensive SEO optimization including meta tags, Open Graph tags, sitemap generation, and structured data. Ensure proper alt text and semantic HTML."
+
+### Analytics Integration
+"Set up Google Analytics, Meta Pixel, and LinkedIn tracking for the website. Include event tracking for form submissions, page views, and user interactions."
+
+### Form Validation & Handling
+"Create robust form validation and handling for [FORM_TYPE] with proper error messages, success states, and email/ClientFlow integration."
+
+### Dark Mode Toggle
+"Implement a dark mode toggle with proper theme switching, localStorage persistence, and smooth transitions."
+
+### Mobile Responsiveness
+"Ensure mobile-first responsive design for [COMPONENT/PAGE] with proper breakpoints, touch interactions, and performance optimization."
+
+### Image Optimization
+"Implement image optimization with lazy loading, proper alt text, responsive images, and WebP format support."
+
+## 🎬 ANIMATION & INTERACTION PROMPTS
+
+### Framer Motion Animations
+"Add Framer Motion animations to [COMPONENT] with smooth transitions, hover effects, and scroll-triggered animations."
+
+### Scroll Animations
+"Implement scroll-triggered animations for [SECTION] using Framer Motion with proper intersection observer and performance optimization."
+
+### Interactive Elements
+"Create interactive elements for [COMPONENT] with hover states, click animations, and proper accessibility features."
+
+## 🧠 AI & AUTOMATION PROMPTS
+
+### ClientFlow Integration
+"Set up ClientFlow AI agent integration for [FORM_TYPE] with proper JSON payload validation and error handling."
+
+### Email Automation
+"Configure email automation for [EVENT_TYPE] with Nodemailer, proper templates, and delivery confirmation."
+
+### Smart Features
+"Implement smart features for [FEATURE_NAME] with AI-powered recommendations and user personalization."
+
+## 🚀 DEPLOYMENT PROMPTS
+
+### Build Optimization
+"Optimize the build for production with proper bundling, code splitting, and performance optimization."
+
+### Environment Setup
+"Set up environment variables and configuration for [DEPLOYMENT_PLATFORM] with proper security measures."
+
+### Testing & Quality Assurance
+"Implement comprehensive testing for [FEATURE] including unit tests, integration tests, and accessibility testing."
+
+## 📱 COMPONENT-SPECIFIC PROMPTS
+
+### Navigation Component
+"Create a responsive navigation component with mobile menu, smooth scrolling, and proper accessibility features."
+
+### Footer Component
+"Build a comprehensive footer component with links, social media, contact information, and proper semantic structure."
+
+### Card Components
+"Create reusable card components for [CONTENT_TYPE] with hover effects, proper spacing, and responsive design."
+
+### Button Components
+"Develop button components with different variants, loading states, and proper accessibility features."
+
+### Modal Components
+"Create modal components for [PURPOSE] with proper focus management, backdrop handling, and accessibility compliance."
+
+## 🔍 DEBUGGING & OPTIMIZATION PROMPTS
+
+### Performance Issues
+"Debug and optimize performance issues for [COMPONENT/PAGE] including bundle size, loading times, and Core Web Vitals."
+
+### Accessibility Issues
+"Fix accessibility issues for [COMPONENT] including ARIA labels, keyboard navigation, and screen reader compatibility."
+
+### Responsive Issues
+"Resolve responsive design issues for [COMPONENT] across different screen sizes and devices."
+
+## 📊 ANALYTICS & TRACKING PROMPTS
+
+### Event Tracking
+"Set up event tracking for [USER_ACTION] with proper analytics integration and data collection."
+
+### Conversion Tracking
+"Implement conversion tracking for [GOAL] with proper funnel analysis and attribution modeling."
+
+### User Behavior Analysis
+"Set up user behavior tracking and analysis tools for understanding user interactions and optimizing conversion rates."
+
+---
+
+# MASTER CURSOR.COM PROMPT FOR: TrendtacticsDigital.com
+
+## 🔧 GENERAL SITE OVERVIEW
+
+Build a professional, global-standard digital agency website for **Trendtactics Digital**  
+Website: https://trendtacticsdigital.com  
+CEO: Akinola Olujobi  
+Based in: Lagos, London, Toronto, NYC  
+
+Design Style: Inviting, clean, calm, professional, brand-aligned  
+Inspiration: Trendtactics flyer + global design agencies  
+
+Fonts: IBM Plex Sans, Nunito, Poppins, Montserrat, Inter, Raleway, Space Grotesk, Lato, Sora, Manrope  
+
+Color Scheme:
+- Primary: Cyan #00FFFF
+- Accent: Turquoise #40E0D0
+- Base Dark: Navy Blue #0A1E3F
+- Soft Black: #0D0D0D
+- Light Background: #FFFFFF, Soft Gray #F5F5F5
+- Main Gradient: linear-gradient(to bottom, #FFFFFF, #0A1E3F)
+- Text: Contrast-based (White or Navy)
+
+## 🎬 HERO SECTIONS (BY PAGE)
+
+### 1. Homepage
+- Split layout (Left: text & CTAs, Right: promo video in glass frame)
+- Headline: "We Don't Just Market Brands — We Engineer Digital Growth."
+- Subtext: "Unlock strategy, creativity, and AI power — all in one studio."
+- CTAs: [Get Started] [Watch Video]
+- Add trusted brand strip below
+
+### 2. Services
+- Static hero with gradient-tinted marketing visuals
+- Headline: "Smart Services Built to Grow Your Brand"
+- Subtext: "From web design to AI-powered strategy — we cover it all."
+- CTA: [Explore Services]
+
+### 3. Pricing
+- Clean abstract gradient background (no image)
+- Headline: "Flexible Pricing for All Growth Stages"
+- Subtext: "Transparent. Value-driven. Built for ROI."
+- CTA: [Choose Plan] + ₦/$ toggle below
+
+### 4. Blog
+- Static background: typing, books, lightbulbs
+- Headline: "Insights, Ideas & Inspiration"
+- Subtext: "Explore trends, tips, and digital breakthroughs."
+
+### 5. Ebook
+- Hero with digital bookshelf or reader image
+- Headline: "Browse Free & Premium Ebooks"
+- Subtext: "Curated wisdom for marketers, creators, and brands."
+
+### 6. About Us
+- Team or office background image
+- Headline: "We're Not Just Marketers — We're Mission-Driven Creators"
+- Subtext: "See the faces, values, and story behind the brand."
+
+### 7. Portfolio
+- Clean hero with blurred UI mockups
+- Headline: "Our Work Speaks for Itself"
+- Subtext: "Real brands. Real results. Real strategy."
+
+### 8. Contact
+- Calm city or desk workspace image
+- Headline: "Let's Build Something Amazing Together"
+- Subtext: "Reach out via message, call, or visit."
+
+### 9. Client Quiz
+- Hero with funnel/dashboard imagery
+- Headline: "Let's Understand Your Business"
+- Subtext: "Answer a few quick questions so we can serve you better."
+
+### 10. LMS (Academy)
+- Hero with digital classroom or open laptop
+- Headline: "Welcome to Trendtactics Academy"
+- Subtext: "Premium courses for creators, marketers, and dreamers."
+
+## 🤖 AI AGENT INTEGRATION (CLIENTFLOW)
+
+ClientFlow (TrendyAI.com) handles:
+- Lead tracking
+- Smart email/WhatsApp follow-up
+- CRM scoring & automation
+- All form submissions (quiz, contact, pricing) must send data here
+
+API POST: https://trendyai.com/api/agents/clientFlow  
+Payload example:
+```json
+{
+  "type": "lead",
+  "source": "contact_form",
+  "name": "Jane Doe",
+  "email": "jane@example.com",
+  "message": "Interested in Growth Package"
+}
+```
+
+## ✉️ EMAIL INTEGRATION
+
+Each form must do BOTH:
+1. ✅ Send admin email (e.g., info@trendtacticsdigital.com)
+2. ✅ Trigger ClientFlow AI API
+
+Option A (No-Code): Formspree  
+```html
+<form action="https://formspree.io/f/YOUR_CODE" method="POST">...</form>
+```
+
+Option B (Custom API): NodeMailer via /pages/api/send.js  
+.env config:
+```env
+SMTP_USER=info@trendtacticsdigital.com  
+SMTP_PASS=YourAppPassword  
+SMTP_HOST=smtp.zoho.com (or smtp.gmail.com)  
+SMTP_PORT=465  
+SMTP_SECURE=true  
+```
+
+Best Practices:
+- Validate input fields
+- Use `aria-label`s
+- Add honeypot anti-spam field
+- Show clear success/fail messages
+- Never expose SMTP credentials on frontend
+
+Applies to:
+- Contact Form
+- Quiz Form (final step)
+- Ebook opt-in form
+- Pricing Quote CTA
+
+## 📁 PAGES & SECTIONS
+
+1. Homepage  
+2. About Us  
+3. Services (with full subcategories)  
+4. Pricing  
+5. Blog  
+6. Ebook Library  
+7. Portfolio  
+8. LMS (Academy)  
+9. Client Quiz  
+10. Contact Page  
+11. Admin Dashboard  
+12. Smart Tools Hub  
+
+## 💡 CREATIVE LAYOUT STRATEGY
+
+- Z-Pattern or Split-Grid for homepage  
+- Bento Grid or Cards for services/portfolio  
+- Consistent spacing and visual hierarchy  
+- Contrast text using overlays/blur gradients (not dark filters)
+- Explain layout logic in code comments
+
+## 🖱️ INTERACTIONS & UX
+
+- Buttons: scale 1.03 on hover, turquoise glow  
+- Cards: shadow lift + glow  
+- Icons: gentle pulse or zoom  
+- Testimonials: carousel with brand logos  
+- Quiz: cyan border + tooltip microanimation  
+- Scroll-triggered motion (Framer Motion)
+
+## ⚙️ FUNCTIONALITY & SYSTEMS
+
+- Admin dashboard (/admin) with localStorage auth  
+- LMS (video + PDF uploads, student progress, paywall)  
+- Smart tools (calendar, headline grader, AI assistant, ROI calc)  
+- Blog & ebook systems with filters  
+- Pricing matrix table (Starter / Growth / Premium)  
+- Dark mode toggle  
+- Global SEO, OG tags, sitemap.xml  
+- Lazy loading images (.webp), alt text  
+- ARIA + keyboard nav support  
+- GitHub integration recommended
+
+## 🧠 TECH STACK
+
+Frontend:  
+- HTML5  
+- CSS3 (TailwindCSS)  
+- JavaScript (ES6+)  
+- React (components-based)
+
+Backend (optional):  
+- Node.js + JSON memory  
+- API/webhooks for ClientFlow + Email
+
+Structure:
+- /pages/, /components/, /styles/, /utils/, /data/, /images/  
+
+Naming:
+- camelCase for functions/JS  
+- PascalCase for components  
+- kebab-case for files/folders
+
+## ❌ AVOID
+
+- Fake testimonials  
+- lorem ipsum  
+- Cloned templates  
+- Sound on video load  
+- Overlays that kill text contrast  
+- Inaccessible navigation  
+
+## ✨ PROFESSIONAL TOUCHES
+
+- Glassmorphism for video frame  
+- Framer Motion on scroll/hover  
+- Testimonial logos with subtle glow  
+- Sticky nav with CTA  
+- Success metric banners  
+- Chat widget (Tawk.to or WhatsApp)  
+
+## ✅ DEPLOYMENT NOTES
+
+Deploy only when:
+- Fully responsive & mobile-first  
+- Source-controlled via GitHub  
+- API & SMTP tested  
+- Cursor validated with no red flags  
+- Favicon, SEO, Analytics installed  
+- Final QA approved
+
+Site should feel like:
+✅ Global agency standard  
+✅ Designed for conversion  
+✅ Powered by smart tools  
+✅ Brand-authentic from top to footer
+
+---
+
+## 🎯 USAGE INSTRUCTIONS
+
+1. **Copy the relevant prompt** for your current development task
+2. **Replace placeholder text** in [BRACKETS] with specific details
+3. **Paste the prompt** when asking for development assistance
+4. **Reference the .cursor-rule** for additional context and requirements
+
+## 📝 EXAMPLE USAGE
+
+Instead of: "Create a homepage"
+Use: "Build the complete homepage for TrendtacticsDigital.com with cinematic split-screen video hero, Z-pattern layout, services showcase, testimonials, and contact CTA. Include SEO meta tags, analytics tracking, and mobile responsiveness."
+
+This ensures I follow your exact specifications and project requirements! 

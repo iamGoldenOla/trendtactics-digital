@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Test - Trendtactics Digital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            margin: 10px 10px 10px 0;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .btn-secondary {
+            background: #6c757d;
+        }
+        .btn-success {
+            background: #28a745;
+        }
+        .btn-warning {
+            background: #ffc107;
+            color: #333;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .debug-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Floating Language Selector -->
+    <div id="floating-translate-btn" style="position:fixed;bottom:30px;left:30px;z-index:9999;display:flex;align-items:center;gap:8px;">
+        <button id="toggle-translate" style="background:#0A1E3F;color:#00FFFF;border:none;border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(10,30,63,0.18);cursor:pointer;font-size:1.6rem;transition:background 0.2s;">
+            <i class="fas fa-globe"></i>
+        </button>
+        <div id="floating-translate-widget" style="display:none;"></div>
+    </div>
+    <div id="google_translate_element" style="display:none;"></div>
+    <script>
+    // Move Google Translate widget into floating widget and toggle visibility
+    document.addEventListener('DOMContentLoaded', function() {
+        var translateWidget = document.getElementById('google_translate_element');
+        var floatingWidget = document.getElementById('floating-translate-widget');
+        var toggleBtn = document.getElementById('toggle-translate');
+        if (translateWidget && floatingWidget && toggleBtn) {
+            floatingWidget.appendChild(translateWidget);
+            toggleBtn.addEventListener('click', function() {
+                if (floatingWidget.style.display === 'none' || floatingWidget.style.display === '') {
+                    floatingWidget.style.display = 'block';
+                } else {
+                    floatingWidget.style.display = 'none';
+                }
+            });
+        }
+    });
+    </script>
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div class="container">
+        <h1>🧪 Enrollment Flow Test</h1>
+        <p>This page tests the enrollment flow to ensure it redirects to the dashboard correctly.</p>
+        
+        <div class="test-section">
+            <h3>1. Clear Enrollment Data</h3>
+            <p>Start fresh by clearing any existing enrollment data:</p>
+            <button class="btn btn-warning" onclick="clearEnrollmentData()">Clear Enrollment Data</button>
+            <div id="clear-status"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>2. Test Course Enrollment</h3>
+            <p>Test enrolling in a specific course:</p>
+            <button class="btn" onclick="testCourseEnrollment()">Enroll in SEO Fundamentals Course</button>
+            <div id="course-status"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>3. Test Learning Path Enrollment</h3>
+            <p>Test enrolling in a learning path:</p>
+            <button class="btn" onclick="testLearningPathEnrollment()">Enroll in Digital Marketing Manager Path</button>
+            <div id="path-status"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>4. Check Current Enrollment Status</h3>
+            <p>Check what's currently stored in localStorage:</p>
+            <button class="btn btn-secondary" onclick="checkEnrollmentStatus()">Check Enrollment Status</button>
+            <div id="status-display"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>5. Go to Dashboard</h3>
+            <p>Navigate to the dashboard to see if enrollment data is displayed correctly:</p>
+            <a href="dashboard.html" class="btn btn-success">Go to Dashboard</a>
+        </div>
+        
+        <div class="test-section">
+            <h3>Debug Information</h3>
+            <div class="debug-info" id="debug-info">
+                Loading debug information...
+            </div>
+        </div>
+    </div>
+
+    <!-- Include the academy.js file -->
+    <script src="./js/academy.js?v=2.3.0"></script>
+    
+    <script>
+        // Update debug info on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDebugInfo();
+        });
+
+        function updateDebugInfo() {
+            const debugInfo = document.getElementById('debug-info');
+            const enrolledCourse = localStorage.getItem('enrolledCourse');
+            const enrolledPath = localStorage.getItem('enrolledLearningPath');
+            const studentEmail = localStorage.getItem('studentEmail');
+            
+            debugInfo.innerHTML = `
+                <strong>Current localStorage data:</strong><br>
+                enrolledCourse: ${enrolledCourse || 'null'}<br>
+                enrolledLearningPath: ${enrolledPath || 'null'}<br>
+                studentEmail: ${studentEmail || 'null'}<br>
+                <br>
+                <strong>Available functions:</strong><br>
+                enrollInLearningPath: ${typeof enrollInLearningPath === 'function' ? '✅ Available' : '❌ Not available'}<br>
+                showLearningPathEnrollmentModal: ${typeof showLearningPathEnrollmentModal === 'function' ? '✅ Available' : '❌ Not available'}<br>
+                clearEnrollmentData: ${typeof clearEnrollmentData === 'function' ? '✅ Available' : '❌ Not available'}<br>
+                <br>
+                <strong>Academy.js version:</strong> 2.3.0
+            `;
+        }
+
+        function clearEnrollmentData() {
+            if (typeof clearEnrollmentData === 'function') {
+                clearEnrollmentData();
+                document.getElementById('clear-status').innerHTML = '<div class="status success">✅ Enrollment data cleared successfully!</div>';
+            } else {
+                // Manual clear if function not available
+                localStorage.removeItem('enrolledCourse');
+                localStorage.removeItem('enrolledLearningPath');
+                localStorage.removeItem('studentEmail');
+                localStorage.removeItem('studentPassword');
+                localStorage.removeItem('rememberMe');
+                document.getElementById('clear-status').innerHTML = '<div class="status success">✅ Enrollment data cleared manually!</div>';
+            }
+            updateDebugInfo();
+        }
+
+        function testCourseEnrollment() {
+            // Simulate course enrollment
+            localStorage.setItem('enrolledCourse', 'seo-fundamentals');
+            document.getElementById('course-status').innerHTML = '<div class="status success">✅ Course enrollment data set! Now redirecting to dashboard...</div>';
+            updateDebugInfo();
+            
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 2000);
+        }
+
+        function testLearningPathEnrollment() {
+            // Simulate learning path enrollment
+            localStorage.setItem('enrolledLearningPath', 'Digital Marketing Manager');
+            document.getElementById('path-status').innerHTML = '<div class="status success">✅ Learning path enrollment data set! Now redirecting to dashboard...</div>';
+            updateDebugInfo();
+            
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 2000);
+        }
+
+        function checkEnrollmentStatus() {
+            const enrolledCourse = localStorage.getItem('enrolledCourse');
+            const enrolledPath = localStorage.getItem('enrolledLearningPath');
+            
+            let status = '';
+            if (enrolledCourse) {
+                status = `<div class="status success">✅ Enrolled in course: ${enrolledCourse}</div>`;
+            } else if (enrolledPath) {
+                status = `<div class="status success">✅ Enrolled in learning path: ${enrolledPath}</div>`;
+            } else {
+                status = '<div class="status info">ℹ️ No enrollment data found</div>';
+            }
+            
+            document.getElementById('status-display').innerHTML = status;
+            updateDebugInfo();
+        }
+    </script>
+</body>
+</html> 

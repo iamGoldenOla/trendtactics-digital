@@ -1,0 +1,579 @@
+// Services Page JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize services page
+    initServicesPage();
+    
+    // Initialize category navigation
+    initCategoryNavigation();
+    
+    // Initialize smooth scrolling
+    initSmoothScrolling();
+    
+    // Initialize animations
+    initAnimations();
+    
+    // Animate statistics on scroll
+    animateStats();
+    
+    // Initialize service showcase
+    initServiceShowcase();
+    
+    // Initialize service card animations
+    initServiceCardAnimations();
+    
+    // Temporarily disable data loading to prevent errors
+    // loadServicesData().catch(error => {
+    //     console.warn('Services data loading failed, but page will continue to function:', error);
+    // });
+});
+
+// Initialize services page
+function initServicesPage() {
+    console.log('Services page initialized');
+    
+    // Add scroll event listener for navbar
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+}
+
+// Load services data from JSON
+async function loadServicesData() {
+    try {
+        console.log('Loading services data...');
+        const response = await fetch('data/content.json');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log('Services data loaded successfully:', data);
+        
+        // Load detailed services
+        if (data.services && data.services.length > 0) {
+            loadDetailedServices(data.services);
+        } else {
+            console.warn('No services data found in JSON');
+        }
+        
+        // Load footer content
+        loadFooterContent(data);
+        
+    } catch (error) {
+        console.error('Error loading services data:', error);
+        
+        // Try alternative path
+        try {
+            console.log('Trying alternative path...');
+            const response = await fetch('./data/content.json');
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            console.log('Services data loaded successfully with alternative path:', data);
+            
+            // Load detailed services
+            if (data.services && data.services.length > 0) {
+                loadDetailedServices(data.services);
+            }
+            
+            // Load footer content
+            loadFooterContent(data);
+            
+        } catch (secondError) {
+            console.error('Error with alternative path:', secondError);
+            showErrorMessage('Failed to load services data. Please refresh the page.');
+        }
+    }
+}
+
+// Load detailed services sections
+function loadDetailedServices(services) {
+    const detailedServicesContainer = document.getElementById('detailed-services');
+    
+    if (!detailedServicesContainer || !services) return;
+    
+    let servicesHTML = '';
+    
+    services.forEach(service => {
+        servicesHTML += `
+            <div class="service-section" id="${service.id}">
+                <div class="service-header">
+                    <div class="service-icon-large">
+                        <i class="${service.icon}"></i>
+                    </div>
+                    <div class="service-info">
+                        <h2>${service.title}</h2>
+                        <p>${service.description}</p>
+                        <div class="service-stats">
+                            ${service.stats.map(stat => `
+                                <div class="stat">
+                                    <span class="stat-number">${stat.value}</span>
+                                    <span class="stat-label">${stat.label}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-subcategories">
+                    ${service.subcategories.map(subcategory => `
+                        <div class="subcategory-card">
+                            <div class="subcategory-header">
+                                <i class="${subcategory.icon}"></i>
+                                <h3>${subcategory.title}</h3>
+                            </div>
+                            <p>${subcategory.description}</p>
+                            <ul class="subcategory-features">
+                                ${subcategory.features.map(feature => `
+                                    <li>${feature}</li>
+                                `).join('')}
+                            </ul>
+                            <div class="subcategory-cta">
+                                <span class="price">${subcategory.price}</span>
+                                <a href="contact.html" class="btn btn-primary">Get Started</a>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    });
+    
+    detailedServicesContainer.innerHTML = servicesHTML;
+    
+    // Add animation classes
+    addAnimationClasses();
+}
+
+// Load footer content
+function loadFooterContent(data) {
+    // Load social links
+    const socialLinksContainer = document.getElementById('social-links');
+    if (socialLinksContainer && data.socialLinks) {
+        socialLinksContainer.innerHTML = data.socialLinks.map(link => `
+            <a href="${link.url}" class="social-link" target="_blank" rel="noopener">
+                <i class="${link.icon}"></i>
+            </a>
+        `).join('');
+    }
+    
+    // Load footer services
+    const footerServicesContainer = document.getElementById('footer-services');
+    if (footerServicesContainer && data.footerServices) {
+        footerServicesContainer.innerHTML = data.footerServices.map(service => `
+            <li><a href="services.html#${service.id}">${service.name}</a></li>
+        `).join('');
+    }
+    
+    // Load footer company links
+    const footerCompanyContainer = document.getElementById('footer-company');
+    if (footerCompanyContainer && data.footerCompany) {
+        footerCompanyContainer.innerHTML = data.footerCompany.map(link => `
+            <li><a href="${link.url}">${link.name}</a></li>
+        `).join('');
+    }
+    
+    // Load footer resources
+    const footerResourcesContainer = document.getElementById('footer-resources');
+    if (footerResourcesContainer && data.footerResources) {
+        footerResourcesContainer.innerHTML = data.footerResources.map(resource => `
+            <li><a href="${resource.url}">${resource.name}</a></li>
+        `).join('');
+    }
+}
+
+// Initialize category navigation
+function initCategoryNavigation() {
+    const categoryCards = document.querySelectorAll('.category-card');
+    
+    categoryCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const category = this.dataset.category;
+            scrollToCategory(category);
+        });
+        
+        // Add hover effects
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+}
+
+// Scroll to specific category
+function scrollToCategory(categoryId) {
+    const targetSection = document.getElementById(categoryId);
+    if (targetSection) {
+        targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+        
+        // Add highlight effect
+        targetSection.style.animation = 'pulse 1s ease-in-out';
+        setTimeout(() => {
+            targetSection.style.animation = '';
+        }, 1000);
+    }
+}
+
+// Initialize smooth scrolling
+function initSmoothScrolling() {
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+// Initialize animations
+function initAnimations() {
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-up');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    const animateElements = document.querySelectorAll('.category-card, .service-section, .process-step, .subcategory-card');
+    animateElements.forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Add animation classes
+function addAnimationClasses() {
+    // Add staggered animation delays
+    const categoryCards = document.querySelectorAll('.category-card');
+    categoryCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+    });
+    
+    const serviceSections = document.querySelectorAll('.service-section');
+    serviceSections.forEach((section, index) => {
+        section.style.animationDelay = `${index * 0.2}s`;
+    });
+    
+    const processSteps = document.querySelectorAll('.process-step');
+    processSteps.forEach((step, index) => {
+        step.style.animationDelay = `${index * 0.15}s`;
+    });
+}
+
+// Show error message
+function showErrorMessage(message) {
+    console.error('Error:', message);
+    
+    // Check if error message already exists
+    let errorDiv = document.getElementById('services-error-message');
+    
+    if (!errorDiv) {
+        errorDiv = document.createElement('div');
+        errorDiv.id = 'services-error-message';
+        errorDiv.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ff4757;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 10000;
+            font-size: 14px;
+            max-width: 300px;
+            animation: slideIn 0.3s ease-out;
+        `;
+        
+        // Add CSS animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        document.body.appendChild(errorDiv);
+    }
+    
+    errorDiv.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-weight: bold;">⚠️</span>
+            <span>${message}</span>
+            <button onclick="this.parentElement.parentElement.remove()" 
+                    style="background: none; border: none; color: white; cursor: pointer; font-size: 18px; margin-left: auto;">
+                ×
+            </button>
+        </div>
+    `;
+    
+    // Auto-remove after 10 seconds
+    setTimeout(() => {
+        if (errorDiv && errorDiv.parentNode) {
+            errorDiv.remove();
+        }
+    }, 10000);
+}
+
+// Service category filter functionality
+function filterServices(category) {
+    const allSections = document.querySelectorAll('.service-section');
+    const categoryCards = document.querySelectorAll('.category-card');
+    
+    // Remove active class from all category cards
+    categoryCards.forEach(card => card.classList.remove('active'));
+    
+    // Add active class to selected category
+    const selectedCard = document.querySelector(`[data-category="${category}"]`);
+    if (selectedCard) {
+        selectedCard.classList.add('active');
+    }
+    
+    // Show/hide service sections
+    allSections.forEach(section => {
+        if (category === 'all' || section.id === category) {
+            section.style.display = 'block';
+            section.classList.add('fade-in-up');
+        } else {
+            section.style.display = 'none';
+            section.classList.remove('fade-in-up');
+        }
+    });
+}
+
+// Price calculator functionality
+function calculateServicePrice(serviceType, features = []) {
+    const basePrices = {
+        'web-design': 2500,
+        'digital-marketing': 1500,
+        'ai-solutions': 3000,
+        'brand-strategy': 2000,
+        'ecommerce': 5000,
+        'consulting': 500
+    };
+    
+    const featureMultipliers = {
+        'responsive-design': 1.2,
+        'ecommerce': 1.5,
+        'cms': 1.3,
+        'seo': 1.4,
+        'ppc': 1.6,
+        'social-media': 1.2,
+        'chatbots': 1.3,
+        'analytics': 1.2,
+        'automation': 1.4
+    };
+    
+    let basePrice = basePrices[serviceType] || 1000;
+    let totalPrice = basePrice;
+    
+    features.forEach(feature => {
+        if (featureMultipliers[feature]) {
+            totalPrice *= featureMultipliers[feature];
+        }
+    });
+    
+    return Math.round(totalPrice);
+}
+
+// Contact form integration
+function handleServiceInquiry(serviceType, subcategory) {
+    // Store service selection in localStorage for contact form
+    localStorage.setItem('selectedService', JSON.stringify({
+        type: serviceType,
+        subcategory: subcategory,
+        timestamp: new Date().toISOString()
+    }));
+    
+    // Redirect to contact page
+    window.location.href = 'contact.html?service=' + encodeURIComponent(serviceType);
+}
+
+// Performance monitoring
+function trackServiceInteraction(action, serviceType, subcategory = null) {
+    // Track user interactions for analytics
+    const interaction = {
+        action: action,
+        serviceType: serviceType,
+        subcategory: subcategory,
+        timestamp: new Date().toISOString(),
+        page: 'services'
+    };
+    
+    // Send to analytics (placeholder for actual implementation)
+    console.log('Service interaction:', interaction);
+    
+    // Store in localStorage for analytics
+    const interactions = JSON.parse(localStorage.getItem('serviceInteractions') || '[]');
+    interactions.push(interaction);
+    localStorage.setItem('serviceInteractions', JSON.stringify(interactions));
+}
+
+// Export functions for global access
+window.ServicesPage = {
+    filterServices,
+    calculateServicePrice,
+    handleServiceInquiry,
+    trackServiceInteraction
+};
+
+// Animate statistics
+function animateStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                animateNumber(entry.target, target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    statNumbers.forEach(stat => observer.observe(stat));
+}
+
+function animateNumber(element, target) {
+    let current = 0;
+    const increment = target / 100;
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        element.textContent = Math.floor(current);
+    }, 20);
+}
+
+// Service showcase functionality
+function initServiceShowcase() {
+    const serviceItems = document.querySelectorAll('.service-icon-item');
+    const serviceDesc = document.getElementById('service-desc');
+    
+    const serviceDescriptions = {
+        'web-design': 'Custom, responsive websites that convert visitors into customers with modern design and seamless user experience.',
+        'digital-marketing': 'Comprehensive digital marketing strategies including social media, PPC, email marketing, and content marketing.',
+        'seo': 'Search engine optimization to improve your website\'s visibility and drive organic traffic to your business.',
+        'brand-strategy': 'Strategic brand development including logo design, brand guidelines, and comprehensive brand identity.',
+        'ecommerce': 'Complete e-commerce solutions with secure payment processing, inventory management, and customer experience optimization.',
+        'content-marketing': 'Engaging content creation including blog posts, social media content, videos, and marketing materials.'
+    };
+    
+    serviceItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Remove active class from all items
+            serviceItems.forEach(i => i.classList.remove('active'));
+            
+            // Add active class to clicked item
+            this.classList.add('active');
+            
+            // Update description
+            const serviceType = this.getAttribute('data-service');
+            if (serviceDescriptions[serviceType]) {
+                serviceDesc.textContent = serviceDescriptions[serviceType];
+                
+                // Add fade effect
+                serviceDesc.style.opacity = '0';
+                setTimeout(() => {
+                    serviceDesc.textContent = serviceDescriptions[serviceType];
+                    serviceDesc.style.opacity = '1';
+                }, 200);
+            }
+        });
+    });
+    
+    // Auto-scroll service icons every 2 seconds
+    let currentScrollIndex = 0;
+    const serviceIconsContainer = document.querySelector('.service-icons');
+    
+    function autoScrollServices() {
+        if (serviceIconsContainer && serviceItems.length > 0) {
+            const cardWidth = serviceItems[0].offsetWidth + 24; // card width + gap
+            const maxScroll = serviceIconsContainer.scrollWidth - serviceIconsContainer.clientWidth;
+            
+            if (maxScroll > 0) {
+                currentScrollIndex = (currentScrollIndex + 1) % serviceItems.length;
+                const scrollPosition = currentScrollIndex * cardWidth;
+                
+                serviceIconsContainer.scrollTo({
+                    left: scrollPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Update active service
+                serviceItems.forEach((item, index) => {
+                    item.classList.toggle('active', index === currentScrollIndex);
+                });
+                
+                // Update description
+                const activeItem = serviceItems[currentScrollIndex];
+                const serviceType = activeItem.getAttribute('data-service');
+                if (serviceDescriptions[serviceType]) {
+                    serviceDesc.textContent = serviceDescriptions[serviceType];
+                }
+            }
+        }
+    }
+    
+    // Start auto-scrolling every 2 seconds
+    setInterval(autoScrollServices, 2000);
+}
+
+// Add scroll-triggered animations for service cards
+function initServiceCardAnimations() {
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    serviceCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+}
+
+// Initialize service card animations when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initServiceCardAnimations();
+}); 

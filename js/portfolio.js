@@ -1,0 +1,117 @@
+// Portfolio asset definitions (replace/add as needed)
+const portfolioAssets = [
+  // Adverts (videos/images)
+  { type: 'video', src: './videos/MINISTER-HOPE-JOSIAH-advert.mp4', title: 'Minister Hope Josiah Advert', category: 'advert', description: '' },
+  { type: 'video', src: './videos/DSA-SECOND-VIDEO-advert.mp4', title: 'DSA Second Video Advert', category: 'advert', description: '' },
+  { type: 'video', src: './videos/DSA-VIDEO-advert.mp4', title: 'DSA Video Advert', category: 'advert', description: '' },
+  { type: 'video', src: './videos/Trendtactics-Digital-Ads.mp4', title: 'Trendtactics Digital Ads', category: 'advert', description: '' },
+  { type: 'video', src: './videos/Pepsi-Lemon-Advert.mp4', title: 'Pepsi Lemon Advert', category: 'advert', description: '' },
+  { type: 'video', src: './videos/T\'s-Kitchen-Ad.mp4', title: "T's Kitchen Ad", category: 'advert', description: '' },
+  { type: 'video', src: './videos/TRENDY\'S-INTRO-advert.mp4', title: "Trendy's Intro Advert", category: 'advert', description: '' },
+  // Spoken Word
+  { type: 'video', src: './videos/GOD-HEARD-YOU-NOW-WALK-IN-PEACE-spoken-word.mp4', title: 'God Heard You Now Walk In Peace', category: 'spoken-word', description: '' },
+  // Music Generation
+  { type: 'video', src: './videos/COLD-COLDER-COLDEST-THIS-IS-WINTER-music.mp4', title: 'Cold Colder Coldest (Music)', category: 'music-generation', description: '' },
+  // Movie/Script
+  { type: 'video', src: './videos/WHEN-THE-LIGHT-GO-BLACK-movie-script.mp4', title: 'When The Light Go Black (Movie Script)', category: 'advert', description: '' },
+  // Image Generation
+  { type: 'image', src: './images/image-generation-4.jpg', title: 'Image Generation 4', category: 'image-generation', description: '' },
+  { type: 'image', src: './images/image generation-3.jpg', title: 'Image Generation 3', category: 'image-generation', description: '' },
+  { type: 'image', src: './images/image-generation-5.png', title: 'Image Generation 5', category: 'image-generation', description: '' },
+  { type: 'image', src: './images/advert-image-generation.jpg', title: 'Advert Image Generation', category: 'image-generation', description: '' },
+  { type: 'image', src: './images/zambian man -Grok.jpg', title: 'Zambian Man (Grok)', category: 'image-generation', description: '' },
+  { type: 'image', src: './images/kano-lady-whisk.jpg', title: 'Kano Lady Whisk', category: 'image-generation', description: '' },
+  { type: 'image', src: './images/kano-lady-grok 2.jpg', title: 'Kano Lady Grok 2', category: 'image-generation', description: '' },
+  // Website Design
+  { type: 'image', src: './images/dsa-parental-website.png', title: 'DSA Parental Website', category: 'website-design', description: '' },
+  { type: 'image', src: './images/Screenshot (14).png', title: 'Screenshot 14', category: 'website-design', description: '' },
+  { type: 'image', src: './images/maingrace247-website.png', title: 'Maingrace247 Website', category: 'website-design', description: '' },
+  { type: 'image', src: './images/akinola-olujobi-website.png', title: 'Akinola Olujobi Website', category: 'website-design', description: '' },
+  { type: 'image', src: './images/blog1.jpg', title: 'Blog 1', category: 'website-design', description: '' },
+  { type: 'image', src: './images/blog2.jpg', title: 'Blog 2', category: 'website-design', description: '' },
+  { type: 'image', src: './images/blog3.jpg', title: 'Blog 3', category: 'website-design', description: '' },
+  // Promo Video
+  { type: 'video', src: './images/Trendtactics-digital-promo.mp4', title: 'Trendtactics Digital Promo', category: 'advert', description: '' },
+  // Logo
+  { type: 'image', src: './images/Trendtactics-logo.jpg', title: 'Trendtactics Logo', category: 'website-design', description: '' },
+];
+
+const categoryLabels = {
+  'advert': 'Advert',
+  'image-generation': 'Image Generation',
+  'website-design': 'Web Design',
+  'music-generation': 'AI Music',
+  'spoken-word': 'Spoken Word',
+  'facebook-ads': 'Social Ads',
+};
+
+function renderPortfolio() {
+  const groupsContainer = document.getElementById('portfolio-groups');
+  const filter = document.querySelector('.filter-btn.active').dataset.filter;
+  groupsContainer.innerHTML = '';
+
+  // Group assets by category
+  const grouped = {};
+  portfolioAssets.forEach(asset => {
+    if (filter !== 'all' && asset.category !== filter) return;
+    if (!grouped[asset.category]) grouped[asset.category] = [];
+    grouped[asset.category].push(asset);
+  });
+
+  // Render each group
+  Object.keys(categoryLabels).forEach(category => {
+    if (!grouped[category]) return;
+    const section = document.createElement('section');
+    section.className = 'portfolio-group';
+    section.innerHTML = `
+      <h2 class="portfolio-group-title">${categoryLabels[category]}</h2>
+      <div class="portfolio-grid">
+        ${grouped[category].map(asset => renderCard(asset)).join('')}
+      </div>
+    `;
+    groupsContainer.appendChild(section);
+  });
+}
+
+function renderCard(asset) {
+  if (asset.type === 'image') {
+    return `
+      <div class="portfolio-card" data-category="${asset.category}">
+        <div class="portfolio-media">
+          <img src="${asset.src}" alt="${asset.title}" loading="lazy" />
+        </div>
+        <div class="portfolio-card-body">
+          <h3>${asset.title}</h3>
+          <span class="portfolio-badge">${categoryLabels[asset.category]}</span>
+          <p>${asset.description || ''}</p>
+        </div>
+      </div>
+    `;
+  } else if (asset.type === 'video') {
+    return `
+      <div class="portfolio-card" data-category="${asset.category}">
+        <div class="portfolio-media">
+          <video src="${asset.src}" controls preload="none" poster="./images/Trendtactics-logo.jpg"></video>
+        </div>
+        <div class="portfolio-card-body">
+          <h3>${asset.title}</h3>
+          <span class="portfolio-badge">${categoryLabels[asset.category]}</span>
+          <p>${asset.description || ''}</p>
+        </div>
+      </div>
+    `;
+  }
+  return '';
+}
+
+// Filter button logic
+const filterBtns = document.querySelectorAll('.filter-btn');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderPortfolio();
+  });
+});
+
+document.addEventListener('DOMContentLoaded', renderPortfolio); 

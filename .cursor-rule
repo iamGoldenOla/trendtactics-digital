@@ -1,0 +1,344 @@
+# Cursor Rules for Trendtactics Digital
+
+## Project Overview
+This is a digital marketing and web development project for TrendtacticsDigital.com — governs all web development practices, layout systems, UX/UI strategy, AI agent interaction, email handling, and deployment standards.
+
+**Auto Attachments**: `/pages/`, `/components/`, `/utils/`, `/styles/`, `/data/`, `/images/`
+
+## Core Project Rules
+
+### 🌐 Project Purpose
+Build a cinematic, intelligent, and scalable digital marketing website for TrendtacticsDigital.com, fully connected to TrendyAI internal agents, including LMS, admin dashboard, pricing, quiz, ebook hub, blog, and smart tools.
+
+### 🎨 Layout & Design
+Use Z-pattern, Split Grid, or Bento layouts based on context. Homepage uses a Split Hero Video layout with Framer Motion. All pages must use layered background gradients and contrast sections for clarity.
+
+### 🎬 Hero Section Standards (Per Page)
+Homepage uses a cinematic split-screen video hero. Other pages use static image-based heroes with headline, subtext, and CTA overlay. All hero sections must be between 65vh–80vh.
+
+### 🧑‍💼 Pages Structure
+Follow this page structure: Homepage, About Us, Services (with subcategories), Pricing, Blog, Ebook, Portfolio, LMS (Academy), Client Quiz, Contact, Admin Dashboard, Smart Tools Hub.
+
+### 📩 Email & ClientFlow Integration
+All forms must do two things: 1) Send email to info@trendtacticsdigital.com using Nodemailer or Formspree, and 2) Trigger ClientFlow agent on TrendyAI.com via POST to /api/agents/clientFlow with validated JSON payloads.
+
+### 📋 Functionality
+Must support mobile-first responsive layout, SEO optimization (meta, OG, sitemap), Google/Meta/LinkedIn analytics, form validation, alt text, lazy loading, dark mode toggle, and quiz/ebook/form integration with ClientFlow.
+
+### 🧑‍💻 Development Stack
+Use HTML5, TailwindCSS, JavaScript ES6+, and React. Optionally use Node.js for backend (API routes). Follow naming conventions: camelCase (functions), PascalCase (components), kebab-case (files/folders).
+
+### 📂 Folder Structure
+Organize code into: `/pages/`, `/components/`, `/utils/`, `/styles/`, `/data/`, `/images/`. Admin routes under `/admin`. LMS content under `/academy`.
+
+### 🧠 Admin & LMS
+Admin dashboard must control blog, pricing, ebooks, and LMS uploads. LMS supports paywall, video lessons, PDF tasks, and student dashboard.
+
+### 📈 Deployment & Source Control
+Integrate with GitHub for version control. Recommend deployment on Cursor, Vercel, Netlify or cPanel after full testing and pixel perfection.
+
+### 🛑 Forbidden Practices
+Avoid lorem ipsum, fake reviews, full-video background, dense overlapping text, poor accessibility, sound autoplay, and visual clutter.
+
+## Code Style & Standards
+
+### General Guidelines
+- Use modern JavaScript/TypeScript practices
+- Follow clean code principles
+- Write meaningful variable and function names
+- Include proper comments for complex logic
+- Use consistent indentation (2 spaces)
+- Prefer const over let, avoid var
+
+### File Organization
+- Organize files in logical directories
+- Use descriptive file names
+- Keep components small and focused
+- Separate concerns (UI, logic, data)
+
+### Naming Conventions
+- Use camelCase for variables and functions
+- Use PascalCase for components and classes
+- Use UPPER_SNAKE_CASE for constants
+- Use kebab-case for file names and CSS classes
+
+## Technology Stack Preferences
+
+### Frontend
+- React/Next.js for web applications
+- TypeScript for type safety
+- Tailwind CSS for styling
+- Modern CSS features (Grid, Flexbox)
+- Responsive design principles
+- Framer Motion for animations
+
+### Backend
+- Node.js with Express or Next.js API routes
+- TypeScript for backend code
+- RESTful API design
+- Proper error handling
+
+### Database
+- MongoDB or PostgreSQL based on requirements
+- Use ORMs like Prisma or Mongoose
+- Implement proper data validation
+
+## Development Practices
+
+### Code Quality
+- Write unit tests for critical functionality
+- Use ESLint and Prettier for code formatting
+- Implement proper error boundaries
+- Handle loading and error states
+
+### Performance
+- Optimize images and assets
+- Implement lazy loading where appropriate
+- Use proper caching strategies
+- Minimize bundle size
+
+### Security
+- Validate all user inputs
+- Implement proper authentication
+- Use environment variables for sensitive data
+- Follow OWASP security guidelines
+
+### Accessibility
+- Use semantic HTML
+- Implement proper ARIA labels
+- Ensure keyboard navigation
+- Maintain color contrast ratios
+
+## Project-Specific Guidelines
+
+### Digital Marketing Focus
+- Create SEO-friendly components
+- Implement analytics tracking
+- Design for conversion optimization
+- Ensure fast loading times
+
+### UI/UX Standards
+- Modern, clean design aesthetic
+- Mobile-first responsive design
+- Consistent color scheme and typography
+- Smooth animations and transitions
+
+## File Structure Preferences
+```
+src/
+├── components/     # Reusable UI components
+├── pages/         # Page components
+├── hooks/         # Custom React hooks
+├── utils/         # Utility functions
+├── types/         # TypeScript type definitions
+├── styles/        # Global styles and CSS modules
+├── assets/        # Images, icons, etc.
+├── api/           # API routes and services
+├── admin/         # Admin dashboard routes
+└── academy/       # LMS content
+```
+
+## Git Workflow
+- Use descriptive commit messages
+- Create feature branches for new development
+- Keep commits atomic and focused
+- Write meaningful PR descriptions
+
+## Documentation
+- Document complex functions and components
+- Maintain README files for major features
+- Include setup instructions
+- Document API endpoints
+
+## Testing Strategy
+- Unit tests for utility functions
+- Component tests for UI elements
+- Integration tests for critical user flows
+- E2E tests for key user journeys
+
+## Performance Monitoring
+- Implement Core Web Vitals tracking
+- Monitor bundle size
+- Track user interactions
+- Monitor API response times
+
+## Deployment
+- Use environment-specific configurations
+- Implement proper CI/CD pipelines
+- Ensure staging environment testing
+- Monitor production performance
+
+## Communication
+- Ask clarifying questions when requirements are unclear
+- Provide explanations for complex solutions
+- Suggest improvements when appropriate
+- Consider user experience in all decisions
+
+---
+
+# 📦 CURSOR SETUP GUIDE: EMAIL + CLIENTFLOW
+
+## 👉 FOLLOW THESE STEPS INSIDE CURSOR TO CONNECT FORMS, EMAILS, AND AI AUTOMATION
+
+### ✅ STEP 1: Create API Handler File
+
+**📁 Path**: `/pages/api/send.js`
+
+```javascript
+import nodemailer from "nodemailer";
+
+export default async function handler(req, res) {
+  if (req.method !== "POST") return res.status(405).send("Only POST allowed");
+
+  const { name, email, message, source } = req.body;
+
+  // 1. Email to Admin
+  const transporter = nodemailer.createTransporter({
+    host: process.env.SMTP_HOST,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
+
+  await transporter.sendMail({
+    from: process.env.SMTP_USER,
+    to: process.env.ADMIN_EMAIL,
+    subject: `[New Lead] ${source}`,
+    html: `<p><b>Name:</b> ${name}</p><p><b>Email:</b> ${email}</p><p>${message}</p>`,
+  });
+
+  // 2. Trigger ClientFlow AI Agent
+  await fetch("https://trendyai.com/api/agents/clientFlow", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      type: "lead",
+      source,
+      name,
+      email,
+      message,
+    }),
+  });
+
+  res.status(200).json({ success: true });
+}
+```
+
+### ✅ STEP 2: Create Your .env File
+
+**📁 Path**: `/yourproject/.env`
+
+```env
+SMTP_USER=your_email@domain.com
+SMTP_PASS=your_app_password
+SMTP_HOST=smtp.zoho.com
+ADMIN_EMAIL=info@trendtacticsdigital.com
+```
+
+### ✅ STEP 3: Connect Your Frontend Forms
+
+Use this format on any page (Contact, Quiz, Ebook, etc.):
+
+```html
+<form method="POST" action="/api/send">    
+  <input type="text" name="name" placeholder="Full name" required />    
+  <input type="email" name="email" placeholder="Email address" required />    
+  <textarea name="message" placeholder="Your message or inquiry"></textarea>    
+  <input type="hidden" name="source" value="contact_form" />    
+  <button type="submit">Send Message</button>    
+</form>
+```
+
+**🧠 NOTE**: Replace `source="contact_form"` with `"quiz_form"`, `"pricing_form"` or `"ebook_form"` depending on page.
+
+### ✅ FINAL CHECKLIST:
+
+- [ ] Add `/pages/api/send.js`
+- [ ] Add `.env` file
+- [ ] Use proper forms on relevant pages
+- [ ] Test email send + ClientFlow trigger
+- [ ] Never expose passwords in frontend
+
+---
+
+## 📦 Done correctly, Cursor will:
+
+- 💬 Send new leads to your email
+- 🤖 Trigger AI follow-up via ClientFlow
+- 📊 Help track form interactions in analytics
+- 🧠 Use this .cursor-rules as its full dev brain
+
+---
+
+## 🔄 NEXT STEP: Upload This File into Cursor
+
+1. Save your full `.cursor-rules` file (including this block at the end)
+2. Upload it directly to your Cursor project root
+
+**That's it. Cursor will now:**
+- Read all build rules
+- Set up your hero layouts
+- Include email + AI logic
+- Provide backend instructions to devs
+
+---
+
+# JSON FORMAT FOR CURSOR AI PARSING
+
+```json
+{
+  "description": "Cursor rule file for TrendtacticsDigital.com — governs all web development practices, layout systems, UX/UI strategy, AI agent interaction, email handling, and deployment standards.",
+  "autoAttachments": ["/pages/", "/components/", "/utils/", "/styles/", "/data/", "/images/"],
+  "rules": [
+    {
+      "title": "🌐 Project Purpose",
+      "rule": "Build a cinematic, intelligent, and scalable digital marketing website for TrendtacticsDigital.com, fully connected to TrendyAI internal agents, including LMS, admin dashboard, pricing, quiz, ebook hub, blog, and smart tools."
+    },
+    {
+      "title": "🎨 Layout & Design",
+      "rule": "Use Z-pattern, Split Grid, or Bento layouts based on context. Homepage uses a Split Hero Video layout with Framer Motion. All pages must use layered background gradients and contrast sections for clarity."
+    },
+    {
+      "title": "🎬 Hero Section Standards (Per Page)",
+      "rule": "Homepage uses a cinematic split-screen video hero. Other pages use static image-based heroes with headline, subtext, and CTA overlay. All hero sections must be between 65vh–80vh."
+    },
+    {
+      "title": "🧑‍💼 Pages Structure",
+      "rule": "Follow this page structure: Homepage, About Us, Services (with subcategories), Pricing, Blog, Ebook, Portfolio, LMS (Academy), Client Quiz, Contact, Admin Dashboard, Smart Tools Hub."
+    },
+    {
+      "title": "📩 Email & ClientFlow Integration",
+      "rule": "All forms must do two things: 1) Send email to info@trendtacticsdigital.com using Nodemailer or Formspree, and 2) Trigger ClientFlow agent on TrendyAI.com via POST to /api/agents/clientFlow with validated JSON payloads."
+    },
+    {
+      "title": "📋 Functionality",
+      "rule": "Must support mobile-first responsive layout, SEO optimization (meta, OG, sitemap), Google/Meta/LinkedIn analytics, form validation, alt text, lazy loading, dark mode toggle, and quiz/ebook/form integration with ClientFlow."
+    },
+    {
+      "title": "🧑‍💻 Development Stack",
+      "rule": "Use HTML5, TailwindCSS, JavaScript ES6+, and React. Optionally use Node.js for backend (API routes). Follow naming conventions: camelCase (functions), PascalCase (components), kebab-case (files/folders)."
+    },
+    {
+      "title": "📂 Folder Structure",
+      "rule": "Organize code into: /pages/, /components/, /utils/, /styles/, /data/, /images/. Admin routes under /admin. LMS content under /academy."
+    },
+    {
+      "title": "🧠 Admin & LMS",
+      "rule": "Admin dashboard must control blog, pricing, ebooks, and LMS uploads. LMS supports paywall, video lessons, PDF tasks, and student dashboard."
+    },
+    {
+      "title": "📈 Deployment & Source Control",
+      "rule": "Integrate with GitHub for version control. Recommend deployment on Cursor, Vercel, Netlify or cPanel after full testing and pixel perfection."
+    },
+    {
+      "title": "🛑 Forbidden Practices",
+      "rule": "Avoid lorem ipsum, fake reviews, full-video background, dense overlapping text, poor accessibility, sound autoplay, and visual clutter."
+    },
+    {
+      "title": "📦 CURSOR SETUP GUIDE: EMAIL + CLIENTFLOW",
+      "rule": "Follow the steps below to enable email notification and AI agent integration for all forms (Contact, Quiz, Pricing, Ebook)."
+    }
+  ]
+}
+``` 

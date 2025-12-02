@@ -1,0 +1,1016 @@
+{
+  "brands": [
+    {
+      "name": "TechCorp",
+      "logo": "./images/brands/techcorp.png"
+    },
+    {
+      "name": "InnovateLabs",
+      "logo": "./images/brands/innovatelabs.png"
+    },
+    {
+      "name": "GlobalSolutions",
+      "logo": "./images/brands/globalsolutions.png"
+    },
+    {
+      "name": "StartupHub",
+      "logo": "./images/brands/startuphub.png"
+    },
+    {
+      "name": "DigitalFlow",
+      "logo": "./images/brands/digitalflow.png"
+    },
+    {
+      "name": "FutureTech",
+      "logo": "./images/brands/futuretech.png"
+    }
+  ],
+  "services": [
+    {
+      "id": "web-design",
+      "title": "Web Design & Development",
+      "description": "Custom websites that convert visitors into customers.",
+      "icon": "fas fa-code",
+      "features": [
+        "Responsive Design",
+        "SEO Optimization",
+        "Fast Loading",
+        "Custom CMS",
+        "E-commerce Integration",
+        "Performance Analytics",
+        "Accessibility Compliance",
+        "Ongoing Support"
+      ],
+      "price": "From $2,500"
+    },
+    {
+      "id": "digital-marketing",
+      "title": "Digital Marketing",
+      "description": "Strategic marketing campaigns that drive real results.",
+      "icon": "fas fa-chart-line",
+      "features": [
+        "SEO & PPC",
+        "Social Media",
+        "Content Marketing",
+        "Analytics",
+        "Email Campaigns",
+        "Conversion Optimization",
+        "Brand Awareness",
+        "Influencer Partnerships"
+      ],
+      "price": "From $1,500"
+    },
+    {
+      "id": "ai-solutions",
+      "title": "AI Solutions",
+      "description": "Cutting-edge AI tools to automate and optimize your business.",
+      "icon": "fas fa-robot",
+      "features": [
+        "Chatbots",
+        "Data Analysis",
+        "Process Automation",
+        "Predictive Analytics",
+        "Natural Language Processing",
+        "Customer Segmentation",
+        "Workflow Automation",
+        "24/7 Support Bots"
+      ],
+      "price": "From $3,000"
+    },
+    {
+      "id": "brand-strategy",
+      "title": "Brand Strategy",
+      "description": "Comprehensive branding that builds connections and drives loyalty.",
+      "icon": "fas fa-palette",
+      "features": [
+        "Brand Identity Design",
+        "Market Positioning",
+        "Visual Guidelines",
+        "Messaging Framework",
+        "Rebranding"
+      ],
+      "price": "From $2,000"
+    },
+    {
+      "id": "ecommerce",
+      "title": "E-commerce Solutions",
+      "description": "Complete e-commerce platforms that drive sales and provide exceptional user experience.",
+      "icon": "fas fa-shopping-cart",
+      "features": [
+        "Custom Store Design",
+        "Payment Integration",
+        "Product Management",
+        "Analytics & Reporting",
+        "Mobile Optimization"
+      ],
+      "price": "From $5,000"
+    },
+    {
+      "id": "consulting",
+      "title": "Consulting & Strategy",
+      "description": "Expert guidance for informed decisions and digital transformation.",
+      "icon": "fas fa-lightbulb",
+      "features": [
+        "Digital Audits",
+        "Growth Strategy",
+        "Team Training",
+        "Performance Reviews",
+        "Ongoing Support"
+      ],
+      "price": "From $500/hour"
+    }
+  ],
+  "testimonials": [
+    {
+      "content": "Trendtactics transformed our online presence completely. Our website now converts 3x better and our digital marketing campaigns are delivering incredible ROI. The team is professional, creative, and truly understands our business needs.",
+      "author": {
+        "name": "Sarah Johnson",
+        "position": "CEO",
+        "company": "TechStart Inc.",
+        "avatar": "./images/testimonials/sarah.jpg"
+      },
+      "rating": 5
+    },
+    {
+      "content": "The AI solutions they implemented saved us 40 hours per week and improved our customer satisfaction by 60%. The chatbot they built handles 80% of our customer inquiries automatically. Incredible ROI!",
+      "author": {
+        "name": "Michael Chen",
+        "position": "Operations Director",
+        "company": "Global Solutions",
+        "avatar": "./images/testimonials/michael.jpg"
+      },
+      "rating": 5
+    },
+    {
+      "content": "Professional, creative, and results-driven. Exactly what we needed for our growth phase. Their strategic approach to digital marketing helped us scale from startup to market leader in just 18 months.",
+      "author": {
+        "name": "Emily Rodriguez",
+        "position": "Marketing Manager",
+        "company": "Innovate Labs",
+        "avatar": "./images/testimonials/emily.jpg"
+      },
+      "rating": 5
+    },
+    {
+      "content": "The e-commerce platform they built for us increased our online sales by 200% in the first quarter. The user experience is seamless and the backend is incredibly efficient. Highly recommended!",
+      "author": {
+        "name": "David Thompson",
+        "position": "Founder",
+        "company": "EcoProducts",
+        "avatar": "./images/testimonials/david.jpg"
+      },
+      "rating": 5
+    },
+    {
+      "content": "Their brand strategy work helped us reposition our company and attract the right customers. The visual identity they created perfectly represents our values and has been incredibly well-received by our audience.",
+      "author": {
+        "name": "Lisa Wang",
+        "position": "Creative Director",
+        "company": "Design Studio",
+        "avatar": "./images/testimonials/lisa.jpg"
+      },
+      "rating": 5
+    },
+    {
+      "content": "The consulting services provided by Trendtactics were invaluable during our digital transformation. Their expertise helped us make the right technology decisions and avoid costly mistakes.",
+      "author": {
+        "name": "Robert Kim",
+        "position": "CTO",
+        "company": "FinTech Solutions",
+        "avatar": "./images/testimonials/robert.jpg"
+      },
+      "rating": 5
+    }
+  ],
+  "values": [
+    {
+      "title": "Innovation",
+      "description": "We constantly push boundaries and embrace new technologies to deliver cutting-edge solutions.",
+      "icon": "fas fa-lightbulb"
+    },
+    {
+      "title": "Excellence",
+      "description": "We strive for excellence in everything we do, from design to execution and results.",
+      "icon": "fas fa-star"
+    },
+    {
+      "title": "Integrity",
+      "description": "We build trust through honest communication, transparency, and ethical business practices.",
+      "icon": "fas fa-shield-alt"
+    },
+    {
+      "title": "Collaboration",
+      "description": "We believe in the power of teamwork and close collaboration with our clients.",
+      "icon": "fas fa-users"
+    },
+    {
+      "title": "Results",
+      "description": "We focus on delivering measurable, impactful results that drive real business growth.",
+      "icon": "fas fa-chart-line"
+    },
+    {
+      "title": "Growth",
+      "description": "We're committed to continuous learning and helping our clients achieve sustainable growth.",
+      "icon": "fas fa-seedling"
+    }
+  ],
+  "team": [
+    {
+      "name": "Akinola Olujobi",
+      "position": "Founder & CEO",
+      "bio": "Digital marketing expert with 10+ years of experience helping brands grow online.",
+      "avatar": "./images/team/akinola.jpg",
+      "social": {
+        "linkedin": "https://linkedin.com/in/akinola-olujobi",
+        "twitter": "https://twitter.com/akinola_olujobi"
+      }
+    },
+    {
+      "name": "Sarah Johnson",
+      "position": "Creative Director",
+      "bio": "Award-winning designer passionate about creating beautiful, functional digital experiences.",
+      "avatar": "./images/team/sarah.jpg",
+      "social": {
+        "linkedin": "https://linkedin.com/in/sarah-johnson",
+        "twitter": "https://twitter.com/sarah_johnson"
+      }
+    },
+    {
+      "name": "Michael Chen",
+      "position": "Technical Lead",
+      "bio": "Full-stack developer specializing in modern web technologies and AI integration.",
+      "avatar": "./images/team/michael.jpg",
+      "social": {
+        "linkedin": "https://linkedin.com/in/michael-chen",
+        "github": "https://github.com/michaelchen"
+      }
+    }
+  ],
+  "stats": [
+    {
+      "number": "500+",
+      "label": "Projects Completed"
+    },
+    {
+      "number": "98%",
+      "label": "Client Satisfaction"
+    },
+    {
+      "number": "3x",
+      "label": "Average ROI Increase"
+    },
+    {
+      "number": "24/7",
+      "label": "Support Available"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2020",
+      "title": "Company Founded",
+      "description": "Trendtactics Digital was founded in Lagos, Nigeria with a vision to democratize digital marketing."
+    },
+    {
+      "date": "2021",
+      "title": "First 100 Clients",
+      "description": "Reached our first 100 successful client projects and expanded to London office."
+    },
+    {
+      "date": "2022",
+      "title": "AI Integration",
+      "description": "Launched our AI-powered solutions division and opened Toronto office."
+    },
+    {
+      "date": "2023",
+      "title": "Global Expansion",
+      "description": "Expanded to NYC and reached 500+ successful projects across 4 continents."
+    },
+    {
+      "date": "2024",
+      "title": "Academy Launch",
+      "description": "Launched our digital marketing academy to educate and empower businesses worldwide."
+    }
+  ],
+  "portfolio": {
+    "projects": [
+      {
+        "id": 1,
+        "title": "EcoProducts E-commerce Platform",
+        "category": "ecommerce",
+        "client": "EcoProducts",
+        "description": "Complete e-commerce solution with custom payment integration and inventory management.",
+        "image": "./images/portfolio/ecoproducts.jpg",
+        "results": {
+          "sales_increase": "200%",
+          "conversion_rate": "15%",
+          "customer_satisfaction": "95%"
+        },
+        "services": [
+          "Web Development",
+          "E-commerce",
+          "Payment Integration"
+        ],
+        "technologies": [
+          "React",
+          "Node.js",
+          "Stripe",
+          "MongoDB"
+        ],
+        "duration": "3 months",
+        "budget": "$25,000"
+      },
+      {
+        "id": 2,
+        "title": "TechStart Digital Marketing Campaign",
+        "category": "digital-marketing",
+        "client": "TechStart Inc.",
+        "description": "Comprehensive digital marketing campaign including SEO, PPC, and social media.",
+        "image": "./images/portfolio/techstart.jpg",
+        "results": {
+          "traffic_increase": "300%",
+          "lead_generation": "150%",
+          "roi": "450%"
+        },
+        "services": [
+          "SEO",
+          "PPC",
+          "Social Media Marketing"
+        ],
+        "technologies": [
+          "Google Ads",
+          "Facebook Ads",
+          "Analytics"
+        ],
+        "duration": "6 months",
+        "budget": "$15,000"
+      },
+      {
+        "id": 3,
+        "title": "AI-Powered Customer Support",
+        "category": "ai-solutions",
+        "client": "Global Solutions",
+        "description": "Custom AI chatbot that handles customer inquiries and improves response time.",
+        "image": "./images/portfolio/ai-chatbot.jpg",
+        "results": {
+          "response_time": "80% faster",
+          "customer_satisfaction": "92%",
+          "cost_savings": "40 hours/week"
+        },
+        "services": [
+          "AI Development",
+          "Chatbot",
+          "Integration"
+        ],
+        "technologies": [
+          "Python",
+          "TensorFlow",
+          "NLP",
+          "API"
+        ],
+        "duration": "2 months",
+        "budget": "$18,000"
+      }
+    ],
+    "featured_case_study": {
+      "title": "How We Helped TechStart Increase Revenue by 300%",
+      "client": "TechStart Inc.",
+      "industry": "SaaS",
+      "challenge": "TechStart was struggling with low website traffic and poor lead generation despite having a great product.",
+      "solution": "We implemented a comprehensive digital marketing strategy including SEO optimization, targeted PPC campaigns, and content marketing.",
+      "results": [
+        "300% increase in website traffic",
+        "150% increase in lead generation",
+        "450% ROI on marketing spend",
+        "25% improvement in conversion rate"
+      ],
+      "image": "./images/case-studies/techstart-case-study.jpg"
+    }
+  },
+  "blog": {
+    "featured_article": {
+      "title": "The Future of Digital Marketing: AI-Powered Strategies",
+      "excerpt": "Discover how artificial intelligence is revolutionizing digital marketing and what it means for your business.",
+      "author": "Akinola Olujobi",
+      "date": "2024-01-15",
+      "category": "AI & Technology",
+      "read_time": "8 min read",
+      "image": "./images/blog/ai-marketing-future.jpg",
+      "tags": [
+        "AI",
+        "Digital Marketing",
+        "Technology",
+        "Strategy"
+      ]
+    },
+    "articles": [
+      {
+        "title": "10 SEO Strategies That Actually Work in 2024",
+        "excerpt": "Learn the most effective SEO techniques that will help your website rank higher in search results.",
+        "author": "Sarah Johnson",
+        "date": "2024-01-10",
+        "category": "SEO",
+        "read_time": "6 min read",
+        "image": "./images/blog/seo-strategies.jpg",
+        "tags": [
+          "SEO",
+          "Search Engine",
+          "Marketing"
+        ]
+      },
+      {
+        "title": "Building a Successful Social Media Strategy",
+        "excerpt": "Step-by-step guide to creating a social media strategy that drives engagement and conversions.",
+        "author": "Michael Chen",
+        "date": "2024-01-08",
+        "category": "Social Media",
+        "read_time": "7 min read",
+        "image": "./images/blog/social-media-strategy.jpg",
+        "tags": [
+          "Social Media",
+          "Strategy",
+          "Engagement"
+        ]
+      }
+    ],
+    "categories": [
+      {
+        "name": "SEO",
+        "count": 15,
+        "icon": "fas fa-search"
+      },
+      {
+        "name": "Social Media",
+        "count": 12,
+        "icon": "fas fa-share-alt"
+      },
+      {
+        "name": "AI & Technology",
+        "count": 8,
+        "icon": "fas fa-robot"
+      },
+      {
+        "name": "Web Design",
+        "count": 10,
+        "icon": "fas fa-palette"
+      },
+      {
+        "name": "Digital Marketing",
+        "count": 20,
+        "icon": "fas fa-chart-line"
+      }
+    ],
+    "tags": [
+      "SEO",
+      "Social Media",
+      "AI",
+      "Digital Marketing",
+      "Web Design",
+      "Strategy",
+      "Analytics",
+      "Content Marketing",
+      "PPC",
+      "E-commerce"
+    ]
+  },
+  "quiz": {
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is your primary business goal?",
+        "type": "single",
+        "options": [
+          "Increase website traffic",
+          "Generate more leads",
+          "Improve brand awareness",
+          "Boost online sales",
+          "Automate business processes"
+        ]
+      },
+      {
+        "id": 2,
+        "question": "What is your current monthly marketing budget?",
+        "type": "single",
+        "options": [
+          "Under $1,000",
+          "$1,000 - $5,000",
+          "$5,000 - $10,000",
+          "$10,000 - $25,000",
+          "Over $25,000"
+        ]
+      },
+      {
+        "id": 3,
+        "question": "Which digital marketing areas do you need help with?",
+        "type": "multiple",
+        "options": [
+          "Website design and development",
+          "Search engine optimization (SEO)",
+          "Social media marketing",
+          "Pay-per-click advertising",
+          "Content marketing",
+          "Email marketing",
+          "AI and automation"
+        ]
+      },
+      {
+        "id": 4,
+        "question": "What is your industry?",
+        "type": "single",
+        "options": [
+          "E-commerce",
+          "SaaS/Technology",
+          "Healthcare",
+          "Education",
+          "Real Estate",
+          "Professional Services",
+          "Manufacturing",
+          "Other"
+        ]
+      },
+      {
+        "id": 5,
+        "question": "How soon do you want to see results?",
+        "type": "single",
+        "options": [
+          "Immediately (1-2 weeks)",
+          "Short-term (1-3 months)",
+          "Medium-term (3-6 months)",
+          "Long-term (6+ months)"
+        ]
+      }
+    ],
+    "results": {
+      "web_design": {
+        "title": "Web Design & Development Package",
+        "description": "Perfect for businesses needing a professional online presence.",
+        "recommended_services": [
+          "Custom Website Design",
+          "SEO Optimization",
+          "Mobile Responsiveness"
+        ],
+        "estimated_budget": "$2,500 - $5,000",
+        "timeline": "4-6 weeks"
+      },
+      "digital_marketing": {
+        "title": "Digital Marketing Strategy",
+        "description": "Ideal for businesses looking to increase online visibility and generate leads.",
+        "recommended_services": [
+          "SEO",
+          "Social Media Marketing",
+          "Content Marketing"
+        ],
+        "estimated_budget": "$1,500 - $3,000/month",
+        "timeline": "3-6 months"
+      },
+      "ai_solutions": {
+        "title": "AI-Powered Solutions",
+        "description": "Best for businesses wanting to automate processes and improve efficiency.",
+        "recommended_services": [
+          "Custom Chatbots",
+          "Process Automation",
+          "Data Analysis"
+        ],
+        "estimated_budget": "$3,000 - $8,000",
+        "timeline": "2-4 months"
+      }
+    }
+  },
+  "pricing": {
+    "service_packages": [
+      {
+        "name": "Starter",
+        "price": {
+          "monthly": 2500,
+          "annual": 2000
+        },
+        "description": "Perfect for small businesses getting started online",
+        "features": [
+          "Custom Website Design",
+          "Mobile Responsive",
+          "SEO Optimization",
+          "Contact Forms",
+          "Google Analytics",
+          "1 Month Support"
+        ],
+        "cta": "Get Started",
+        "popular": false
+      },
+      {
+        "name": "Growth",
+        "price": {
+          "monthly": 5000,
+          "annual": 4000
+        },
+        "description": "Ideal for growing businesses needing more features",
+        "features": [
+          "Everything in Starter",
+          "E-commerce Integration",
+          "Custom CMS",
+          "Email Marketing Setup",
+          "Social Media Integration",
+          "3 Months Support"
+        ],
+        "cta": "Get Started",
+        "popular": true
+      },
+      {
+        "name": "Enterprise",
+        "price": {
+          "monthly": "Custom",
+          "annual": "Custom"
+        },
+        "description": "For large organizations with complex requirements",
+        "features": [
+          "Everything in Growth",
+          "AI Integration",
+          "Custom Development",
+          "Advanced Analytics",
+          "Priority Support",
+          "Ongoing Maintenance"
+        ],
+        "cta": "Contact Us",
+        "popular": false
+      }
+    ],
+    "add_ons": [
+      {
+        "name": "SEO Package",
+        "price": "$500/month",
+        "description": "Ongoing SEO optimization and monitoring",
+        "features": [
+          "Keyword Research",
+          "Content Optimization",
+          "Link Building",
+          "Monthly Reports"
+        ]
+      },
+      {
+        "name": "Social Media Management",
+        "price": "$800/month",
+        "description": "Complete social media management and content creation",
+        "features": [
+          "Content Creation",
+          "Community Management",
+          "Paid Advertising",
+          "Analytics"
+        ]
+      },
+      {
+        "name": "AI Chatbot",
+        "price": "$1,200",
+        "description": "Custom AI chatbot for customer support",
+        "features": [
+          "24/7 Support",
+          "Custom Responses",
+          "Integration",
+          "Analytics"
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "What's included in the pricing?",
+        "answer": "All our packages include design, development, testing, and initial support. Additional services like SEO and maintenance are available as add-ons."
+      },
+      {
+        "question": "Do you offer payment plans?",
+        "answer": "Yes, we offer flexible payment plans. You can pay 50% upfront and 50% upon completion, or we can arrange monthly payments for ongoing services."
+      },
+      {
+        "question": "How long does it take to complete a project?",
+        "answer": "Project timelines vary based on complexity. Simple websites take 2-4 weeks, while complex e-commerce sites can take 6-8 weeks."
+      },
+      {
+        "question": "Do you provide ongoing support?",
+        "answer": "Yes, we offer various support packages including monthly maintenance, updates, and 24/7 emergency support for enterprise clients."
+      }
+    ]
+  },
+  "contact": {
+    "office_locations": [
+      {
+        "city": "Lagos",
+        "country": "Nigeria",
+        "address": "123 Digital Avenue, Victoria Island",
+        "phone": "+234 1 234 5678",
+        "email": "lagos@trendtacticsdigital.com",
+        "hours": "Mon-Fri: 9AM-6PM WAT"
+      },
+      {
+        "city": "London",
+        "country": "UK",
+        "address": "456 Tech Street, Shoreditch",
+        "phone": "+44 20 1234 5678",
+        "email": "london@trendtacticsdigital.com",
+        "hours": "Mon-Fri: 9AM-6PM GMT"
+      },
+      {
+        "city": "Toronto",
+        "country": "Canada",
+        "address": "789 Innovation Drive, Downtown",
+        "phone": "+1 416 123 4567",
+        "email": "toronto@trendtacticsdigital.com",
+        "hours": "Mon-Fri: 9AM-6PM EST"
+      },
+      {
+        "city": "New York",
+        "country": "USA",
+        "address": "321 Digital Boulevard, Manhattan",
+        "phone": "+1 212 123 4567",
+        "email": "nyc@trendtacticsdigital.com",
+        "hours": "Mon-Fri: 9AM-6PM EST"
+      }
+    ],
+    "faq": [
+      {
+        "question": "How quickly can you start my project?",
+        "answer": "We can typically start within 1-2 weeks of project approval. For urgent projects, we offer expedited timelines."
+      },
+      {
+        "question": "Do you work with international clients?",
+        "answer": "Yes, we work with clients worldwide. We have offices in Lagos, London, Toronto, and NYC to serve different time zones."
+      },
+      {
+        "question": "What information do you need to get started?",
+        "answer": "We'll need details about your business, goals, target audience, and any existing branding or website information."
+      },
+      {
+        "question": "Do you provide project updates?",
+        "answer": "Yes, we provide regular updates throughout the project, including weekly progress reports and milestone reviews."
+      }
+    ]
+  },
+  "footer": {
+    "services": [
+      "Web Design",
+      "Digital Marketing",
+      "AI Solutions",
+      "Brand Strategy",
+      "E-commerce",
+      "Consulting"
+    ],
+    "company": [
+      "About Us",
+      "Our Team",
+      "Careers",
+      "Press",
+      "Partners",
+      "Contact"
+    ],
+    "resources": [
+      "Blog",
+      "Case Studies",
+      "Academy",
+      "Free Tools",
+      "Webinars",
+      "Support"
+    ]
+  },
+  "social": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/company/trendtactics-digital",
+      "icon": "fab fa-linkedin"
+    },
+    {
+      "platform": "Twitter",
+      "url": "https://twitter.com/trendtactics",
+      "icon": "fab fa-twitter"
+    },
+    {
+      "platform": "Facebook",
+      "url": "https://facebook.com/trendtacticsdigital",
+      "icon": "fab fa-facebook"
+    },
+    {
+      "platform": "Instagram",
+      "url": "https://instagram.com/trendtactics",
+      "icon": "fab fa-instagram"
+    },
+    {
+      "platform": "YouTube",
+      "url": "https://youtube.com/@trendtactics",
+      "icon": "fab fa-youtube"
+    }
+  ],
+  "ebooks": [
+    {
+      "id": "how-to-persuade-and-get-paid",
+      "title": "How to Persuade and Get Paid",
+      "file": "ebooks/[PDF Download] How to Persuade and Get Paid_ The Sales Workshop for Everyone - Phil M. Jones.pdf"
+    },
+    {
+      "id": "85-inspiring-ways-to-market-your-small-business",
+      "title": "85 Inspiring Ways to Market Your Small Business",
+      "file": "ebooks/85 Inspiring Ways to Market Your Small Business_ Inspiring, Self-help, Sales and Marketing Strategies That You Can Apply to Your Own Business Immediately ( PDFDrive ).pdf"
+    },
+    {
+      "id": "16-limiting-beliefs-tony-robbins",
+      "title": "16 Limiting Beliefs That Are Preventing You From Thriving",
+      "file": "ebooks/23. 16 limiting beliefs that are preventing you from thriving author Tony Robbins.pdf"
+    },
+    {
+      "id": "psychology-of-salesmanship-atkinson",
+      "title": "The Psychology of Salesmanship",
+      "file": "ebooks/31. The Psychology of Salesmanship author William W. Atkinson.pdf"
+    },
+    {
+      "id": "self-made-woman-billionaires",
+      "title": "36 Self-made Woman Billionaires",
+      "file": "ebooks/36 Self-made Woman Billionaires_ How They Made Their Billions ( PDFDrive ).pdf"
+    },
+    {
+      "id": "13-things-mentally-strong-people-dont-do",
+      "title": "13 Things Mentally Strong People Don't Do",
+      "file": "ebooks/13 Things Mentally Strong People Don_t Do.pdf"
+    },
+    {
+      "id": "14-real-side-hustle-ideas",
+      "title": "14 Real Side Hustle and Small Business Ideas",
+      "file": "ebooks/14-Real-Side-Hustle-and-Small-Business-Ideas-Justin-Gesso-full.pdf"
+    },
+    {
+      "id": "21-days-effective-communication",
+      "title": "21 Days of Effective Communication",
+      "file": "ebooks/21 days of effective communication_ everyday habits and exercises to improve your communication skills and social intelligence ( PDFDrive ).pdf"
+    },
+    {
+      "id": "21-irrefutable-laws-of-leadership",
+      "title": "21 Irrefutable Laws of Leadership",
+      "file": "ebooks/21 Irrefutable Laws of LEADERSHIP 21 Irrefutable Laws of  ( PDFDrive ).pdf"
+    },
+    {
+      "id": "the-one-skill-leo-babauta",
+      "title": "The One Skill",
+      "file": "ebooks/06. The One Skill author Leo Babauta .pdf"
+    },
+    {
+      "id": "little-black-book-for-stunning-success",
+      "title": "Little Black Book For Stunning Success",
+      "file": "ebooks/01. Little Black Book For Stunning Success author Robin Sharma.pdf"
+    }
+  ],
+  "tools": [
+    {
+      "id": "headline-grader",
+      "title": "Headline Grader",
+      "description": "Analyze and improve your headlines for better click-through rates and engagement.",
+      "icon": "fas fa-heading",
+      "category": "content",
+      "features": [
+        "Emotional impact analysis",
+        "Length optimization",
+        "Power word suggestions",
+        "Click-through rate prediction"
+      ],
+      "url": "#headline-grader"
+    },
+    {
+      "id": "roi-calculator",
+      "title": "ROI Calculator",
+      "description": "Calculate the return on investment for your marketing campaigns and make data-driven decisions.",
+      "icon": "fas fa-calculator",
+      "category": "analytics",
+      "features": [
+        "Campaign ROI calculation",
+        "Customer lifetime value",
+        "Conversion rate analysis",
+        "Cost per acquisition"
+      ],
+      "url": "#roi-calculator"
+    },
+    {
+      "id": "content-calendar",
+      "title": "Content Calendar",
+      "description": "Plan and organize your content strategy with our interactive calendar tool.",
+      "icon": "fas fa-calendar-alt",
+      "category": "planning",
+      "features": [
+        "Visual content planning",
+        "Team collaboration",
+        "Publishing schedule",
+        "Content performance tracking"
+      ],
+      "url": "#content-calendar"
+    },
+    {
+      "id": "ai-assistant",
+      "title": "AI Marketing Assistant",
+      "description": "Get instant answers to your marketing questions and campaign ideas powered by AI.",
+      "icon": "fas fa-robot",
+      "category": "ai",
+      "features": [
+        "Campaign ideas generation",
+        "Content suggestions",
+        "Performance analysis",
+        "Strategy recommendations"
+      ],
+      "url": "#ai-assistant"
+    },
+    {
+      "id": "keyword-research",
+      "title": "Keyword Research Tool",
+      "description": "Discover high-value keywords for your SEO and content marketing strategies.",
+      "icon": "fas fa-search",
+      "category": "seo",
+      "features": [
+        "Keyword difficulty analysis",
+        "Search volume data",
+        "Related keywords",
+        "Competition analysis"
+      ],
+      "url": "#keyword-research"
+    },
+    {
+      "id": "social-scheduler",
+      "title": "Social Media Scheduler",
+      "description": "Schedule and manage your social media posts across multiple platforms.",
+      "icon": "fas fa-share-alt",
+      "category": "social",
+      "features": [
+        "Multi-platform scheduling",
+        "Optimal posting times",
+        "Content recycling",
+        "Performance analytics"
+      ],
+      "url": "#social-scheduler"
+    }
+  ],
+  "admin": {
+    "credentials": {
+      "username": "admin",
+      "password": "trendtactics2024"
+    },
+    "stats": {
+      "total-views": 15420,
+      "total-leads": 342,
+      "total-downloads": 1250,
+      "total-students": 89
+    },
+    "recent-leads": [
+      {
+        "name": "John Smith",
+        "email": "john@example.com",
+        "source": "contact_form",
+        "date": "2024-06-25",
+        "status": "new"
+      },
+      {
+        "name": "Sarah Wilson",
+        "email": "sarah@startup.com",
+        "source": "quiz",
+        "date": "2024-06-24",
+        "status": "contacted"
+      },
+      {
+        "name": "Mike Johnson",
+        "email": "mike@techcorp.com",
+        "source": "ebook_download",
+        "date": "2024-06-23",
+        "status": "qualified"
+      }
+    ]
+  },
+  "clientflow": {
+    "api_url": "https://trendyai.com/api/agents/clientFlow",
+    "webhook_url": "https://trendtacticsdigital.com/api/webhooks/clientflow",
+    "lead_types": [
+      "contact_form",
+      "quiz_submission",
+      "ebook_download",
+      "pricing_inquiry",
+      "newsletter_signup"
+    ],
+    "automation_rules": [
+      {
+        "trigger": "new_lead",
+        "action": "send_welcome_email",
+        "delay": "immediate"
+      },
+      {
+        "trigger": "quiz_completion",
+        "action": "send_personalized_recommendations",
+        "delay": "1_hour"
+      },
+      {
+        "trigger": "ebook_download",
+        "action": "send_related_content",
+        "delay": "2_hours"
+      }
+    ]
+  },
+  "email_templates": {
+    "welcome": {
+      "subject": "Welcome to Trendtactics Digital!",
+      "body": "Thank you for reaching out to us. We're excited to help you engineer your digital growth!"
+    },
+    "quiz_results": {
+      "subject": "Your Personalized Marketing Strategy",
+      "body": "Based on your quiz responses, here's your customized marketing strategy..."
+    },
+    "ebook_download": {
+      "subject": "Your Ebook is Ready!",
+      "body": "Thank you for downloading our ebook. Here's your download link..."
+    }
+  }
+}

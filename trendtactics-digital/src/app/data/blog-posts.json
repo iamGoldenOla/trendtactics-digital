@@ -1,0 +1,332 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "How AI-Driven SEO Increased Traffic by 300% in 6 Months",
+      "slug": "ai-driven-seo-traffic-increase-case-study",
+      "excerpt": "Discover how Trendtactics Digital used AI-powered strategies to triple organic traffic for a leading e-commerce brand in just 6 months.",
+      "content": "<p>In today's competitive digital landscape, traditional SEO strategies are no longer enough to achieve significant growth. This case study explores how we leveraged artificial intelligence to revolutionize our client's search engine optimization approach.</p><h2>The Challenge</h2><p>Our client, a mid-sized e-commerce retailer, was struggling with stagnant organic traffic despite implementing standard SEO practices. They needed a breakthrough solution to compete with larger competitors.</p><h2>The AI Solution</h2><p>We implemented a comprehensive AI-driven SEO strategy that included machine learning-powered keyword research, automated content optimization, predictive analytics for search trends, and dynamic meta tag generation.</p><h2>The Results</h2><p>Within 6 months, our AI-powered approach delivered a 300% increase in organic traffic, 150% improvement in conversion rates, 40% reduction in bounce rate, and top 3 rankings for 15 target keywords.</p>",
+      "category": "Case Study",
+      "funnel_stage": "BOFU",
+      "author": "Akinola Olujobi",
+      "authorBio": "Founder and CEO of Trendtactics Digital, with over 10 years of experience in digital marketing and AI solutions.",
+      "date": "2025-06-15",
+      "image": "images/blog-featured.jpg",
+      "featured": true,
+      "tags": ["AI", "SEO", "E-commerce", "Traffic", "Case Study", "ROI"],
+      "readTime": "8 min read",
+      "views": 1247,
+      "comments": 23,
+      "cta": "Get Your Free SEO Audit"
+    },
+    {
+      "id": 2,
+      "title": "5 Proven Ways to Boost Your Social Media Engagement in 2025",
+      "slug": "boost-social-media-engagement-2025",
+      "excerpt": "Learn actionable strategies to increase your brand's engagement and reach on social platforms in 2025.",
+      "content": "<p>Social media engagement is the lifeblood of any successful digital marketing strategy. In 2025, the landscape has evolved significantly, requiring new approaches to capture and maintain audience attention.</p><h2>1. Leverage AI-Powered Content Creation</h2><p>Artificial intelligence tools can help you create more engaging content by analyzing trending topics, optimal posting times, and audience preferences.</p><h2>2. Embrace Short-Form Video Content</h2><p>Platforms like TikTok, Instagram Reels, and YouTube Shorts dominate user attention. Focus on creating compelling short-form videos that tell your brand story.</p><h2>3. Implement Interactive Polls and Stories</h2><p>Engage your audience directly by using interactive features like polls, Q&A sessions, and behind-the-scenes content.</p><h2>4. Optimize for Each Platform's Algorithm</h2><p>Each social media platform has unique algorithms. Tailor your content strategy to maximize visibility on each platform.</p><h2>5. Build Authentic Community Connections</h2><p>Focus on building genuine relationships with your audience through consistent, valuable content and active community management.</p>",
+      "category": "Tips",
+      "funnel_stage": "MOFU",
+      "author": "Sarah Johnson",
+      "authorBio": "Social Media Strategist at Trendtactics Digital, specializing in community building and engagement optimization.",
+      "date": "2025-05-20",
+      "image": "images/blog1.jpg",
+      "featured": false,
+      "tags": ["Social Media", "Engagement", "Strategy", "2025", "Content"],
+      "readTime": "6 min read",
+      "views": 892,
+      "comments": 15,
+      "cta": "Download Social Media Strategy Template"
+    },
+    {
+      "id": 3,
+      "title": "Google's Latest Algorithm Update: What You Need to Know",
+      "slug": "google-algorithm-update-2025",
+      "excerpt": "Stay ahead of the curve with our breakdown of the latest Google update and how it impacts your SEO strategy.",
+      "content": "<p>Google's latest algorithm update, rolled out in April 2025, represents one of the most significant changes to search ranking factors in recent years. Understanding these changes is crucial for maintaining and improving your search visibility.</p><h2>Key Changes in the Update</h2><p>The update focuses on three main areas:</p><h3>1. User Experience Signals</h3><p>Google now places greater emphasis on Core Web Vitals, page load speed, and mobile usability. Sites that provide excellent user experiences will see improved rankings.</p><h3>2. Content Quality Assessment</h3><p>The algorithm has become more sophisticated in evaluating content quality, including factors like expertise, authoritativeness, and trustworthiness (E-A-T).</p><h3>3. AI-Generated Content Detection</h3><p>Google has improved its ability to identify and appropriately rank AI-generated content, favoring human-created, valuable content.</p><h2>Action Items for SEOs</h2><ul><li>Audit your Core Web Vitals scores</li><li>Review and improve content quality</li><li>Ensure mobile optimization</li><li>Focus on user engagement metrics</li></ul>",
+      "category": "News",
+      "funnel_stage": "TOFU",
+      "author": "Michael Chen",
+      "authorBio": "SEO Specialist with expertise in technical SEO and algorithm analysis.",
+      "date": "2025-04-10",
+      "image": "images/blog2.jpg",
+      "featured": false,
+      "tags": ["Google", "Algorithm", "SEO", "Update", "Technical SEO"],
+      "readTime": "7 min read",
+      "views": 1567,
+      "comments": 31,
+      "cta": "Subscribe to SEO Updates"
+    },
+    {
+      "id": 4,
+      "title": "A Beginner's Guide to Content Marketing in 2025",
+      "slug": "content-marketing-guide-2025",
+      "excerpt": "Everything you need to know to launch a successful content marketing campaign this year.",
+      "content": "<p>Content marketing continues to be one of the most effective strategies for building brand awareness, generating leads, and driving conversions. This comprehensive guide will help you get started with content marketing in 2025.</p><h2>What is Content Marketing?</h2><p>Content marketing is a strategic marketing approach focused on creating and distributing valuable, relevant, and consistent content to attract and retain a clearly defined audience.</p><h2>Types of Content to Create</h2><ul><li><strong>Blog Posts:</strong> Educational articles that address your audience's pain points</li><li><strong>Videos:</strong> Engaging visual content for platforms like YouTube and social media</li><li><strong>Infographics:</strong> Visual representations of complex data or concepts</li><li><strong>Ebooks:</strong> In-depth resources that provide comprehensive value</li><li><strong>Podcasts:</strong> Audio content for on-the-go consumption</li></ul><h2>Content Marketing Strategy Steps</h2><ol><li>Define your target audience</li><li>Set clear goals and KPIs</li><li>Create a content calendar</li><li>Develop your content creation process</li><li>Implement distribution and promotion strategies</li><li>Measure and optimize performance</li></ol>",
+      "category": "How-To",
+      "funnel_stage": "TOFU",
+      "author": "Emily Rodriguez",
+      "authorBio": "Content Marketing Manager with expertise in content strategy and audience development.",
+      "date": "2025-03-15",
+      "image": "images/blog3.jpg",
+      "featured": false,
+      "tags": ["Content Marketing", "Beginner", "Strategy", "2025", "Guide"],
+      "readTime": "10 min read",
+      "views": 743,
+      "comments": 12,
+      "cta": "Get Content Marketing Checklist"
+    },
+    {
+      "id": 5,
+      "title": "The Future of Digital Marketing: AI and Automation",
+      "slug": "future-digital-marketing-ai-automation",
+      "excerpt": "Explore how artificial intelligence and automation are reshaping the digital marketing landscape.",
+      "content": "<p>The digital marketing landscape is undergoing a revolutionary transformation driven by artificial intelligence and automation. Understanding these trends is essential for staying competitive in the evolving market.</p><h2>AI-Powered Personalization</h2><p>Artificial intelligence enables unprecedented levels of personalization, allowing marketers to deliver highly targeted content and offers to individual users based on their behavior, preferences, and demographics.</p><h2>Automated Marketing Campaigns</h2><p>Marketing automation tools are becoming increasingly sophisticated, enabling businesses to create complex, multi-channel campaigns that automatically adapt based on user interactions.</p><h2>Predictive Analytics</h2><p>AI algorithms can now predict customer behavior, helping marketers make data-driven decisions about campaign optimization and resource allocation.</p><h2>Chatbots and Conversational Marketing</h2><p>AI-powered chatbots are revolutionizing customer service and lead generation, providing instant responses and personalized experiences at scale.</p><h2>Preparing for the Future</h2><p>To stay ahead, marketers should:</p><ul><li>Invest in AI-powered marketing tools</li><li>Develop skills in data analysis and interpretation</li><li>Focus on creating high-quality, valuable content</li><li>Embrace automation while maintaining human touch</li></ul>",
+      "category": "Trends",
+      "funnel_stage": "TOFU",
+      "author": "David Kim",
+      "authorBio": "Digital Marketing Analyst specializing in emerging technologies and market trends.",
+      "date": "2025-02-28",
+      "image": "images/blog1.jpg",
+      "featured": false,
+      "tags": ["AI", "Automation", "Future", "Trends", "Technology"],
+      "readTime": "9 min read",
+      "views": 1123,
+      "comments": 18,
+      "cta": "Download AI Marketing Report"
+    },
+    {
+      "id": 6,
+      "title": "Building a Strong Brand Identity in the Digital Age",
+      "slug": "building-brand-identity-digital-age",
+      "excerpt": "Learn the essential elements of creating a memorable and effective brand identity online.",
+      "content": "<p>In today's digital-first world, building a strong brand identity is more important than ever. Your brand identity is what sets you apart from competitors and creates lasting connections with your audience.</p><h2>Elements of Brand Identity</h2><h3>Visual Identity</h3><p>Your logo, color palette, typography, and visual style should be consistent across all digital touchpoints.</p><h3>Brand Voice and Messaging</h3><p>Develop a consistent tone of voice that reflects your brand's personality and values.</p><h3>Brand Values and Mission</h3><p>Clearly define what your brand stands for and communicate this consistently.</p><h2>Digital Brand Building Strategies</h2><ul><li><strong>Consistent Online Presence:</strong> Maintain uniformity across all digital platforms</li><li><strong>Content Marketing:</strong> Use valuable content to reinforce your brand message</li><li><strong>Social Media Engagement:</strong> Build relationships with your audience</li><li><strong>Customer Experience:</strong> Ensure every interaction reflects your brand values</li></ul><h2>Measuring Brand Success</h2><p>Track metrics like brand awareness, sentiment analysis, and customer loyalty to measure the effectiveness of your brand identity efforts.</p>",
+      "category": "Branding",
+      "funnel_stage": "MOFU",
+      "author": "Lisa Wang",
+      "authorBio": "Brand Strategist with expertise in digital brand development and identity design.",
+      "date": "2025-01-20",
+      "image": "images/blog2.jpg",
+      "featured": false,
+      "tags": ["Branding", "Identity", "Digital", "Strategy", "Design"],
+      "readTime": "8 min read",
+      "views": 678,
+      "comments": 9,
+      "cta": "Get Brand Identity Workbook"
+    },
+    {
+      "id": 7,
+      "title": "Complete Guide to E-commerce SEO: Drive More Sales",
+      "slug": "ecommerce-seo-guide-drive-sales",
+      "excerpt": "Master e-commerce SEO strategies to increase organic traffic and boost your online store's sales.",
+      "content": "<p>E-commerce SEO is fundamentally different from traditional SEO. With millions of products competing for attention, you need specialized strategies to rank your online store and drive qualified traffic that converts.</p><h2>E-commerce SEO Fundamentals</h2><h3>Product Page Optimization</h3><p>Optimize each product page with unique titles, descriptions, and content that answers customer questions and includes relevant keywords.</p><h3>Category Page Strategy</h3><p>Create comprehensive category pages that serve as landing pages for broad search terms and help users navigate your product catalog.</p><h3>Technical SEO for E-commerce</h3><p>Implement structured data, optimize site speed, and ensure mobile-friendliness to improve search rankings and user experience.</p><h2>Advanced E-commerce SEO Tactics</h2><ul><li><strong>Long-tail Keyword Targeting:</strong> Focus on specific, high-intent search terms</li><li><strong>User-Generated Content:</strong> Leverage reviews and ratings for SEO value</li><li><strong>Internal Linking:</strong> Create a logical site structure that helps search engines and users</li><li><strong>Local SEO:</strong> Optimize for local search if you have physical stores</li></ul><h2>Measuring E-commerce SEO Success</h2><p>Track metrics like organic traffic, conversion rates, average order value, and revenue attribution to measure the ROI of your SEO efforts.</p>",
+      "category": "How-To",
+      "funnel_stage": "MOFU",
+      "author": "Akinola Olujobi",
+      "authorBio": "Founder and CEO of Trendtactics Digital, with over 10 years of experience in digital marketing and AI solutions.",
+      "date": "2025-01-15",
+      "image": "images/blog-featured.jpg",
+      "featured": false,
+      "tags": ["E-commerce", "SEO", "Sales", "Conversion", "Strategy"],
+      "readTime": "12 min read",
+      "views": 2341,
+      "comments": 45,
+      "cta": "Get E-commerce SEO Audit"
+    },
+    {
+      "id": 8,
+      "title": "10 Digital Marketing Mistakes That Are Costing You Money",
+      "slug": "digital-marketing-mistakes-costing-money",
+      "excerpt": "Avoid these common digital marketing mistakes that could be draining your budget and hurting your ROI.",
+      "content": "<p>Digital marketing can be expensive, and making mistakes can quickly drain your budget without delivering results. Here are the most common mistakes businesses make and how to avoid them.</p><h2>1. Not Having a Clear Strategy</h2><p>Many businesses jump into digital marketing without a clear plan. Define your goals, target audience, and success metrics before spending money.</p><h2>2. Ignoring Mobile Optimization</h2><p>With over 60% of web traffic coming from mobile devices, neglecting mobile optimization is a costly mistake.</p><h2>3. Poor Landing Page Design</h2><p>Driving traffic to poorly designed landing pages wastes money and hurts conversion rates.</p><h2>4. Not Tracking ROI</h2><p>Without proper tracking, you can't measure what's working and what's not. Implement analytics to track your marketing performance.</p><h2>5. Targeting the Wrong Keywords</h2><p>Focusing on high-volume, low-intent keywords wastes budget. Target keywords that indicate purchase intent.</p><h2>6. Neglecting Email Marketing</h2><p>Email marketing has the highest ROI of any digital marketing channel. Don't ignore this powerful tool.</p><h2>7. Inconsistent Branding</h2><p>Inconsistent branding confuses customers and dilutes your marketing efforts.</p><h2>8. Not Testing and Optimizing</h2><p>Digital marketing requires continuous testing and optimization to improve performance.</p><h2>9. Ignoring Customer Feedback</h2><p>Customer feedback is valuable for improving your marketing strategy and customer experience.</p><h2>10. Trying to Do Everything at Once</h2><p>Focus on a few channels and do them well rather than spreading yourself too thin.</p>",
+      "category": "Tips",
+      "funnel_stage": "TOFU",
+      "author": "Sarah Johnson",
+      "authorBio": "Social Media Strategist at Trendtactics Digital, specializing in community building and engagement optimization.",
+      "date": "2025-01-10",
+      "image": "images/blog1.jpg",
+      "featured": false,
+      "tags": ["Digital Marketing", "Mistakes", "ROI", "Strategy", "Tips"],
+      "readTime": "8 min read",
+      "views": 1892,
+      "comments": 67,
+      "cta": "Get Marketing Audit Checklist"
+    },
+    {
+      "id": 9,
+      "title": "How to Create a High-Converting Landing Page",
+      "slug": "high-converting-landing-page-guide",
+      "excerpt": "Learn the proven strategies and best practices for creating landing pages that convert visitors into customers.",
+      "content": "<p>Your landing page is often the first impression potential customers have of your business. A well-designed, high-converting landing page can significantly impact your marketing ROI and business growth.</p><h2>Essential Landing Page Elements</h2><h3>Compelling Headline</h3><p>Your headline should immediately communicate value and address the visitor's primary pain point or desire.</p><h3>Clear Value Proposition</h3><p>Explain what makes your offer unique and why visitors should choose you over competitors.</p><h3>Social Proof</h3><p>Include testimonials, reviews, case studies, and trust signals to build credibility.</p><h3>Strong Call-to-Action</h3><p>Make your CTA button prominent, action-oriented, and benefit-focused.</p><h2>Landing Page Design Best Practices</h2><ul><li><strong>Above the Fold:</strong> Place your most important elements in the visible area</li><li><strong>Visual Hierarchy:</strong> Use size, color, and spacing to guide attention</li><li><strong>Mobile Optimization:</strong> Ensure your page works perfectly on all devices</li><li><strong>Fast Loading:</strong> Optimize images and code for speed</li></ul><h2>Conversion Optimization Strategies</h2><p>Test different headlines, images, copy, and CTAs to continuously improve your conversion rates. Use A/B testing to make data-driven decisions.</p>",
+      "category": "How-To",
+      "funnel_stage": "BOFU",
+      "author": "Emily Rodriguez",
+      "authorBio": "Content Marketing Manager with expertise in content strategy and audience development.",
+      "date": "2025-01-05",
+      "image": "images/blog3.jpg",
+      "featured": false,
+      "tags": ["Landing Page", "Conversion", "Design", "CRO", "Strategy"],
+      "readTime": "9 min read",
+      "views": 1456,
+      "comments": 28,
+      "cta": "Get Landing Page Template"
+    },
+    {
+      "id": 10,
+      "title": "The Ultimate Guide to Marketing Automation",
+      "slug": "ultimate-guide-marketing-automation",
+      "excerpt": "Discover how marketing automation can streamline your campaigns, nurture leads, and increase revenue.",
+      "content": "<p>Marketing automation is no longer a luxury—it's a necessity for businesses looking to scale their marketing efforts efficiently. This comprehensive guide will help you understand and implement marketing automation strategies.</p><h2>What is Marketing Automation?</h2><p>Marketing automation uses software to automate repetitive marketing tasks, nurture leads, and deliver personalized content to prospects and customers.</p><h2>Key Benefits of Marketing Automation</h2><ul><li><strong>Increased Efficiency:</strong> Automate repetitive tasks to save time</li><li><strong>Better Lead Nurturing:</strong> Deliver relevant content at the right time</li><li><strong>Improved Personalization:</strong> Tailor messages based on behavior and preferences</li><li><strong>Higher Conversion Rates:</strong> Guide prospects through the sales funnel</li><li><strong>Better ROI:</strong> Reduce costs while improving results</li></ul><h2>Essential Marketing Automation Workflows</h2><h3>Lead Nurturing</h3><p>Create automated email sequences that educate and nurture prospects based on their interests and behavior.</p><h3>Welcome Series</h3><p>Automatically welcome new subscribers and guide them through your content and offers.</p><h3>Abandoned Cart Recovery</h3><p>Send targeted emails to recover lost sales from customers who abandoned their carts.</p><h3>Customer Onboarding</h3><p>Help new customers get the most value from your product or service.</p><h2>Choosing the Right Marketing Automation Platform</h2><p>Consider factors like ease of use, integration capabilities, pricing, and features when selecting a marketing automation platform.</p>",
+      "category": "How-To",
+      "funnel_stage": "MOFU",
+      "author": "David Kim",
+      "authorBio": "Digital Marketing Analyst specializing in emerging technologies and market trends.",
+      "date": "2024-12-28",
+      "image": "images/blog2.jpg",
+      "featured": false,
+      "tags": ["Marketing Automation", "Lead Nurturing", "Efficiency", "ROI", "Strategy"],
+      "readTime": "11 min read",
+      "views": 987,
+      "comments": 22,
+      "cta": "Get Automation Strategy Guide"
+    },
+    {
+      "id": 11,
+      "title": "Social Media Marketing Trends to Watch in 2025",
+      "slug": "social-media-marketing-trends-2025",
+      "excerpt": "Stay ahead of the curve with these emerging social media marketing trends that will dominate 2025.",
+      "content": "<p>Social media marketing is constantly evolving, and staying ahead of trends is crucial for maintaining competitive advantage. Here are the key trends that will shape social media marketing in 2025.</p><h2>1. AI-Powered Content Creation</h2><p>Artificial intelligence is revolutionizing content creation, from automated copywriting to AI-generated images and videos that match brand guidelines.</p><h2>2. Short-Form Video Dominance</h2><p>Short-form video content continues to dominate social media, with platforms prioritizing this format in their algorithms.</p><h2>3. Social Commerce Integration</h2><p>Social media platforms are becoming shopping destinations, with integrated e-commerce features that allow users to purchase directly from posts.</p><h2>4. Authenticity and Transparency</h2><p>Consumers are demanding more authentic, behind-the-scenes content and transparent communication from brands.</p><h2>5. Micro-Influencer Partnerships</h2><p>Brands are shifting from macro-influencers to micro-influencers who have more engaged, niche audiences.</p><h2>6. Social Audio and Podcasts</h2><p>Audio content is gaining popularity on social platforms, with live audio rooms and podcast integration becoming standard features.</p><h2>7. Augmented Reality (AR) Experiences</h2><p>AR filters and experiences are becoming more sophisticated and widely adopted for brand engagement.</p><h2>8. Community-Driven Marketing</h2><p>Brands are focusing on building and nurturing online communities rather than just broadcasting messages.</p>",
+      "category": "Trends",
+      "funnel_stage": "TOFU",
+      "author": "Sarah Johnson",
+      "authorBio": "Social Media Strategist at Trendtactics Digital, specializing in community building and engagement optimization.",
+      "date": "2024-12-20",
+      "image": "images/blog1.jpg",
+      "featured": false,
+      "tags": ["Social Media", "Trends", "2025", "AI", "Video"],
+      "readTime": "7 min read",
+      "views": 1345,
+      "comments": 34,
+      "cta": "Download Social Media Trends Report"
+    },
+    {
+      "id": 12,
+      "title": "ROI-Focused Digital Marketing Strategies for 2025",
+      "slug": "roi-focused-digital-marketing-strategies-2025",
+      "excerpt": "Learn how to create digital marketing campaigns that deliver measurable ROI and drive business growth.",
+      "content": "<p>In today's competitive market, every marketing dollar needs to work harder. This guide will help you create ROI-focused digital marketing strategies that deliver measurable results and drive business growth.</p><h2>Setting Up ROI Measurement</h2><h3>Define Clear KPIs</h3><p>Establish specific, measurable key performance indicators that align with your business goals.</p><h3>Implement Proper Tracking</h3><p>Set up comprehensive analytics tracking to measure the performance of all your marketing channels.</p><h3>Calculate Customer Lifetime Value</h3><p>Understand the long-term value of your customers to make informed marketing investment decisions.</p><h2>High-ROI Digital Marketing Channels</h2><h3>Email Marketing</h3><p>Email marketing consistently delivers the highest ROI of any digital marketing channel, with an average return of $42 for every $1 spent.</p><h3>Content Marketing</h3><p>Content marketing costs 62% less than traditional marketing while generating 3x more leads.</p><h3>SEO</h3><p>Organic search traffic has the highest conversion rates and lowest customer acquisition costs.</p><h3>Social Media Advertising</h3><p>Targeted social media ads can deliver high ROI when properly optimized and targeted.</p><h2>Optimization Strategies</h2><ul><li><strong>A/B Testing:</strong> Continuously test and optimize your campaigns</li><li><strong>Audience Targeting:</strong> Focus on high-value customer segments</li><li><strong>Conversion Rate Optimization:</strong> Improve your website's ability to convert visitors</li><li><strong>Marketing Automation:</strong> Scale your efforts efficiently</li></ul><h2>Measuring and Reporting ROI</h2><p>Create regular reports that track your marketing ROI and use this data to optimize your strategies and budget allocation.</p>",
+      "category": "Strategy",
+      "funnel_stage": "BOFU",
+      "author": "Akinola Olujobi",
+      "authorBio": "Founder and CEO of Trendtactics Digital, with over 10 years of experience in digital marketing and AI solutions.",
+      "date": "2024-12-15",
+      "image": "images/blog-featured.jpg",
+      "featured": false,
+      "tags": ["ROI", "Digital Marketing", "Strategy", "Analytics", "Growth"],
+      "readTime": "10 min read",
+      "views": 2156,
+      "comments": 89,
+      "cta": "Get ROI Calculator Tool"
+    }
+  ],
+  "categories": [
+    {
+      "name": "All",
+      "count": 12,
+      "description": "All blog posts"
+    },
+    {
+      "name": "Case Study",
+      "count": 1,
+      "description": "Real client success stories and results"
+    },
+    {
+      "name": "Tips",
+      "count": 2,
+      "description": "Actionable advice and best practices"
+    },
+    {
+      "name": "News",
+      "count": 1,
+      "description": "Industry updates and breaking news"
+    },
+    {
+      "name": "How-To",
+      "count": 3,
+      "description": "Step-by-step guides and tutorials"
+    },
+    {
+      "name": "Trends",
+      "count": 2,
+      "description": "Emerging trends and future predictions"
+    },
+    {
+      "name": "Branding",
+      "count": 1,
+      "description": "Brand development and identity strategies"
+    },
+    {
+      "name": "Strategy",
+      "count": 1,
+      "description": "Strategic marketing insights and frameworks"
+    }
+  ],
+  "funnel_stages": {
+    "TOFU": {
+      "name": "Top of Funnel",
+      "description": "Awareness stage content that attracts and educates",
+      "posts": [3, 4, 5, 8, 11],
+      "cta_type": "lead_magnet"
+    },
+    "MOFU": {
+      "name": "Middle of Funnel",
+      "description": "Consideration stage content that nurtures and builds trust",
+      "posts": [2, 6, 7, 10],
+      "cta_type": "consultation"
+    },
+    "BOFU": {
+      "name": "Bottom of Funnel",
+      "description": "Decision stage content that converts and closes",
+      "posts": [1, 9, 12],
+      "cta_type": "service_offer"
+    }
+  },
+  "authors": [
+    {
+      "name": "Akinola Olujobi",
+      "title": "Founder & CEO",
+      "bio": "Founder and CEO of Trendtactics Digital, with over 10 years of experience in digital marketing and AI solutions.",
+      "avatar": "images/team-akinola.jpg"
+    },
+    {
+      "name": "Sarah Johnson",
+      "title": "Social Media Strategist",
+      "bio": "Social Media Strategist at Trendtactics Digital, specializing in community building and engagement optimization.",
+      "avatar": "images/team-sarah.jpg"
+    },
+    {
+      "name": "Michael Chen",
+      "title": "SEO Specialist",
+      "bio": "SEO Specialist with expertise in technical SEO and algorithm analysis.",
+      "avatar": "images/team-michael.jpg"
+    },
+    {
+      "name": "Emily Rodriguez",
+      "title": "Content Marketing Manager",
+      "bio": "Content Marketing Manager with expertise in content strategy and audience development.",
+      "avatar": "images/team-emily.jpg"
+    },
+    {
+      "name": "David Kim",
+      "title": "Digital Marketing Analyst",
+      "bio": "Digital Marketing Analyst specializing in emerging technologies and market trends.",
+      "avatar": "images/team-david.jpg"
+    },
+    {
+      "name": "Lisa Wang",
+      "title": "Brand Strategist",
+      "bio": "Brand Strategist with expertise in digital brand development and identity design.",
+      "avatar": "images/team-lisa.jpg"
+    }
+  ]
+} 
