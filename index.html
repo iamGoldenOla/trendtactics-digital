@@ -600,8 +600,20 @@
                 const card = testimonials[index];
                 if (!card) return;
 
+                // Compute target scrollLeft using bounding rects — more robust than offsetLeft
+                const containerRect = container.getBoundingClientRect();
+                const cardRect = card.getBoundingClientRect();
+
+                // card's left relative to container's content (including current scroll)
+                const cardLeftRelative = cardRect.left - containerRect.left + container.scrollLeft;
+
                 // center the card inside the visible container
-                const target = card.offsetLeft - (container.clientWidth - card.offsetWidth) / 2;
+                let target = Math.round(cardLeftRelative - (container.clientWidth - card.clientWidth) / 2);
+
+                // Clamp target between 0 and maximum scrollLeft
+                const maxScroll = container.scrollWidth - container.clientWidth;
+                if (target < 0) target = 0;
+                if (target > maxScroll) target = maxScroll;
 
                 // Use smooth scroll on the container for a professional effect
                 container.scrollTo({ left: target, behavior: instant ? 'auto' : 'smooth' });
