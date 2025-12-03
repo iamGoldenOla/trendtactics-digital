@@ -734,6 +734,8 @@ a:hover {
     transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     transform-style: preserve-3d;
     color: #ffffff;
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 .about-card::before {
@@ -792,90 +794,153 @@ a:hover {
 .about-card.card-1 {
     top: 0;
     left: 0;
-    z-index: 3;
     animation: card-flip-1 9s ease-in-out infinite;
 }
 
 .about-card.card-2 {
     top: 0;
     left: 0;
-    z-index: 2;
     animation: card-flip-2 9s ease-in-out infinite;
 }
 
 .about-card.card-3 {
     top: 0;
     left: 0;
-    z-index: 1;
     animation: card-flip-3 9s ease-in-out infinite;
 }
 
 @keyframes card-flip-1 {
-    0%, 30% { 
+    0% { 
         opacity: 1;
         transform: translateY(0px) rotateY(0deg) scale(1);
         z-index: 3;
+        pointer-events: auto;
     }
-    33%, 63% { 
-        opacity: 0;
-        transform: translateY(20px) rotateY(90deg) scale(0.9);
-        z-index: 1;
+    30% { 
+        opacity: 1;
+        transform: translateY(0px) rotateY(0deg) scale(1);
+        z-index: 3;
+        pointer-events: auto;
     }
-    66%, 96% { 
+    33% { 
         opacity: 0;
-        transform: translateY(20px) rotateY(90deg) scale(0.9);
+        transform: translateY(30px) rotateY(90deg) scale(0.85);
         z-index: 1;
+        pointer-events: none;
+    }
+    63% { 
+        opacity: 0;
+        transform: translateY(30px) rotateY(90deg) scale(0.85);
+        z-index: 1;
+        pointer-events: none;
+    }
+    66% { 
+        opacity: 0;
+        transform: translateY(30px) rotateY(90deg) scale(0.85);
+        z-index: 1;
+        pointer-events: none;
+    }
+    96% { 
+        opacity: 0;
+        transform: translateY(30px) rotateY(90deg) scale(0.85);
+        z-index: 1;
+        pointer-events: none;
     }
     100% { 
         opacity: 1;
         transform: translateY(0px) rotateY(0deg) scale(1);
         z-index: 3;
+        pointer-events: auto;
     }
 }
 
 @keyframes card-flip-2 {
-    0%, 30% { 
+    0% { 
         opacity: 0;
-        transform: translateY(20px) rotateY(90deg) scale(0.9);
+        transform: translateY(30px) rotateY(-90deg) scale(0.85);
         z-index: 1;
+        pointer-events: none;
     }
-    33%, 63% { 
+    30% { 
+        opacity: 0;
+        transform: translateY(30px) rotateY(-90deg) scale(0.85);
+        z-index: 1;
+        pointer-events: none;
+    }
+    33% { 
         opacity: 1;
         transform: translateY(0px) rotateY(0deg) scale(1);
         z-index: 3;
+        pointer-events: auto;
     }
-    66%, 96% { 
+    63% { 
+        opacity: 1;
+        transform: translateY(0px) rotateY(0deg) scale(1);
+        z-index: 3;
+        pointer-events: auto;
+    }
+    66% { 
         opacity: 0;
-        transform: translateY(20px) rotateY(90deg) scale(0.9);
+        transform: translateY(30px) rotateY(90deg) scale(0.85);
         z-index: 1;
+        pointer-events: none;
+    }
+    96% { 
+        opacity: 0;
+        transform: translateY(30px) rotateY(90deg) scale(0.85);
+        z-index: 1;
+        pointer-events: none;
     }
     100% { 
         opacity: 0;
-        transform: translateY(20px) rotateY(90deg) scale(0.9);
+        transform: translateY(30px) rotateY(-90deg) scale(0.85);
         z-index: 1;
+        pointer-events: none;
     }
 }
 
 @keyframes card-flip-3 {
-    0%, 30% { 
+    0% { 
         opacity: 0;
-        transform: translateY(20px) rotateY(90deg) scale(0.9);
+        transform: translateY(30px) rotateY(-90deg) scale(0.85);
         z-index: 1;
+        pointer-events: none;
     }
-    33%, 63% { 
+    30% { 
         opacity: 0;
-        transform: translateY(20px) rotateY(90deg) scale(0.9);
+        transform: translateY(30px) rotateY(-90deg) scale(0.85);
         z-index: 1;
+        pointer-events: none;
     }
-    66%, 96% { 
+    33% { 
+        opacity: 0;
+        transform: translateY(30px) rotateY(-90deg) scale(0.85);
+        z-index: 1;
+        pointer-events: none;
+    }
+    63% { 
+        opacity: 0;
+        transform: translateY(30px) rotateY(-90deg) scale(0.85);
+        z-index: 1;
+        pointer-events: none;
+    }
+    66% { 
         opacity: 1;
         transform: translateY(0px) rotateY(0deg) scale(1);
         z-index: 3;
+        pointer-events: auto;
+    }
+    96% { 
+        opacity: 1;
+        transform: translateY(0px) rotateY(0deg) scale(1);
+        z-index: 3;
+        pointer-events: auto;
     }
     100% { 
         opacity: 0;
-        transform: translateY(20px) rotateY(90deg) scale(0.9);
+        transform: translateY(30px) rotateY(90deg) scale(0.85);
         z-index: 1;
+        pointer-events: none;
     }
 }
 
