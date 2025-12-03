@@ -233,7 +233,7 @@ function loadFallbackAboutContent() {
 
     // Fallback stats
     const fallbackStats = [
-        { number: "500+", label: "Projects Completed" },
+        { number: "50+", label: "Projects Completed" },
         { number: "98%", label: "Client Satisfaction" },
         { number: "3x", label: "Average ROI Increase" },
         { number: "24/7", label: "Support Available" }
@@ -249,18 +249,18 @@ function loadFallbackAboutContent() {
         },
         {
             date: "2021",
-            title: "First 100 Clients",
-            description: "Reached our first 100 successful client projects and expanded to London office."
+            title: "First Milestone",
+            description: "Reached our first 10 successful client projects, establishing a strong foundation and building lasting partnerships with businesses across Nigeria."
         },
         {
             date: "2022",
             title: "AI Integration",
-            description: "Launched our AI-powered solutions division and opened Toronto office."
+            description: "Launched our AI-powered solutions division, helping businesses automate processes and leverage cutting-edge technology for growth."
         },
         {
             date: "2023",
-            title: "Global Expansion",
-            description: "Expanded to NYC and reached 500+ successful projects across 4 continents."
+            title: "Service Expansion",
+            description: "Expanded our service offerings and reached 50+ successful projects, helping businesses across various industries achieve their digital goals."
         },
         {
             date: "2024",
