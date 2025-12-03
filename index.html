@@ -556,17 +556,18 @@
 
     <!-- Only keep necessary scripts here, remove <div id="react-app"></div> and floating translate button/widget from after the footer -->
     <script>
-        // Testimonial Carousel Functionality
+        // Testimonial Carousel Functionality — use smooth scrolling on the container
         document.addEventListener('DOMContentLoaded', function() {
             const testimonialGrid = document.getElementById('testimonials-grid');
+            const container = testimonialGrid.parentElement; // .testimonials-container (has overflow:hidden)
             const prevBtn = document.getElementById('prev-testimonial');
             const nextBtn = document.getElementById('next-testimonial');
             const navContainer = document.getElementById('testimonials-nav');
-            
+
             let currentSlide = 0;
             const testimonials = Array.from(testimonialGrid.children);
             const totalSlides = testimonials.length;
-            
+
             // Create navigation dots
             navContainer.innerHTML = '';
             for (let i = 0; i < totalSlides; i++) {
@@ -575,40 +576,50 @@
                 dot.addEventListener('click', () => showSlide(i));
                 navContainer.appendChild(dot);
             }
-            
-            const dots = document.querySelectorAll('.testimonial-dot');
-            
-            function showSlide(index) {
-                // Update grid transform
-                const cardWidth = 400; // Base card width
-                const gap = 32; // Gap between cards
-                const transform = -index * (cardWidth + gap);
-                testimonialGrid.style.transform = `translateX(${transform}px)`;
-                
+
+            const dots = Array.from(document.querySelectorAll('.testimonial-dot'));
+
+            function showSlide(index, instant = false) {
+                const card = testimonials[index];
+                if (!card) return;
+
+                // center the card inside the visible container
+                const target = card.offsetLeft - (container.clientWidth - card.offsetWidth) / 2;
+
+                // Use smooth scroll on the container for a professional effect
+                container.scrollTo({ left: target, behavior: instant ? 'auto' : 'smooth' });
+
                 // Update active dot
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === index);
-                });
-                
+                dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+
                 currentSlide = index;
             }
-            
+
             function nextSlide() {
                 const next = (currentSlide + 1) % totalSlides;
                 showSlide(next);
             }
-            
+
             function prevSlide() {
                 const prev = (currentSlide - 1 + totalSlides) % totalSlides;
                 showSlide(prev);
             }
-            
+
             // Event listeners
             prevBtn.addEventListener('click', prevSlide);
             nextBtn.addEventListener('click', nextSlide);
-            
+
+            // Recenter on resize
+            window.addEventListener('resize', () => showSlide(currentSlide, true));
+
             // Auto-play with 7 second delay
-            setInterval(nextSlide, 7000);
+            const autoplay = setInterval(nextSlide, 7000);
+
+            // Pause autoplay on hover
+            container.addEventListener('mouseenter', () => clearInterval(autoplay));
+
+            // Initialize position
+            showSlide(0, true);
         });
     </script>
     <script>

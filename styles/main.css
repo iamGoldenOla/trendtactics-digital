@@ -1025,14 +1025,16 @@ a:hover {
     max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
+    scroll-behavior: smooth; /* enable smooth scrolling for JS scrollTo */
+    -webkit-overflow-scrolling: touch;
 }
 
 .testimonials-grid {
     display: flex;
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     gap: var(--spacing-2xl);
     padding: 0 var(--spacing-lg);
     justify-content: center;
+    will-change: scroll-position, transform;
 }
 
 .testimonial-card {
