@@ -1,28 +1,24 @@
 {
   "brands": [
     {
-      "name": "TechCorp",
-      "logo": "./images/brands/techcorp.png"
+      "name": "KEVTOS CATERING",
+      "logo": "./images/brands/kevtos-catering.png"
     },
     {
-      "name": "InnovateLabs",
-      "logo": "./images/brands/innovatelabs.png"
+      "name": "Realtreasure",
+      "logo": "./images/brands/realtreasure.png"
     },
     {
-      "name": "GlobalSolutions",
-      "logo": "./images/brands/globalsolutions.png"
+      "name": "Gabson",
+      "logo": "./images/brands/gabson.png"
     },
     {
-      "name": "StartupHub",
-      "logo": "./images/brands/startuphub.png"
+      "name": "GREENTICK",
+      "logo": "./images/brands/greentick.png"
     },
     {
-      "name": "DigitalFlow",
-      "logo": "./images/brands/digitalflow.png"
-    },
-    {
-      "name": "FutureTech",
-      "logo": "./images/brands/futuretech.png"
+      "name": "HustleNChill",
+      "logo": "./images/brands/hustlenchill.png"
     }
   ],
   "services": [

@@ -604,20 +604,29 @@ a:hover {
 }
 
 .brand-item {
-    background: var(--base-dark);
+    background: var(--white);
     border-radius: var(--radius-xl);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 2rem;
+    padding: 1.5rem 2rem;
     margin: 0 0.5rem;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.brand-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 .brand-logo {
-    filter: brightness(0) invert(1);
-    max-height: 40px;
-    max-width: 120px;
+    max-height: 60px;
+    max-width: 180px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: none;
 }
 
 @keyframes scroll-brands {
@@ -1608,14 +1617,18 @@ a:hover {
     transform: translateX(4px);
 }
 
+.footer-resources {
+    max-width: 100%;
+}
+
 .footer-newsletter-inline {
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-lg);
     padding-top: var(--spacing-md);
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 .footer-newsletter-inline h4 {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--white);
@@ -1623,9 +1636,45 @@ a:hover {
 
 .footer-newsletter-inline p {
     font-size: 0.85rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     opacity: 0.8;
     line-height: 1.5;
+}
+
+.footer-newsletter-inline .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-newsletter-inline .newsletter-form input {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+.footer-newsletter-inline .newsletter-form input::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+.footer-newsletter-inline .newsletter-form button {
+    padding: 0.6rem 1rem;
+    background: var(--primary);
+    color: var(--base-dark);
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.footer-newsletter-inline .newsletter-form button:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
 }
 
 .newsletter-form {
