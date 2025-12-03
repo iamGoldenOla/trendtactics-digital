@@ -557,10 +557,11 @@
 
     <!-- Only keep necessary scripts here, remove <div id="react-app"></div> and floating translate button/widget from after the footer -->
     <script>
-        // Testimonial Carousel Functionality — accessible controls, keyboard nav, smooth scrolling
+        // Testimonial Carousel Functionality — snap-based, keyboard nav, smooth scrolling
         document.addEventListener('DOMContentLoaded', function() {
             const testimonialGrid = document.getElementById('testimonials-grid');
-            const container = testimonialGrid.parentElement; // .testimonials-container (scrollable)
+            // Use the dedicated scroll wrapper if available (more reliable for scrolling)
+            const container = testimonialGrid.closest('.testimonials-scroll') || testimonialGrid.parentElement;
             const prevBtn = document.getElementById('prev-testimonial');
             const nextBtn = document.getElementById('next-testimonial');
             const navContainer = document.getElementById('testimonials-nav');
@@ -599,30 +600,8 @@
                 const card = testimonials[index];
                 if (!card) return;
 
-                // Compute target scrollLeft using bounding rects — more robust than offsetLeft
-                const containerRect = container.getBoundingClientRect();
-                const cardRect = card.getBoundingClientRect();
-
-                // card's left relative to container's content (including current scroll)
-                const cardLeftRelative = cardRect.left - containerRect.left + container.scrollLeft;
-
-                // center the card inside the visible container
-                let target = Math.round(cardLeftRelative - (container.clientWidth - card.clientWidth) / 2);
-
-                // Clamp target between 0 and maximum scrollLeft
-                const maxScroll = container.scrollWidth - container.clientWidth;
-                if (target < 0) target = 0;
-                if (target > maxScroll) target = maxScroll;
-
-                // If computed target is effectively the same as current scroll, nudge it slightly
-                const delta = target - container.scrollLeft;
-                if (!instant && Math.abs(delta) < 2) {
-                    // nudge in direction of desired movement to force scroll
-                    target = Math.max(0, Math.min(maxScroll, container.scrollLeft + (delta >= 0 ? 8 : -8)));
-                }
-
-                // Use smooth scroll on the container for a professional effect
-                container.scrollTo({ left: target, behavior: instant ? 'auto' : 'smooth' });
+                // Use native scrollIntoView with snap behavior for deterministic centering
+                card.scrollIntoView({ behavior: instant ? 'auto' : 'smooth', block: 'nearest', inline: 'center' });
 
                 // Update active dot
                 dots.forEach((dot, i) => {
@@ -638,6 +617,7 @@
             }
 
             function getCenteredIndex() {
+                // Find the snap-aligned card closest to center
                 const containerRect = container.getBoundingClientRect();
                 const containerCenter = containerRect.left + containerRect.width / 2;
                 let closest = 0;

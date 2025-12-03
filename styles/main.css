@@ -1037,15 +1037,18 @@ a:hover {
     overflow-y: hidden;
     scroll-behavior: smooth; /* enable smooth scrolling for JS scrollTo */
     -webkit-overflow-scrolling: touch;
+    /* CSS scroll snap for deterministic carousel behavior */
+    scroll-snap-type: x mandatory;
+    scroll-padding: calc(50vw - 150px); /* center alignment padding */
 }
 
 /* Hide horizontal scrollbar but keep scrolling functional (scroll wrapper) */
 .testimonials-scroll::-webkit-scrollbar {
-    height: 0;
+    height: 0 !important;
 }
 .testimonials-scroll {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+    scrollbar-width: none !important; /* Firefox */
 }
 
 /* Hide horizontal scrollbar but keep scrolling functional */
@@ -1082,6 +1085,9 @@ a:hover {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    /* CSS scroll snap alignment */
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
 }
 
 .testimonial-card::before {
