@@ -794,19 +794,28 @@ a:hover {
 .about-card.card-1 {
     top: 0;
     left: 0;
-    animation: card-flip-1 9s ease-in-out infinite;
+    animation: card-flip-1 9s ease-in-out infinite, card-breathe 3s ease-in-out infinite;
 }
 
 .about-card.card-2 {
     top: 0;
     left: 0;
-    animation: card-flip-2 9s ease-in-out infinite;
+    animation: card-flip-2 9s ease-in-out infinite, card-breathe 3s ease-in-out infinite 1s;
 }
 
 .about-card.card-3 {
     top: 0;
     left: 0;
-    animation: card-flip-3 9s ease-in-out infinite;
+    animation: card-flip-3 9s ease-in-out infinite, card-breathe 3s ease-in-out infinite 2s;
+}
+
+@keyframes card-breathe {
+    0%, 100% { 
+        transform: translateY(0px);
+    }
+    50% { 
+        transform: translateY(-15px);
+    }
 }
 
 @keyframes card-flip-1 {
