@@ -659,7 +659,7 @@ a:hover {
 
 /* ===== SERVICES SECTION ===== */
 .services {
-    padding: var(--spacing-4xl) 0 var(--spacing-sm) 0;
+    padding: var(--spacing-3xl) 0 var(--spacing-sm) 0;
     background: var(--base-dark);
     color: var(--white);
     position: relative;
@@ -728,8 +728,8 @@ a:hover {
     border: 1px solid rgba(0, 255, 255, 0.2);
     position: relative;
     overflow: hidden;
-    height: 100%;
-    min-height: 320px;
+    height: auto;
+    min-height: 0;
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(10px);
