@@ -350,6 +350,28 @@ a:hover {
     background-clip: text;
 }
 
+.logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    transition: all var(--transition-normal);
+}
+
+.nav-logo:hover .logo-img {
+    transform: scale(1.05);
+}
+
+.footer-logo-img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    transition: all var(--transition-normal);
+}
+
+.footer-logo:hover .footer-logo-img {
+    transform: scale(1.05);
+}
+
 .nav-menu {
     display: flex;
     align-items: center;

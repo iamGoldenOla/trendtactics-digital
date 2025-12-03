@@ -690,6 +690,29 @@
     transition: transform var(--transition-normal);
 }
 
+/* Founder image with sky blue background */
+.founder-image {
+    background: linear-gradient(135deg, #87CEEB 0%, #B0E0E6 50%, #ADD8E6 100%);
+    position: relative;
+}
+
+.founder-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(135, 206, 235, 0.3) 0%, rgba(176, 224, 230, 0.3) 50%, rgba(173, 216, 230, 0.3) 100%);
+    z-index: 1;
+}
+
+.founder-image img {
+    position: relative;
+    z-index: 2;
+    mix-blend-mode: normal;
+}
+
 .team-member:hover .member-image img {
     transform: scale(1.1);
 }
