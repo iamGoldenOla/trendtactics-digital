@@ -1421,6 +1421,11 @@ a:hover {
     letter-spacing: 0.5px;
 }
 
+.footer-newsletter-inline {
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
 .newsletter-form {
     margin-bottom: var(--spacing-xs);
 }
