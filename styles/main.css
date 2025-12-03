@@ -703,11 +703,11 @@ a:hover {
     line-height: 1.6;
 }
 
-/* Bento Grid Layout */
+/* Services grid: use auto rows so container collapses when cards are reduced */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 600px);
+    grid-auto-rows: auto;
     gap: var(--spacing-2xl);
     max-width: 1200px;
     margin: 0 auto;
@@ -729,7 +729,7 @@ a:hover {
     position: relative;
     overflow: hidden;
     height: 100%;
-    min-height: 600px;
+    min-height: 320px;
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(10px);
@@ -954,7 +954,7 @@ a:hover {
 @media (max-width: 1024px) {
     .services-grid {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(3, 600px);
+        grid-auto-rows: auto;
         gap: var(--spacing-xl);
     }
 }
@@ -962,11 +962,11 @@ a:hover {
 @media (max-width: 768px) {
     .services-grid {
         grid-template-columns: 1fr;
-        grid-template-rows: auto;
+        grid-auto-rows: auto;
         gap: var(--spacing-2xl);
     }
     .service-card {
-        min-height: 500px;
+        min-height: 280px;
     }
 }
 
@@ -1984,6 +1984,54 @@ a:hover {
 .nav-cta .btn {
     padding: 0.35rem 0.85rem;
     font-size: 0.98rem;
+}
+
+/* Support for markup using .dropdown/.dropdown-menu (keeps backward compatibility) */
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background: var(--base-dark);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border-radius: var(--radius-lg);
+    padding: 0.5rem 0;
+    z-index: 10;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1.25rem;
+    color: var(--white);
+    background: none;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background: var(--primary);
+    color: var(--base-dark);
+}
+
+/* Quote styling for service cards */
+blockquote.service-quote {
+    color: var(--primary);
+    font-style: italic;
+    font-weight: 600;
+    margin: 0 0 var(--spacing-lg) 0;
+    padding-left: var(--spacing-md);
+    border-left: 3px solid rgba(0,255,255,0.12);
 }
 
 /* ===== SCROLLING TRUST BAR ===== */
