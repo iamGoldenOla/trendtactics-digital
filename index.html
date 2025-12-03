@@ -598,6 +598,9 @@
             let currentSlide = 0;
             const testimonials = Array.from(testimonialGrid.children);
             const totalSlides = testimonials.length;
+            
+            // Debug: Log total slides
+            console.log('Total testimonial cards:', totalSlides);
 
             // Ensure each card is keyboard-focusable and has an accessible label
             testimonials.forEach((card) => {
@@ -735,7 +738,11 @@
             // Initialize position - ensure first card is visible
             setTimeout(() => {
                 showSlide(0, true);
-            }, 100);
+                // Ensure autoplay starts after initialization
+                if (!autoplayInterval) {
+                    startAutoplay();
+                }
+            }, 200);
         });
     </script>
     <script>
