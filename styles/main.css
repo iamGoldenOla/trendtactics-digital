@@ -986,6 +986,11 @@ a:hover {
     overflow: hidden;
 }
 
+/* Make the inner container a positioning context so controls can be placed over it without scrolling */
+.testimonials .container {
+    position: relative;
+}
+
 .testimonials::before {
     content: '';
     position: absolute;
