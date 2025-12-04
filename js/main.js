@@ -67,6 +67,17 @@ function initializeNavigation() {
         const dropdownMenu = item.querySelector('.dropdown-menu');
         
         if (dropdownLink && dropdownMenu) {
+            // Prevent dropdown from closing when clicking inside
+            dropdownMenu.addEventListener('mouseenter', function() {
+                item.classList.add('active');
+            });
+            
+            dropdownMenu.addEventListener('mouseleave', function() {
+                if (window.innerWidth > 768) {
+                    item.classList.remove('active');
+                }
+            });
+            
             // Toggle dropdown on click (for mobile)
             dropdownLink.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
@@ -76,7 +87,26 @@ function initializeNavigation() {
                 }
             });
             
-            // Close dropdown when clicking outside
+            // Keep dropdown open when hovering over it
+            item.addEventListener('mouseenter', function() {
+                if (window.innerWidth > 768) {
+                    item.classList.add('active');
+                    dropdownMenu.style.display = 'block';
+                }
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                if (window.innerWidth > 768) {
+                    setTimeout(() => {
+                        if (!item.matches(':hover')) {
+                            item.classList.remove('active');
+                            dropdownMenu.style.display = 'none';
+                        }
+                    }, 200);
+                }
+            });
+            
+            // Close dropdown when clicking outside (mobile only)
             document.addEventListener('click', function(e) {
                 if (!item.contains(e.target) && window.innerWidth <= 768) {
                     item.classList.remove('active');
