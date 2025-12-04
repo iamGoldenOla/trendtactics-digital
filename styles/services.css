@@ -49,15 +49,36 @@
     color: var(--primary);
 }
 
+/* Statistics and Service Showcase Section */
+.services-stats-showcase {
+    padding: var(--spacing-4xl) 0;
+    background: var(--base-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.services-stats-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
 /* Hero Statistics */
 .hero-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-3xl);
+    margin-bottom: var(--spacing-4xl);
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    z-index: 2;
 }
 
 .stat-item {
@@ -97,6 +118,8 @@
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    z-index: 2;
 }
 
 .showcase-title {
