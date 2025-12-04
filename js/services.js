@@ -542,7 +542,7 @@ function initServiceShowcase() {
             
             // Resume auto-scroll after 5 seconds
             setTimeout(() => {
-                if (serviceIconsContainer) {
+                if (serviceIconsContainer && !autoScrollInterval) {
                     autoScrollInterval = setInterval(autoScrollServices, 3000);
                 }
             }, 5000);
@@ -552,7 +552,7 @@ function initServiceShowcase() {
     // Auto-scroll service icons every 3 seconds
     let currentScrollIndex = 0;
     const serviceIconsContainer = document.querySelector('.service-icons');
-    let autoScrollInterval;
+    let autoScrollInterval = null;
     
     function autoScrollServices() {
         if (serviceIconsContainer && serviceItems.length > 0) {
@@ -567,9 +567,11 @@ function initServiceShowcase() {
             activeItem.classList.add('active');
             
             // Scroll to center the active item
-            const cardWidth = activeItem.offsetWidth + 24; // card width + gap
+            const cardWidth = activeItem.offsetWidth;
+            const gap = 24; // gap between cards
             const containerWidth = serviceIconsContainer.clientWidth;
-            const scrollPosition = (currentScrollIndex * cardWidth) - (containerWidth / 2) + (cardWidth / 2);
+            const totalCardWidth = cardWidth + gap;
+            const scrollPosition = (currentScrollIndex * totalCardWidth) - (containerWidth / 2) + (cardWidth / 2);
             
             serviceIconsContainer.scrollTo({
                 left: Math.max(0, scrollPosition),
@@ -598,19 +600,31 @@ function initServiceShowcase() {
     }
     
     // Start auto-scrolling every 3 seconds
-    if (serviceIconsContainer) {
-        autoScrollInterval = setInterval(autoScrollServices, 3000);
+    if (serviceIconsContainer && serviceItems.length > 0) {
+        // Initialize with first card
+        serviceItems[0].classList.add('active');
+        if (serviceDescriptions['web-development']) {
+            serviceDesc.textContent = serviceDescriptions['web-development'];
+        }
+        
+        // Start auto-scroll after initial delay
+        setTimeout(() => {
+            autoScrollInterval = setInterval(autoScrollServices, 3000);
+        }, 3000);
         
         // Pause auto-scroll on hover
         serviceIconsContainer.addEventListener('mouseenter', () => {
             if (autoScrollInterval) {
                 clearInterval(autoScrollInterval);
+                autoScrollInterval = null;
             }
         });
         
         // Resume auto-scroll on mouse leave
         serviceIconsContainer.addEventListener('mouseleave', () => {
-            autoScrollInterval = setInterval(autoScrollServices, 3000);
+            if (!autoScrollInterval) {
+                autoScrollInterval = setInterval(autoScrollServices, 3000);
+            }
         });
     }
 }
