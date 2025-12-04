@@ -468,6 +468,7 @@ function animateStats() {
 function animateNumber(element, target) {
     let current = 0;
     const increment = target / 100;
+    const suffix = element.getAttribute('data-suffix') || '';
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
@@ -484,12 +485,9 @@ function initServiceShowcase() {
     const serviceDesc = document.getElementById('service-desc');
     
     const serviceDescriptions = {
-        'web-design': 'Custom, responsive websites that convert visitors into customers with modern design and seamless user experience.',
-        'digital-marketing': 'Comprehensive digital marketing strategies including social media, PPC, email marketing, and content marketing.',
-        'seo': 'Search engine optimization to improve your website\'s visibility and drive organic traffic to your business.',
-        'brand-strategy': 'Strategic brand development including logo design, brand guidelines, and comprehensive brand identity.',
-        'ecommerce': 'Complete e-commerce solutions with secure payment processing, inventory management, and customer experience optimization.',
-        'content-marketing': 'Engaging content creation including blog posts, social media content, videos, and marketing materials.'
+        'web-development': 'Custom, responsive websites that convert visitors into customers with modern design and seamless user experience. We build fast, reliable websites that engage users and drive growth.',
+        'app-development': 'Cross-platform and native mobile apps designed for user retention and scalability. Intuitive apps that scale with your business and delight users.',
+        'digital-marketing': 'Comprehensive digital marketing solutions including Email Marketing, Content Creation, Social Media Marketing, and Facebook Ads. Data-driven marketing that moves the needle — from awareness to conversion.'
     };
     
     serviceItems.forEach(item => {
