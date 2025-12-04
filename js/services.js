@@ -720,8 +720,8 @@ function initServicesTestimonialsSlider() {
     });
 }
 
-// FAQ Toggle Function
-function toggleServicesFAQ(element) {
+// FAQ Toggle Function (global for onclick)
+window.toggleServicesFAQ = function(element) {
     const faqItem = element.closest('.faq-item');
     const isActive = faqItem.classList.contains('active');
     
