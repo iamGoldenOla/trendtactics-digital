@@ -497,22 +497,34 @@ function initServiceShowcase() {
     serviceItems.forEach(item => {
         item.addEventListener('click', function() {
             const serviceType = this.getAttribute('data-service');
-            const isDigitalMarketing = serviceType === 'digital-marketing';
-            const wasActive = this.classList.contains('active');
+            
+            // Pause auto-scroll when user clicks
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+            }
             
             // Remove active class from all items
             serviceItems.forEach(i => i.classList.remove('active'));
             
-            // Toggle active class for clicked item (or add if not Digital Marketing)
-            if (isDigitalMarketing) {
-                this.classList.toggle('active', !wasActive);
-            } else {
-                this.classList.add('active');
+            // Add active class to clicked item
+            this.classList.add('active');
+            
+            // Scroll to center the clicked item
+            if (serviceIconsContainer) {
+                const cardWidth = this.offsetWidth + 24;
+                const containerWidth = serviceIconsContainer.clientWidth;
+                const index = Array.from(serviceItems).indexOf(this);
+                const scrollPosition = (index * cardWidth) - (containerWidth / 2) + (cardWidth / 2);
+                
+                serviceIconsContainer.scrollTo({
+                    left: Math.max(0, scrollPosition),
+                    behavior: 'smooth'
+                });
             }
             
             // Show/hide Digital Marketing sub-services
             if (digitalMarketingSubs) {
-                if (isDigitalMarketing && !wasActive) {
+                if (serviceType === 'digital-marketing') {
                     digitalMarketingSubs.classList.add('active');
                 } else {
                     digitalMarketingSubs.classList.remove('active');
@@ -521,62 +533,86 @@ function initServiceShowcase() {
             
             // Update description
             if (serviceDescriptions[serviceType]) {
-                serviceDesc.textContent = serviceDescriptions[serviceType];
-                
-                // Add fade effect
                 serviceDesc.style.opacity = '0';
                 setTimeout(() => {
                     serviceDesc.textContent = serviceDescriptions[serviceType];
                     serviceDesc.style.opacity = '1';
                 }, 200);
             }
+            
+            // Resume auto-scroll after 5 seconds
+            setTimeout(() => {
+                if (serviceIconsContainer) {
+                    autoScrollInterval = setInterval(autoScrollServices, 3000);
+                }
+            }, 5000);
         });
     });
     
-    // Auto-scroll service icons every 2 seconds
+    // Auto-scroll service icons every 3 seconds
     let currentScrollIndex = 0;
     const serviceIconsContainer = document.querySelector('.service-icons');
+    let autoScrollInterval;
     
     function autoScrollServices() {
         if (serviceIconsContainer && serviceItems.length > 0) {
-            const cardWidth = serviceItems[0].offsetWidth + 24; // card width + gap
-            const maxScroll = serviceIconsContainer.scrollWidth - serviceIconsContainer.clientWidth;
+            // Move to next service
+            currentScrollIndex = (currentScrollIndex + 1) % serviceItems.length;
+            const activeItem = serviceItems[currentScrollIndex];
             
-            if (maxScroll > 0) {
-                currentScrollIndex = (currentScrollIndex + 1) % serviceItems.length;
-                const scrollPosition = currentScrollIndex * cardWidth;
-                
-                serviceIconsContainer.scrollTo({
-                    left: scrollPosition,
-                    behavior: 'smooth'
-                });
-                
-                // Update active service
-                serviceItems.forEach((item, index) => {
-                    item.classList.toggle('active', index === currentScrollIndex);
-                });
-                
-                // Update description and sub-services visibility
-                const activeItem = serviceItems[currentScrollIndex];
-                const serviceType = activeItem.getAttribute('data-service');
-                if (serviceDescriptions[serviceType]) {
+            // Remove active class from all items
+            serviceItems.forEach(item => item.classList.remove('active'));
+            
+            // Add active class to current item
+            activeItem.classList.add('active');
+            
+            // Scroll to center the active item
+            const cardWidth = activeItem.offsetWidth + 24; // card width + gap
+            const containerWidth = serviceIconsContainer.clientWidth;
+            const scrollPosition = (currentScrollIndex * cardWidth) - (containerWidth / 2) + (cardWidth / 2);
+            
+            serviceIconsContainer.scrollTo({
+                left: Math.max(0, scrollPosition),
+                behavior: 'smooth'
+            });
+            
+            // Update description
+            const serviceType = activeItem.getAttribute('data-service');
+            if (serviceDescriptions[serviceType]) {
+                serviceDesc.style.opacity = '0';
+                setTimeout(() => {
                     serviceDesc.textContent = serviceDescriptions[serviceType];
-                }
-                
-                // Show/hide Digital Marketing sub-services
-                if (digitalMarketingSubs) {
-                    if (serviceType === 'digital-marketing') {
-                        digitalMarketingSubs.classList.add('active');
-                    } else {
-                        digitalMarketingSubs.classList.remove('active');
-                    }
+                    serviceDesc.style.opacity = '1';
+                }, 200);
+            }
+            
+            // Automatically show/hide Digital Marketing sub-services
+            if (digitalMarketingSubs) {
+                if (serviceType === 'digital-marketing') {
+                    digitalMarketingSubs.classList.add('active');
+                } else {
+                    digitalMarketingSubs.classList.remove('active');
                 }
             }
         }
     }
     
-    // Start auto-scrolling every 2 seconds
-    setInterval(autoScrollServices, 2000);
+    // Start auto-scrolling every 3 seconds
+    if (serviceIconsContainer) {
+        autoScrollInterval = setInterval(autoScrollServices, 3000);
+        
+        // Pause auto-scroll on hover
+        serviceIconsContainer.addEventListener('mouseenter', () => {
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+            }
+        });
+        
+        // Resume auto-scroll on mouse leave
+        serviceIconsContainer.addEventListener('mouseleave', () => {
+            autoScrollInterval = setInterval(autoScrollServices, 3000);
+        });
+    }
 }
 
 // Add scroll-triggered animations for service cards

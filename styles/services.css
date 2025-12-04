@@ -154,7 +154,7 @@
 
 .service-icons {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: nowrap;
     gap: var(--spacing-lg);
     overflow-x: auto;
@@ -229,31 +229,6 @@
 /* Expandable Digital Marketing Card */
 .service-icon-item-expandable {
     position: relative;
-}
-
-.expand-indicator {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    width: 24px;
-    height: 24px;
-    background: rgba(0, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    color: var(--primary);
-    transition: all var(--transition-normal);
-}
-
-.service-icon-item-expandable.active .expand-indicator {
-    background: var(--primary);
-    color: var(--base-dark);
-}
-
-.service-icon-item-expandable.active .expand-indicator i {
-    transform: rotate(180deg);
 }
 
 /* Digital Marketing Sub-Services */
