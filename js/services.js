@@ -485,14 +485,17 @@ function initServiceShowcase() {
     const serviceItems = document.querySelectorAll('.service-icon-item');
     const serviceDesc = document.getElementById('service-desc');
     const digitalMarketingSubs = document.getElementById('digital-marketing-subs');
+    const serviceIconsContainer = document.querySelector('.service-icons');
+    
+    // Auto-scroll variables
+    let currentScrollIndex = 0;
+    let autoScrollInterval = null;
     
     const serviceDescriptions = {
         'web-development': 'Custom, responsive websites that convert visitors into customers with modern design and seamless user experience. We build fast, reliable websites that engage users and drive growth.',
         'app-development': 'Cross-platform and native mobile apps designed for user retention and scalability. Intuitive apps that scale with your business and delight users.',
         'digital-marketing': 'Comprehensive digital marketing solutions including Email Marketing, Content Creation, Social Media Marketing, and Facebook Ads. Data-driven marketing that moves the needle — from awareness to conversion.'
     };
-    
-    const digitalMarketingSubs = document.getElementById('digital-marketing-subs');
     
     function autoScrollServices() {
         if (serviceIconsContainer && serviceItems.length > 0) {
@@ -538,6 +541,68 @@ function initServiceShowcase() {
             }
         }
     }
+    
+    // Click handlers for service items
+    serviceItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const serviceType = this.getAttribute('data-service');
+            
+            // Pause auto-scroll when user clicks
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+                autoScrollInterval = null;
+            }
+            
+            // Remove active class from all items
+            serviceItems.forEach(i => i.classList.remove('active'));
+            
+            // Add active class to clicked item
+            this.classList.add('active');
+            
+            // Update current scroll index
+            const clickedIndex = Array.from(serviceItems).indexOf(this);
+            currentScrollIndex = clickedIndex;
+            
+            // Scroll to center the clicked item
+            if (serviceIconsContainer) {
+                const cardWidth = this.offsetWidth;
+                const gap = 24;
+                const totalCardWidth = cardWidth + gap;
+                const containerWidth = serviceIconsContainer.clientWidth;
+                const scrollPosition = (clickedIndex * totalCardWidth) - (containerWidth / 2) + (cardWidth / 2);
+                
+                serviceIconsContainer.scrollTo({
+                    left: Math.max(0, scrollPosition),
+                    behavior: 'smooth'
+                });
+            }
+            
+            // Show/hide Digital Marketing sub-services
+            if (digitalMarketingSubs) {
+                if (serviceType === 'digital-marketing') {
+                    digitalMarketingSubs.classList.add('active');
+                } else {
+                    digitalMarketingSubs.classList.remove('active');
+                }
+            }
+            
+            // Update description
+            if (serviceDescriptions[serviceType]) {
+                serviceDesc.style.opacity = '0';
+                setTimeout(() => {
+                    serviceDesc.textContent = serviceDescriptions[serviceType];
+                    serviceDesc.style.opacity = '1';
+                }, 200);
+            }
+            
+            // Resume auto-scroll after 5 seconds
+            setTimeout(() => {
+                if (serviceIconsContainer && !autoScrollInterval) {
+                    autoScrollInterval = setInterval(autoScrollServices, 3000);
+                }
+            }, 5000);
+        });
+    });
     
     // Start auto-scrolling every 3 seconds
     if (serviceIconsContainer && serviceItems.length > 0) {
