@@ -1105,12 +1105,13 @@ html {
     margin-top: var(--spacing-md);
     overflow: hidden;
     position: relative;
+    width: 100%;
 }
 
 .results-track {
     display: flex;
     gap: var(--spacing-md);
-    animation: scroll-results 15s linear infinite;
+    animation: scroll-results 20s linear infinite;
     width: max-content;
 }
 
@@ -1119,7 +1120,7 @@ html {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(calc(-50% - var(--spacing-md)));
     }
 }
 
@@ -1133,7 +1134,7 @@ html {
     background: rgba(0, 255, 255, 0.05);
     border: 1px solid rgba(0, 255, 255, 0.2);
     border-radius: var(--radius-lg);
-    min-width: calc(33.333% - var(--spacing-md));
+    min-width: 150px;
     flex-shrink: 0;
 }
 
