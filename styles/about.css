@@ -2047,13 +2047,7 @@
 }
 
 .usp-content p {
-    color: #FFFFFF !important;
-    opacity: 1 !important;
-    line-height: 1.9;
-    font-size: 1.15rem;
-    font-weight: 400;
-    text-align: center;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    display: none;
 }
 
 .usp-accent-line {
@@ -2076,16 +2070,17 @@
 /* ===== BRANDS SECTION ===== */
 .brands {
     padding: var(--spacing-4xl) 0;
-    background: var(--base-dark);
+    background: #FFFFFF;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 10px 40px rgba(10, 30, 63, 0.15);
 }
 
 .brands-label {
     text-align: center;
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--primary);
+    color: var(--base-dark);
     margin-bottom: var(--spacing-3xl);
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -2110,19 +2105,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(0, 255, 255, 0.2);
+    background: #FFFFFF;
+    border: 1px solid rgba(10, 30, 63, 0.1);
     border-radius: var(--radius-xl);
     padding: var(--spacing-lg);
     transition: all 0.4s ease;
-    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(10, 30, 63, 0.1);
 }
 
 .brand-item:hover {
     transform: translateY(-5px) scale(1.05);
-    border-color: var(--primary);
-    box-shadow: 0 15px 35px rgba(0, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--base-dark);
+    box-shadow: 0 15px 35px rgba(10, 30, 63, 0.2);
+    background: #FFFFFF;
 }
 
 .brand-logo {
@@ -2131,12 +2126,14 @@
     width: auto;
     height: auto;
     object-fit: contain;
-    filter: brightness(0) invert(1) opacity(0.8);
+    filter: none;
+    opacity: 1;
     transition: all 0.4s ease;
 }
 
 .brand-item:hover .brand-logo {
-    filter: brightness(0) invert(1) opacity(1);
+    filter: none;
+    opacity: 1;
     transform: scale(1.1);
 }
 
@@ -2171,23 +2168,45 @@
 
 .trust-testimonials-grid-redesigned {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: var(--spacing-3xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-2xl);
 }
 
 .trust-testimonial-card-redesigned {
     background: linear-gradient(145deg, rgba(10, 30, 63, 0.98) 0%, rgba(22, 36, 71, 0.98) 100%);
     border: 2px solid rgba(0, 255, 255, 0.3);
     border-radius: var(--radius-2xl);
-    padding: var(--spacing-4xl);
+    padding: var(--spacing-2xl);
     transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     backdrop-filter: blur(10px);
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 255, 255, 0.1);
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
+    animation: float-card 6s ease-in-out infinite;
+}
+
+.trust-testimonial-card-redesigned:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.trust-testimonial-card-redesigned:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.trust-testimonial-card-redesigned:nth-child(3) {
+    animation-delay: 4s;
+}
+
+@keyframes float-card {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
 }
 
 .trust-testimonial-card-redesigned::before {
@@ -2283,9 +2302,9 @@
 
 .trust-quote-redesigned {
     color: #FFFFFF !important;
-    font-size: 1.25rem !important;
-    line-height: 1.9 !important;
-    margin-bottom: var(--spacing-2xl);
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: var(--spacing-lg);
     font-style: italic;
     position: relative;
     z-index: 2;
@@ -2366,16 +2385,15 @@
 }
 
 .certification-item-redesigned {
-    background: linear-gradient(145deg, rgba(10, 30, 63, 0.98) 0%, rgba(22, 36, 71, 0.98) 100%);
-    border: 2px solid rgba(0, 255, 255, 0.3);
+    background: linear-gradient(145deg, #FFFFFF 0%, #F5F5F5 100%);
+    border: 3px solid var(--primary);
     border-radius: var(--radius-2xl);
     padding: var(--spacing-3xl);
     text-align: center;
     transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 255, 255, 0.1);
+    box-shadow: 0 15px 50px rgba(10, 30, 63, 0.2), 0 0 0 1px rgba(0, 255, 255, 0.3);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2396,12 +2414,13 @@
 }
 
 .certification-item-redesigned:hover {
-    transform: translateY(-12px);
+    transform: translateY(-12px) scale(1.05);
     border-color: var(--primary);
     box-shadow: 
-        0 25px 70px rgba(0, 255, 255, 0.3),
-        0 0 50px rgba(0, 255, 255, 0.2),
+        0 25px 70px rgba(0, 255, 255, 0.4),
+        0 0 50px rgba(0, 255, 255, 0.3),
         inset 0 0 30px rgba(0, 255, 255, 0.1);
+    background: linear-gradient(145deg, #FFFFFF 0%, #E8F4F8 100%);
 }
 
 .certification-item-redesigned:hover::before {
@@ -2440,25 +2459,23 @@
 }
 
 .cert-content h4 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 800;
-    color: var(--primary) !important;
+    color: var(--base-dark) !important;
     margin-bottom: var(--spacing-md);
-    text-shadow: 
-        0 0 20px rgba(0, 255, 255, 0.6),
-        0 2px 10px rgba(0, 255, 255, 0.4);
+    text-shadow: none;
     line-height: 1.4;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .cert-content p {
-    color: #FFFFFF !important;
-    opacity: 1 !important;
-    font-size: 1rem;
+    color: var(--base-dark) !important;
+    opacity: 0.8 !important;
+    font-size: 0.95rem;
     line-height: 1.7;
-    font-weight: 400;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+    text-shadow: none;
 }
 
 .awards-grid {
