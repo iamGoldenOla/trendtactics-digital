@@ -1877,4 +1877,377 @@
     .ebook-promo-section p {
         font-size: 1rem;
     }
+}
+
+/* ===== USP SECTION ===== */
+.usp-section {
+    padding: var(--spacing-4xl) 0;
+    background: var(--base-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.usp-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.usp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-3xl);
+    position: relative;
+    z-index: 2;
+}
+
+.usp-card {
+    background: linear-gradient(145deg, rgba(10, 30, 63, 0.8) 0%, rgba(22, 36, 71, 0.8) 100%);
+    border: 1.5px solid rgba(0, 255, 255, 0.2);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-3xl);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.usp-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.usp-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2),
+                0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+.usp-card:hover::before {
+    transform: scaleX(1);
+}
+
+.usp-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-xl);
+    background: var(--gradient-primary);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--base-dark);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+    transition: all 0.4s ease;
+}
+
+.usp-card:hover .usp-icon {
+    transform: rotate(5deg) scale(1.1);
+    box-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
+}
+
+.usp-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.usp-card p {
+    color: var(--white);
+    opacity: 0.9;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* ===== BRANDS SECTION ===== */
+.brands {
+    padding: var(--spacing-4xl) 0;
+    background: var(--base-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.brands-label {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: var(--spacing-3xl);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.brands-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.brands-grid {
+    display: flex;
+    gap: var(--spacing-3xl);
+    animation: scroll-brands 30s linear infinite;
+    width: fit-content;
+}
+
+.brand-item {
+    flex-shrink: 0;
+    width: 200px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.brand-item:hover {
+    transform: translateY(-5px) scale(1.05);
+    border-color: var(--primary);
+    box-shadow: 0 15px 35px rgba(0, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.brand-logo {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1) opacity(0.8);
+    transition: all 0.4s ease;
+}
+
+.brand-item:hover .brand-logo {
+    filter: brightness(0) invert(1) opacity(1);
+    transform: scale(1.1);
+}
+
+@keyframes scroll-brands {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ===== TRUST SECTION ===== */
+.trust-section {
+    padding: var(--spacing-4xl) 0;
+    background: var(--base-dark);
+    position: relative;
+}
+
+.trust-testimonials {
+    margin-bottom: var(--spacing-4xl);
+}
+
+.trust-subtitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.trust-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-2xl);
+}
+
+.trust-testimonial-card {
+    background: linear-gradient(145deg, rgba(10, 30, 63, 0.9) 0%, rgba(22, 36, 71, 0.9) 100%);
+    border: 1.5px solid rgba(0, 255, 255, 0.2);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-3xl);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.trust-testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.trust-testimonial-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+}
+
+.trust-testimonial-card:hover::before {
+    opacity: 1;
+}
+
+.trust-rating {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: var(--spacing-lg);
+    color: #FFD700;
+    font-size: 1.1rem;
+}
+
+.trust-quote {
+    color: var(--white);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-xl);
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+}
+
+.trust-quote::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--primary);
+    opacity: 0.2;
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    font-family: Georgia, serif;
+}
+
+.trust-author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: relative;
+    z-index: 2;
+}
+
+.trust-author strong {
+    color: var(--primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.trust-author span {
+    color: var(--white);
+    opacity: 0.7;
+    font-size: 0.95rem;
+}
+
+.trust-certifications,
+.trust-awards {
+    margin-top: var(--spacing-4xl);
+}
+
+.certifications-grid,
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-2xl);
+}
+
+.certification-item,
+.award-item {
+    background: linear-gradient(145deg, rgba(10, 30, 63, 0.9) 0%, rgba(22, 36, 71, 0.9) 100%);
+    border: 1.5px solid rgba(0, 255, 255, 0.2);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-2xl);
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.certification-item:hover,
+.award-item:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+}
+
+.cert-icon,
+.award-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto var(--spacing-lg);
+    background: var(--gradient-primary);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--base-dark);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+    transition: all 0.4s ease;
+}
+
+.certification-item:hover .cert-icon,
+.award-item:hover .award-icon {
+    transform: rotate(5deg) scale(1.1);
+    box-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
+}
+
+.certification-item h4,
+.award-item h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.certification-item p,
+.award-item p {
+    color: var(--white);
+    opacity: 0.8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Responsive Design for USP and Trust Sections */
+@media (max-width: 768px) {
+    .usp-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .trust-testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .certifications-grid,
+    .awards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .brand-item {
+        width: 150px;
+        height: 90px;
+    }
 } 

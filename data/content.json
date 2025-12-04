@@ -1,20 +1,24 @@
 {
   "brands": [
     {
-      "name": "Gabson",
-      "logo": "./images/Gabson -PICP.jpg"
-    },
-    {
-      "name": "GREENTICK",
-      "logo": "./images/GREENTICK - My Presi.jpg"
-    },
-    {
       "name": "KEVTOS CATERING",
       "logo": "./images/KEVTOS CATERING.jpg"
     },
     {
       "name": "Realtreasure",
       "logo": "./images/Realtreasure.jpg"
+    },
+    {
+      "name": "HustleNChill",
+      "logo": "./images/HustleNChill - My Presi 2.jpg"
+    },
+    {
+      "name": "GREENTICK",
+      "logo": "./images/GREENTICK - My Presi.jpg"
+    },
+    {
+      "name": "Gabson",
+      "logo": "./images/Gabson -PICP.jpg"
     }
   ],
   "services": [

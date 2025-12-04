@@ -15,6 +15,7 @@ async function loadAboutContent() {
         loadTeam(data.team);
         loadStats(data.stats);
         loadTimeline(data.timeline);
+        loadBrandsAbout(data.brands);
         loadFooterLinks(data.footer);
         loadSocialLinks(data.social);
         
@@ -107,6 +108,26 @@ function loadTimeline(timeline) {
             <div class="timeline-dot"></div>
         </div>
     `).join('');
+}
+
+// Load brands for about page
+function loadBrandsAbout(brands) {
+    const brandsGrid = document.getElementById('brands-grid-about');
+    if (!brandsGrid || !brands) return;
+    
+    // Create duplicate items for infinite scroll
+    const duplicatedBrands = [...brands, ...brands];
+    
+    let brandsHTML = '';
+    duplicatedBrands.forEach(brand => {
+        brandsHTML += `
+            <div class="brand-item">
+                <img src="${brand.logo}" alt="${brand.name}" class="brand-logo">
+            </div>
+        `;
+    });
+    
+    brandsGrid.innerHTML = brandsHTML;
 }
 
 // Initialize about page animations
@@ -269,6 +290,31 @@ function loadFallbackAboutContent() {
         }
     ];
     loadTimeline(fallbackTimeline);
+
+    // Fallback brands
+    const fallbackBrands = [
+        {
+            name: "KEVTOS CATERING",
+            logo: "./images/KEVTOS CATERING.jpg"
+        },
+        {
+            name: "Realtreasure",
+            logo: "./images/Realtreasure.jpg"
+        },
+        {
+            name: "HustleNChill",
+            logo: "./images/HustleNChill - My Presi 2.jpg"
+        },
+        {
+            name: "GREENTICK",
+            logo: "./images/GREENTICK - My Presi.jpg"
+        },
+        {
+            name: "Gabson",
+            logo: "./images/Gabson -PICP.jpg"
+        }
+    ];
+    loadBrandsAbout(fallbackBrands);
 }
 
 // Add timeline animation on scroll
