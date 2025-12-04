@@ -2229,16 +2229,18 @@ a:hover {
 .footer {
     background: linear-gradient(135deg, var(--base-dark) 80%, #13294b 100%);
     color: var(--white);
-    padding: var(--spacing-3xl) 0 var(--spacing-xl);
-    border-top: 1.5px solid rgba(255,255,255,0.08);
+    padding: var(--spacing-2xl) 0 var(--spacing-lg);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px 20px 0 0;
     box-shadow: 0 -2px 24px 0 rgba(10,30,63,0.08);
+    margin-top: var(--spacing-2xl);
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: var(--spacing-2xl);
-    margin-bottom: var(--spacing-xl);
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
     align-items: flex-start;
 }
 

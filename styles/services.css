@@ -632,7 +632,7 @@
 
 /* Process Section */
 .process-section {
-    padding: var(--spacing-4xl) 0;
+    padding: var(--spacing-2xl) 0;
     background: var(--base-dark);
     color: var(--white);
 }
@@ -900,7 +900,7 @@ html {
 
 /* Why Choose Us Section */
 .why-choose-us {
-    padding: var(--spacing-4xl) 0;
+    padding: var(--spacing-2xl) 0;
     background: linear-gradient(180deg, var(--base-dark) 0%, rgba(10, 30, 63, 0.95) 100%);
     color: var(--white);
     position: relative;
