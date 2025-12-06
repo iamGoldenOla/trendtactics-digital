@@ -147,5 +147,167 @@
       },
       "rating": 5
     }
+  ],
+  "ebooks": [
+    {
+      "id": "how-to-persuade-and-get-paid",
+      "title": "How to Persuade and Get Paid: The Sales Workshop",
+      "description": "Master the art of persuasion and sales with proven techniques from Phil M. Jones.",
+      "category": "business",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/[PDF Download] How to Persuade and Get Paid_ The Sales Workshop for Everyone - Phil M. Jones.pdf"
+    },
+    {
+      "id": "little-black-book-stunning-success",
+      "title": "Little Black Book For Stunning Success",
+      "description": "Unlock the secrets to achieving stunning success in business and life by Robin Sharma.",
+      "category": "motivational",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/01. Little Black Book For Stunning Success author Robin Sharma.pdf"
+    },
+    {
+      "id": "real-side-hustle-business-ideas",
+      "title": "14 Real Side Hustle and Small Business Ideas",
+      "description": "Discover proven side hustle and small business ideas to start earning extra income.",
+      "category": "business",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/14-Real-Side-Hustle-and-Small-Business-Ideas-Justin-Gesso-full.pdf"
+    },
+    {
+      "id": "16-limiting-beliefs",
+      "title": "16 Limiting Beliefs Preventing You From Thriving",
+      "description": "Identify and overcome the limiting beliefs holding you back from achieving your full potential.",
+      "category": "self-help",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/23. 16 limiting beliefs that are preventing you from thriving author Tony Robbins.pdf"
+    },
+    {
+      "id": "psychology-of-salesmanship",
+      "title": "The Psychology of Salesmanship",
+      "description": "Learn the psychological principles behind effective sales and persuasion techniques.",
+      "category": "business",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/31. The Psychology of Salesmanship author William W. Atkinson.pdf"
+    },
+    {
+      "id": "101-ways-market-business",
+      "title": "101 Ways to Market Your Business",
+      "description": "A comprehensive guide with 101 creative marketing strategies to grow your business.",
+      "category": "digital-marketing",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/101 Ways to Market Your Business_ Building a Successful Business with Creative Marketing (101 . . . Series) ( PDFDrive ).pdf"
+    },
+    {
+      "id": "279-days-overnight-success",
+      "title": "279 Days to Overnight Success",
+      "description": "A practical guide to building a successful business from scratch in less than a year.",
+      "category": "business",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/279 Days to Overnight Success author Chris Guillebeau.pdf"
+    },
+    {
+      "id": "gifts-of-imperfection",
+      "title": "The Gifts of Imperfection",
+      "description": "Embrace your imperfections and discover the courage to be authentic and wholehearted.",
+      "category": "self-help",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/2545_GiftsofImperfection.pdf"
+    },
+    {
+      "id": "one-person-business",
+      "title": "A One Person Business: How To Start A Small Business",
+      "description": "Complete guide to starting and running a successful one-person business.",
+      "category": "business",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/A One Person Business_ How To Start A Small Business ( PDFDrive ).pdf"
+    },
+    {
+      "id": "architect-entrepreneur",
+      "title": "Architect and Entrepreneur: Building Your Startup Design Business",
+      "description": "A field guide to building, branding, and marketing your startup design business.",
+      "category": "business",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/Architect and Entrepreneur_ A Field Guide to Building, Branding, and Marketing Your Startup Design Business ( PDFDrive ).pdf"
+    },
+    {
+      "id": "be-obsessed-or-be-average",
+      "title": "Be Obsessed or Be Average",
+      "description": "Grant Cardone's guide to achieving extraordinary success through obsession and dedication.",
+      "category": "motivational",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/Be Obsessed or Be Average - Cardone, Grant.pdf"
+    },
+    {
+      "id": "blink-power-of-thinking",
+      "title": "Blink: The Power of Thinking Without Thinking",
+      "description": "Explore the power of snap judgments and rapid cognition in decision-making.",
+      "category": "self-help",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/Blink-The-Power-of-Thinking-Without-Thinking-pdf-free-download.pdf"
+    },
+    {
+      "id": "built-to-sell",
+      "title": "Built to Sell: Turn Your Business Into One You Can Sell",
+      "description": "Learn how to build a business that's valuable and sellable from day one.",
+      "category": "business",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/Built to Sell_ Turn Your Business Into One You Can Sell ( PDFDrive ).pdf"
+    },
+    {
+      "id": "buying-trances",
+      "title": "Buying Trances: A New Psychology of Sales and Marketing",
+      "description": "Discover the psychological triggers that create buying trances and drive sales.",
+      "category": "digital-marketing",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/Buying Trances_ A New Psychology of Sales and Marketing ( PDFDrive ).pdf"
+    },
+    {
+      "id": "confident-you-introvert",
+      "title": "Confident You: An Introvert's Guide to Success",
+      "description": "A guide for introverts to succeed in life and business while staying true to yourself.",
+      "category": "self-help",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/Confident you _ an introvert_s guide to success in life and business ( PDFDrive ).pdf"
+    },
+    {
+      "id": "daily-self-discipline",
+      "title": "Daily Self-Discipline: Everyday Habits and Exercises",
+      "description": "Build self-discipline and achieve your goals with daily habits and exercises.",
+      "category": "self-help",
+      "pages": "",
+      "downloads": "",
+      "price": "Free",
+      "file": "ebooks/Daily Self-Discipline_ Everyday Habits and Exercises to Build Self-Discipline and Achieve Your Goals ( PDFDrive ).pdf"
+    }
   ]
 }
