@@ -148,10 +148,44 @@
             transform: translateZ(31px);
         }
         
+        /* Enhanced Hero Section Design */
+        .ebooks-hero {
+            padding: 8rem 0 6rem;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .ebooks-hero .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .ebooks-hero .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: var(--spacing-xl);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        .ebooks-hero .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            line-height: 1.8;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
         /* Ebooks Main Content */
         .ebooks-main {
             padding: var(--spacing-5xl) 0;
             background: var(--base-dark);
+            margin-top: 4rem;
         }
         
         .ebooks-intro {
@@ -480,6 +514,16 @@
             min-height: 600px;
             border: none;
             border-radius: var(--radius-lg);
+        }
+        
+        /* CTA Section Spacing */
+        .ebooks-main + .cta {
+            margin-top: 4rem;
+            padding-top: var(--spacing-4xl);
+        }
+        
+        .ebooks-main .ebooks-grid {
+            margin-bottom: 4rem;
         }
         
         .lead-modal-close {
