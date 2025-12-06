@@ -75,7 +75,7 @@ Services
   description: "Custom websites that convert visitors into customers.",
   icon: "fas fa-code",
   features: ["Responsive Design", "SEO Optimization"],
-  price: 
+  price: "$20"
 }
 ```
 
