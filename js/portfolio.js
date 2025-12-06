@@ -12,6 +12,8 @@ const portfolioAssets = [
   { type: 'video', src: './videos/GOD-HEARD-YOU-NOW-WALK-IN-PEACE-spoken-word.mp4', title: 'God Heard You Now Walk In Peace', category: 'spoken-word', description: '' },
   // Music Generation
   { type: 'video', src: './videos/COLD-COLDER-COLDEST-THIS-IS-WINTER-music.mp4', title: 'Cold Colder Coldest (Music)', category: 'music-generation', description: '' },
+  { type: 'youtube', src: 'https://youtu.be/31j1QwMls4w?list=PLdDzLt-LMUzePM2grAn9UCoswdH5pssap', title: 'AI Music Video 1', category: 'music-generation', description: '' },
+  { type: 'youtube', src: 'https://www.youtube.com/watch?v=bWDo1vN5aJQ&list=PLdDzLt-LMUzcCDdaMpdk9RPfozUE1KeAL', title: 'AI Music Video 2', category: 'music-generation', description: '' },
   // Movie/Script
   { type: 'video', src: './videos/WHEN-THE-LIGHT-GO-BLACK-movie-script.mp4', title: 'When The Light Go Black (Movie Script)', category: 'advert', description: '' },
   // Image Generation
@@ -73,6 +75,19 @@ function renderPortfolio() {
   });
 }
 
+function getYouTubeEmbedUrl(url) {
+  // Extract video ID from various YouTube URL formats
+  let videoId = '';
+  if (url.includes('youtu.be/')) {
+    videoId = url.split('youtu.be/')[1].split('?')[0].split('&')[0];
+  } else if (url.includes('youtube.com/watch?v=')) {
+    videoId = url.split('v=')[1].split('&')[0];
+  } else if (url.includes('youtube.com/embed/')) {
+    videoId = url.split('embed/')[1].split('?')[0].split('&')[0];
+  }
+  return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+}
+
 function renderCard(asset) {
   if (asset.type === 'image') {
     return `
@@ -92,6 +107,20 @@ function renderCard(asset) {
       <div class="portfolio-card" data-category="${asset.category}">
         <div class="portfolio-media">
           <video src="${asset.src}" controls preload="none" poster="./images/Trendtactics-logo.jpg"></video>
+        </div>
+        <div class="portfolio-card-body">
+          <h3>${asset.title}</h3>
+          <span class="portfolio-badge">${categoryLabels[asset.category]}</span>
+          <p>${asset.description || ''}</p>
+        </div>
+      </div>
+    `;
+  } else if (asset.type === 'youtube') {
+    const embedUrl = getYouTubeEmbedUrl(asset.src);
+    return `
+      <div class="portfolio-card" data-category="${asset.category}">
+        <div class="portfolio-media">
+          <iframe src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="portfolio-card-body">
           <h3>${asset.title}</h3>
