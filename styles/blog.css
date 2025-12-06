@@ -35,8 +35,8 @@
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 2rem;
-    color: #ffffff !important;
-    text-shadow: 0 4px 20px rgba(0, 255, 255, 0.3);
+    color: #00FFFF !important;
+    text-shadow: 0 4px 20px rgba(0, 255, 255, 0.5);
     position: relative;
     display: inline-block;
     letter-spacing: -0.02em;
@@ -74,9 +74,9 @@
     max-width: 750px;
     margin: 2.5rem auto 0;
     opacity: 0.95;
-    color: rgba(255, 255, 255, 0.95) !important;
+    color: #00FFFF !important;
     font-weight: 400;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 10px rgba(0, 255, 255, 0.3);
 }
 
 /* Blog Layout */
