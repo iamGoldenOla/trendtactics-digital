@@ -4,76 +4,20 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: # Allows manual triggering
 
 jobs:
   deploy:
-    name: Deploy Static Website to cPanel
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    
+
     steps:
-      - name: ⬇ Checkout code
-        uses: actions/checkout@v4
-      
-      - name: ✅ Validate FTP Secrets
-        run: |
-          if [ -z "${{ secrets.FTP_SERVER }}" ]; then
-            echo "❌ ERROR: FTP_SERVER secret is not set!"
-            exit 1
-          fi
-          if [ -z "${{ secrets.FTP_USERNAME }}" ]; then
-            echo "❌ ERROR: FTP_USERNAME secret is not set!"
-            exit 1
-          fi
-          if [ -z "${{ secrets.FTP_PASSWORD }}" ]; then
-            echo "❌ ERROR: FTP_PASSWORD secret is not set!"
-            exit 1
-          fi
-          echo "✅ All FTP secrets are configured"
-          echo "📁 Server: ${{ secrets.FTP_SERVER }}"
-          echo "👤 Username: ${{ secrets.FTP_USERNAME }}"
-          echo "📂 Directory: ${{ secrets.FTP_SERVER_DIR || '/public_html/' }}"
-      
-      - name: 📦 List files to deploy
-        run: |
-          echo "📦 Files ready for deployment:"
-          find . -type f -not -path '*/node_modules/*' -not -path '*/.git/*' -not -path '*/.github/*' | head -30
-      
-      - name: 🚀 Deploy to cPanel via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Deploy to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /public_html/
           local-dir: ./
-          server-dir: ${{ secrets.FTP_SERVER_DIR || '/public_html/' }}
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.env*
-            **/*.log
-            **/.DS_Store
-            **/Thumbs.db
-            **/.vscode/**
-            **/backend/**
-            **/frontend/node_modules/**
-            **/trendtactics-digital/**
-            **/.next/**
-            **/dist/**
-            **/build/**
-            **/package-lock.json
-            **/package.json
-            **/*.md
-            !**/README.md
-            **/.github/**
-      
-      - name: ✅ Deployment Summary
-        if: success()
-        run: |
-          echo "✅ Deployment completed successfully!"
-          echo "🚀 Website deployed to: ${{ secrets.FTP_SERVER_DIR || '/public_html/' }}"
-          echo "📅 Deployed at: $(date)"
-          echo "🔄 Commit: ${{ github.event.head_commit.message }}"
