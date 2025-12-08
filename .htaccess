@@ -8,7 +8,14 @@ RewriteEngine On
 RewriteBase /
 
 # ----------------------------------------------------------
-# 1. CLEAN URLs (remove .html from static pages)
+# 1. REDIRECT .html URLs to clean URLs (301 Permanent Redirect)
+#    Example: /services.html → /services
+# ----------------------------------------------------------
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1? [NC,L,R=301]
+
+# ----------------------------------------------------------
+# 2. CLEAN URLs (remove .html from static pages)
 #    Example: /services  → loads services.html
 # ----------------------------------------------------------
 RewriteCond %{REQUEST_FILENAME} !-d
