@@ -1,144 +1,60 @@
-# Deployment & Video Fixes ✅
+# Deployment Fix Guide
 
-## 🔧 **Issues Fixed**
+## Problem
+- All 30 workflow runs are failing/not uploading
+- Folder name mismatch: cPanel has `trendtactics-digital` but GitHub repo is `trendtacticsdigital`
 
-### **1. ✅ Video MIME Type Error**
-**Problem:** "No video with supported format and MIME type found"
+## Solution
 
-**Solution:**
-- Added proper `<source>` tags with `type="video/mp4"` attribute
-- Added MIME type configuration in `.htaccess`
-- Videos now specify correct MIME types
+### Option 1: Update FTP_SERVER_DIR Secret (Recommended)
 
-**Files Changed:**
-- `js/portfolio.js` - Video elements now use `<source>` tags
-- `.htaccess` - Added MIME type configuration
+If your website files are in a subdirectory in cPanel:
 
----
+1. Go to GitHub → Settings → Secrets and variables → Actions
+2. Check if `FTP_SERVER_DIR` secret exists
+3. If it doesn't exist, create it with one of these values:
+   - If files are in `/public_html/trendtactics-digital/` → Set to: `/public_html/trendtactics-digital/`
+   - If files are in `/public_html/trendtacticsdigital/` → Set to: `/public_html/trendtacticsdigital/`
+   - If files are directly in `/public_html/` → Set to: `/public_html/` (or leave empty)
 
-### **2. ✅ Deployment Workflow Fixed**
-**Problem:** 
-- Merge conflicts in GitHub Actions
-- Not deploying automatically
-- Directory path issues
+### Option 2: Rename Folder in cPanel
 
-**Solution:**
-- Fixed workflow to handle merges properly
-- Added `fetch-depth: 0` for proper history
-- Set correct server directory path
-- Ensured automatic deployment on push
+1. Log into cPanel
+2. Go to File Manager
+3. Navigate to `public_html/`
+4. Rename `trendtactics-digital` folder to `trendtacticsdigital`
+5. Update `FTP_SERVER_DIR` secret to: `/public_html/trendtacticsdigital/`
 
-**Files Changed:**
-- `.github/workflows/deploy.yml` - Complete rewrite
+### Option 3: Move Files to Root (If Domain Points Directly to public_html)
 
----
+If your domain `trendtacticsdigital.com` points directly to `public_html/`:
 
-## 📋 **GitHub Secrets Required**
+1. Move all files from `public_html/trendtactics-digital/` to `public_html/`
+2. Delete the empty `trendtactics-digital` folder
+3. Ensure `FTP_SERVER_DIR` is set to `/public_html/` or leave it empty
 
-Make sure you have these secrets set in GitHub:
+## Verify Deployment
 
-1. **FTP_SERVER** - Your FTP server address
-   - Example: `ftp.yourdomain.com` or `yourdomain.com`
+After updating:
 
-2. **FTP_USERNAME** - Your FTP username
-   - Example: `yourusername`
+1. Make a small change and push to GitHub
+2. Check GitHub Actions → Deploy to FTP workflow
+3. Look for success message
+4. Visit your website to verify changes are live
 
-3. **FTP_PASSWORD** - Your FTP password
-   - Your cPanel FTP password
+## Current Workflow Configuration
 
-4. **FTP_SERVER_DIR** (Optional) - Server directory
-   - Default: `/public_html/`
-   - Set to `/public_html/` if not specified
+The workflow now:
+- ✅ Validates all FTP secrets before deployment
+- ✅ Uses `FTP_SERVER_DIR` secret if set, otherwise defaults to `/public_html/`
+- ✅ Excludes unnecessary files (node_modules, .git, backend, frontend, etc.)
+- ✅ Deploys only the static website files
 
----
+## Troubleshooting
 
-## 🚀 **How Automatic Deployment Works**
+If deployment still fails:
 
-### **Automatic Triggers:**
-1. **Push to main branch** → Automatically deploys
-2. **Manual trigger** → Go to Actions → Run workflow
-
-### **What Happens:**
-1. GitHub Actions checks out your code
-2. Connects to your cPanel via FTP
-3. Uploads all files (except excluded ones)
-4. Deploys to `/public_html/` directory
-5. Website is live!
-
----
-
-## 🔍 **Video Fix Details**
-
-### **Before (Broken):**
-```html
-<video src="/videos/advert.mp4" controls></video>
-```
-
-### **After (Fixed):**
-```html
-<video controls preload="none" poster="/images/Trendtactics-logo.jpg">
-  <source src="/videos/advert.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-```
-
-**Why This Works:**
-- `<source>` tag explicitly tells browser the MIME type
-- Browser can properly decode the video
-- Fallback message if video fails
-- Poster image shows while loading
-
----
-
-## 📝 **Deployment Workflow Features**
-
-✅ **Automatic on Push** - Deploys when you push to main  
-✅ **Manual Trigger** - Can be triggered manually  
-✅ **Proper Merge Handling** - Handles merge conflicts  
-✅ **Correct Directory** - Uses `/public_html/`  
-✅ **File Exclusions** - Excludes unnecessary files  
-✅ **Deployment Summary** - Shows what was deployed  
-
----
-
-## ⚙️ **Setup Instructions**
-
-### **1. Set GitHub Secrets:**
-Go to: `https://github.com/iamGoldenOla/trendtacticsdigital/settings/secrets/actions`
-
-Add:
-- `FTP_SERVER` = Your FTP server
-- `FTP_USERNAME` = Your FTP username  
-- `FTP_PASSWORD` = Your FTP password
-- `FTP_SERVER_DIR` = `/public_html/` (optional)
-
-### **2. Test Deployment:**
-1. Make a small change
-2. Commit and push to `main` branch
-3. Go to Actions tab in GitHub
-4. Watch the workflow run
-5. Check your website - should be updated!
-
----
-
-## ✅ **What's Fixed**
-
-- ✅ Videos now play correctly with proper MIME types
-- ✅ Deployment workflow handles merges properly
-- ✅ Automatic deployment on push to main
-- ✅ Correct directory path (`/public_html/`)
-- ✅ All files deploy correctly
-
----
-
-## 🎯 **Next Steps**
-
-1. **Set GitHub Secrets** (if not already done)
-2. **Push your changes** to trigger deployment
-3. **Test videos** on portfolio page
-4. **Verify deployment** - Check Actions tab
-
----
-
-**Last Updated:** December 2024
-
+1. **Check FTP Credentials**: Verify `FTP_SERVER`, `FTP_USERNAME`, and `FTP_PASSWORD` are correct
+2. **Check Directory Path**: Verify `FTP_SERVER_DIR` matches your cPanel folder structure
+3. **Check FTP Permissions**: Ensure the FTP user has write permissions to the target directory
+4. **Check cPanel File Manager**: Verify the directory exists and is accessible

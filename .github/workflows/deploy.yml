@@ -13,11 +13,39 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Validate FTP Secrets
+        run: |
+          if [ -z "${{ secrets.FTP_SERVER }}" ]; then
+            echo "❌ FTP_SERVER secret is not set"
+            exit 1
+          fi
+          if [ -z "${{ secrets.FTP_USERNAME }}" ]; then
+            echo "❌ FTP_USERNAME secret is not set"
+            exit 1
+          fi
+          if [ -z "${{ secrets.FTP_PASSWORD }}" ]; then
+            echo "❌ FTP_PASSWORD secret is not set"
+            exit 1
+          fi
+          echo "✅ All FTP secrets are configured"
+
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /public_html/
+          server-dir: ${{ secrets.FTP_SERVER_DIR || '/public_html/' }}
           local-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.env
+            **/.env.*
+            **/trendtactics-digital/**
+            **/frontend/**
+            **/backend/**
+            **/*.md
+            **/README*
+            **/.github/**
