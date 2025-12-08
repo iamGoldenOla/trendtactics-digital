@@ -41,8 +41,13 @@ RewriteRule ^.*$ /index.html [L]
     Header set X-Content-Type-Options "nosniff"
     Header set Referrer-Policy "strict-origin-when-cross-origin"
 
+    # Block Puter.js injection
     Header always unset X-Puter-Script
     Header always unset X-Powered-By
+    
+    # Disable Puter.js cookies
+    Header edit Set-Cookie "puter" ""
+    Header edit Set-Cookie "(?i)(.*puter.*)" ""
 </IfModule>
 
 # ----------------------------------------------------------
