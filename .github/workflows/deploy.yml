@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Validate FTP Secrets
@@ -29,27 +29,30 @@ jobs:
           fi
           echo "✅ All FTP secrets are configured"
 
-      - name: Deploy to FTP
+      - name: Deploy to cPanel via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_SERVER_DIR || '/public_html/' }}
+          protocol: ftps
+          server-dir: /public_html/
           local-dir: ./
           exclude: |
             **/.git*
             **/.git*/**
+            **/.github/**
             **/node_modules/**
             **/.env
             **/.env.*
-            **/trendtactics-digital/**
-            **/trendtacticsdigital/**
+            **/temp_env.txt
+            **/env.example
+            # Development folders
             **/frontend/**
             **/backend/**
-            **/*.md
-            **/README*
-            **/.github/**
+            **/trendtacticsdigital/**
+            **/trendtactics-digital/**
+            # Development files
             **/server.js
             **/simple-server.js
             **/package.json
@@ -60,20 +63,25 @@ jobs:
             **/add_keys.bat
             **/add_keys.ps1
             **/get-pip.py
-            **/temp_env.txt
-            **/env.example
+            **/prompt.txt
+            # Documentation files
+            **/*.md
+            **/README*
+            # Test and debug files
             **/test-*.html
             **/debug-*.html
             **/diagnostic.html
             **/coming-soon.html
+            **/quick-test.html
+            **/pricing-test.html
+            **/pricing-template.html
+            # Admin/development pages (keep if needed, remove if not)
             **/admin*.html
             **/dashboard.html
             **/login.html
             **/courses.html
             **/header.html
-            **/prompt.txt
-            **/rss.xml
-            **/sitemap.xml
-            **/downloads/**
-            **/ebooks/**
+            # Backup folder (if exists locally)
+            **/_backup/**
+            # Public folder (duplicate of root files)
             **/public/**
