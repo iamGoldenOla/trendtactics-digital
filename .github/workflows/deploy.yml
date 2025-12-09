@@ -44,8 +44,36 @@ jobs:
             **/.env
             **/.env.*
             **/trendtactics-digital/**
+            **/trendtacticsdigital/**
             **/frontend/**
             **/backend/**
             **/*.md
             **/README*
             **/.github/**
+            **/server.js
+            **/simple-server.js
+            **/package.json
+            **/package-lock.json
+            **/create-env-file.js
+            **/setup-api-keys.js
+            **/generate-ebooks-json.js
+            **/add_keys.bat
+            **/add_keys.ps1
+            **/get-pip.py
+            **/temp_env.txt
+            **/env.example
+            **/test-*.html
+            **/debug-*.html
+            **/diagnostic.html
+            **/coming-soon.html
+            **/admin*.html
+            **/dashboard.html
+            **/login.html
+            **/courses.html
+            **/header.html
+            **/prompt.txt
+            **/rss.xml
+            **/sitemap.xml
+            **/downloads/**
+            **/ebooks/**
+            **/public/**
