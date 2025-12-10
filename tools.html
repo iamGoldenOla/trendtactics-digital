@@ -150,28 +150,38 @@
         }
         
         .tools-hero .hero-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 900;
             margin-bottom: var(--spacing-xl);
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             line-height: 1.2;
             transform: translateZ(55px);
-            text-shadow: 0 12px 35px rgba(0, 255, 255, 0.35);
             position: relative;
             z-index: 10;
-            color: var(--primary);
             display: block;
+            /* Always visible with solid color first */
+            color: #00FFFF;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.6), 0 0 60px rgba(0, 255, 255, 0.4), 0 0 90px rgba(0, 255, 255, 0.2);
+            /* Gradient overlay for modern browsers */
+            background: linear-gradient(135deg, #00FFFF 0%, #40E0D0 50%, #00FFFF 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
         }
         
         /* Fallback for browsers that don't support background-clip */
         @supports not (-webkit-background-clip: text) {
             .tools-hero .hero-title {
-                color: var(--primary);
-                background: none;
-                -webkit-text-fill-color: var(--primary);
+                color: #00FFFF !important;
+                background: none !important;
+                -webkit-text-fill-color: #00FFFF !important;
+                text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.5);
             }
         }
         
