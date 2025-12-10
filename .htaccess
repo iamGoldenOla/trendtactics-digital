@@ -20,9 +20,8 @@ RewriteRule ^ /%1? [NC,L,R=301]
 #    Handle /ebooks/ with trailing slash - MUST BE FIRST
 # ----------------------------------------------------------
 # CRITICAL: Handle /ebooks/ FIRST before any other rules
+# This rule MUST execute before SPA fallback to prevent index.html from loading
 RewriteCond %{REQUEST_URI} ^/ebooks/?$ [NC]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ebooks/?$ /ebooks.html [L,QSA]
 
 # Then handle other specific routes with explicit file checks - MUST come before SPA fallback
