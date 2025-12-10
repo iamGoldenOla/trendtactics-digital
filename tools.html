@@ -162,6 +162,17 @@
             text-shadow: 0 12px 35px rgba(0, 255, 255, 0.35);
             position: relative;
             z-index: 10;
+            color: var(--primary);
+            display: block;
+        }
+        
+        /* Fallback for browsers that don't support background-clip */
+        @supports not (-webkit-background-clip: text) {
+            .tools-hero .hero-title {
+                color: var(--primary);
+                background: none;
+                -webkit-text-fill-color: var(--primary);
+            }
         }
         
         .tools-hero .hero-subtitle {
@@ -781,6 +792,192 @@
                         <button type="submit"><i class="fas fa-magic"></i> Generate Strategy</button>
                     </form>
                     <div class="tool-result" id="seoContentResult"></div>
+                </div>
+                
+                <!-- Brand Voice & Tone Generator -->
+                <div class="tool-card">
+                    <div class="tool-icon-wrapper">
+                        <i class="fa fa-microphone"></i>
+                    </div>
+                    <div class="tool-title">Brand Voice & Tone Generator</div>
+                    <div class="tool-desc">Define your brand's unique voice and tone guidelines for consistent messaging.</div>
+                    <form class="tool-form" id="brandVoiceForm">
+                        <input type="text" id="brandVoiceInput" placeholder="Describe your brand..." required>
+                        <button type="submit"><i class="fas fa-magic"></i> Generate Voice & Tone</button>
+                    </form>
+                    <div class="tool-result" id="brandVoiceResult"></div>
+                </div>
+                
+                <!-- Color Palette Generator -->
+                <div class="tool-card">
+                    <div class="tool-icon-wrapper">
+                        <i class="fa fa-palette"></i>
+                    </div>
+                    <div class="tool-title">Color Palette Generator</div>
+                    <div class="tool-desc">Get a professional 5-color palette for your brand or project with hex codes.</div>
+                    <form class="tool-form" id="colorPaletteForm">
+                        <input type="text" id="colorPaletteInput" placeholder="Brand name or mood..." required>
+                        <button type="submit"><i class="fas fa-magic"></i> Generate Palette</button>
+                    </form>
+                    <div class="tool-result" id="colorPaletteResult"></div>
+                </div>
+                
+                <!-- Instagram Reels Strategy -->
+                <div class="tool-card">
+                    <div class="tool-icon-wrapper">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="tool-title">Instagram Reels Strategy</div>
+                    <div class="tool-desc">Get viral content ideas, hashtag strategies, and tips for Instagram Reels.</div>
+                    <form class="tool-form" id="reelsStrategyForm">
+                        <input type="text" id="reelsStrategyInput" placeholder="Business or industry..." required>
+                        <button type="submit"><i class="fas fa-magic"></i> Generate Strategy</button>
+                    </form>
+                    <div class="tool-result" id="reelsStrategyResult"></div>
+                </div>
+                
+                <!-- LinkedIn Content Planner -->
+                <div class="tool-card">
+                    <div class="tool-icon-wrapper">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="tool-title">LinkedIn Content Planner</div>
+                    <div class="tool-desc">Plan your LinkedIn posts for thought leadership and professional networking.</div>
+                    <form class="tool-form" id="linkedinPlannerForm">
+                        <input type="text" id="linkedinPlannerInput" placeholder="Your industry or goal..." required>
+                        <button type="submit"><i class="fas fa-magic"></i> Plan Content</button>
+                    </form>
+                    <div class="tool-result" id="linkedinPlannerResult"></div>
+                </div>
+                
+                <!-- Market Research Assistant -->
+                <div class="tool-card">
+                    <div class="tool-icon-wrapper">
+                        <i class="fa fa-chart-pie"></i>
+                    </div>
+                    <div class="tool-title">Market Research Assistant</div>
+                    <div class="tool-desc">Get trend analysis, market opportunities, and competitive insights.</div>
+                    <form class="tool-form" id="marketResearchForm">
+                        <input type="text" id="marketResearchInput" placeholder="Industry or business context..." required>
+                        <button type="submit"><i class="fas fa-magic"></i> Research Market</button>
+                    </form>
+                    <div class="tool-result" id="marketResearchResult"></div>
+                </div>
+                
+                <!-- Pricing Strategy Optimizer -->
+                <div class="tool-card">
+                    <div class="tool-icon-wrapper">
+                        <i class="fa fa-tags"></i>
+                    </div>
+                    <div class="tool-title">Pricing Strategy Optimizer</div>
+                    <div class="tool-desc">Get data-driven pricing recommendations for your product or service.</div>
+                    <form class="tool-form" id="pricingForm">
+                        <input type="text" id="pricingInput" placeholder="Product/service and current price..." required>
+                        <button type="submit"><i class="fas fa-magic"></i> Optimize Pricing</button>
+                    </form>
+                    <div class="tool-result" id="pricingResult"></div>
+                </div>
+                
+                <!-- Sales Funnel Analyzer -->
+                <div class="tool-card">
+                    <div class="tool-icon-wrapper">
+                        <i class="fa fa-filter"></i>
+                    </div>
+                    <div class="tool-title">Sales Funnel Analyzer</div>
+                    <div class="tool-desc">Find bottlenecks in your sales funnel and get optimization recommendations.</div>
+                    <form class="tool-form" id="funnelForm">
+                        <input type="text" id="funnelInput" placeholder="Describe your sales funnel..." required>
+                        <button type="submit"><i class="fas fa-magic"></i> Analyze Funnel</button>
+                    </form>
+                    <div class="tool-result" id="funnelResult"></div>
+                </div>
+                
+                <!-- TikTok Marketing Strategy -->
+                <div class="tool-card">
+                    <div class="tool-icon-wrapper">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <div class="tool-title">TikTok Marketing Strategy</div>
+                    <div class="tool-desc">Get viral content ideas, hashtag trends, and engagement strategies for TikTok.</div>
+                    <form class="tool-form" id="tiktokForm">
+                        <input type="text" id="tiktokInput" placeholder="Your business or niche..." required>
+                        <button type="submit"><i class="fas fa-magic"></i> Get Strategy</button>
+                    </form>
+                    <div class="tool-result" id="tiktokResult"></div>
+                </div>
+                
+                <!-- Website Speed Optimizer -->
+                <div class="tool-card">
+                    <div class="tool-icon-wrapper">
+                        <i class="fa fa-tachometer-alt"></i>
+                    </div>
+                    <div class="tool-title">Website Speed Optimizer</div>
+                    <div class="tool-desc">Get actionable tips to improve your website's loading speed and performance.</div>
+                    <form class="tool-form" id="speedForm">
+                        <input type="text" id="speedInput" placeholder="Your website URL..." required>
+                        <button type="submit"><i class="fas fa-magic"></i> Optimize Speed</button>
+                    </form>
+                    <div class="tool-result" id="speedResult"></div>
+                </div>
+                
+                <!-- SEO Technical Audit Tool -->
+                <div class="tool-card">
+                    <div class="tool-icon-wrapper">
+                        <i class="fa fa-bug"></i>
+                    </div>
+                    <div class="tool-title">SEO Technical Audit Tool</div>
+                    <div class="tool-desc">Find and fix technical SEO issues that may be hurting your search rankings.</div>
+                    <form class="tool-form" id="seoAuditForm">
+                        <input type="text" id="seoAuditInput" placeholder="Your website URL..." required>
+                        <button type="submit"><i class="fas fa-magic"></i> Audit Site</button>
+                    </form>
+                    <div class="tool-result" id="seoAuditResult"></div>
+                </div>
+                
+                <!-- E-commerce Conversion Optimizer -->
+                <div class="tool-card">
+                    <div class="tool-icon-wrapper">
+                        <i class="fa fa-shopping-cart"></i>
+                    </div>
+                    <div class="tool-title">E-commerce Conversion Optimizer</div>
+                    <div class="tool-desc">Get proven tips to boost your online store's conversion rate and sales.</div>
+                    <form class="tool-form" id="ecommerceForm">
+                        <input type="text" id="ecommerceInput" placeholder="Describe your store or challenge..." required>
+                        <button type="submit"><i class="fas fa-magic"></i> Optimize Conversion</button>
+                    </form>
+                    <div class="tool-result" id="ecommerceResult"></div>
+                </div>
+                
+                <!-- Business Scaling Strategy Planner -->
+                <div class="tool-card">
+                    <div class="tool-icon-wrapper">
+                        <i class="fa fa-expand-arrows-alt"></i>
+                    </div>
+                    <div class="tool-title">Business Scaling Strategy Planner</div>
+                    <div class="tool-desc">Get a comprehensive plan to scale your business to the next level.</div>
+                    <form class="tool-form" id="scalingForm">
+                        <input type="text" id="scalingInput" placeholder="Describe your business..." required>
+                        <button type="submit"><i class="fas fa-magic"></i> Get Scaling Plan</button>
+                    </form>
+                    <div class="tool-result" id="scalingResult"></div>
+                </div>
+                
+                <!-- Advanced Marketing ROI Calculator -->
+                <div class="tool-card">
+                    <div class="tool-icon-wrapper">
+                        <i class="fa fa-percentage"></i>
+                    </div>
+                    <div class="tool-title">Advanced Marketing ROI Calculator</div>
+                    <div class="tool-desc">Calculate ROI for multiple marketing channels and campaigns with detailed insights.</div>
+                    <form class="tool-form" id="advancedROIForm">
+                        <input type="text" id="channel1Revenue" placeholder="Channel 1 Revenue (₦)..." required>
+                        <input type="text" id="channel1Cost" placeholder="Channel 1 Cost (₦)..." required>
+                        <input type="text" id="channel2Revenue" placeholder="Channel 2 Revenue (₦)..." required>
+                        <input type="text" id="channel2Cost" placeholder="Channel 2 Cost (₦)..." required>
+                        <input type="text" id="customerLifetimeValue" placeholder="Customer Lifetime Value (₦)..." required>
+                        <button type="submit"><i class="fas fa-magic"></i> Calculate ROI</button>
+                    </form>
+                    <div class="tool-result" id="advancedROIResult"></div>
                 </div>
             </div>
         </div>
