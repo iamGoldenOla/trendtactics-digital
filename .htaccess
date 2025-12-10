@@ -40,8 +40,14 @@ RewriteRule ^([^/]+)/?$ /$1.html [L]
 # ----------------------------------------------------------
 # 2. STATIC FILE HANDLING
 #    Allow images, videos, CSS, JS to load normally
+#    CRITICAL: This must come BEFORE any rewrite rules to ensure static files load
 # ----------------------------------------------------------
-RewriteCond %{REQUEST_URI} \.(jpg|jpeg|png|gif|svg|webp|mp4|webm|css|js|ico|woff|woff2)$ [NC]
+RewriteCond %{REQUEST_URI} \.(jpg|jpeg|png|gif|svg|webp|mp4|webm|ogg|css|js|ico|woff|woff2|ttf|eot)$ [NC]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Explicitly allow /images/ directory
+RewriteCond %{REQUEST_URI} ^/images/ [NC]
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
