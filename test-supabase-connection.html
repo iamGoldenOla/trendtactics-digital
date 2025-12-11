@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase Connection Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .test-result { padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 5px; }
+        button:hover { background: #0056b3; }
+        button:disabled { background: #6c757d; cursor: not-allowed; }
+        .loading { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Supabase Connection Test</h1>
+        <p>This page tests the connection between your frontend and Supabase backend.</p>
+        
+        <div id="instructions">
+            <h2>Instructions:</h2>
+            <ol>
+                <li>Update the SUPABASE_KEY in the JavaScript code with your actual anon key</li>
+                <li>Open this page in your browser</li>
+                <li>Click "Test Connection" to verify the setup</li>
+            </ol>
+        </div>
+        
+        <div id="test-controls">
+            <button id="testConnectionBtn" onclick="testConnection()">Test Connection</button>
+            <button id="testAuthBtn" onclick="testAuthentication()" disabled>Test Authentication</button>
+            <button id="testFunctionBtn" onclick="testFunction()" disabled>Test Edge Function</button>
+        </div>
+        
+        <div id="results"></div>
+        
+        <div class="loading" id="loadingIndicator">
+            <p><i class="fas fa-spinner fa-spin"></i> Testing connection...</p>
+        </div>
+    </div>
+
+    <script>
+        // Configuration - UPDATE THESE VALUES
+        const SUPABASE_URL = 'https://wtgwxnhnqdnbzpetltrt.supabase.co';
+        const SUPABASE_KEY = 'YOUR_ANON_KEY_HERE'; // Replace with your actual anon key
+        
+        // Initialize Supabase client
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        
+        // DOM elements
+        const resultsDiv = document.getElementById('results');
+        const testConnectionBtn = document.getElementById('testConnectionBtn');
+        const testAuthBtn = document.getElementById('testAuthBtn');
+        const testFunctionBtn = document.getElementById('testFunctionBtn');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        
+        // Show loading indicator
+        function showLoading(show) {
+            loadingIndicator.style.display = show ? 'block' : 'none';
+        }
+        
+        // Display result
+        function displayResult(message, type = 'info') {
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `test-result ${type}`;
+            resultDiv.innerHTML = message;
+            resultsDiv.appendChild(resultDiv);
+        }
+        
+        // Test basic connection
+        async function testConnection() {
+            showLoading(true);
+            resultsDiv.innerHTML = '';
+            
+            try {
+                // Test connection by getting Supabase version or basic info
+                const { data, error } = await supabase.rpc('version');
+                
+                if (error) {
+                    // If rpc fails, try a simple query
+                    displayResult(`Connection test result: ${error.message}`, 'error');
+                } else {
+                    displayResult(`✅ Connection successful! Supabase is responding.`, 'success');
+                    testAuthBtn.disabled = false;
+                    testFunctionBtn.disabled = false;
+                }
+            } catch (err) {
+                console.error('Connection test error:', err);
+                displayResult(`❌ Connection failed: ${err.message}`, 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        // Test authentication
+        async function testAuthentication() {
+            showLoading(true);
+            
+            try {
+                // Check if we can get session info
+                const { data: { session } } = await supabase.auth.getSession();
+                
+                if (session) {
+                    displayResult(`✅ Authentication working! Current user: ${session.user.email}`, 'success');
+                } else {
+                    displayResult(`ℹ️ Authentication system is accessible but no user is logged in.`, 'info');
+                }
+            } catch (err) {
+                console.error('Authentication test error:', err);
+                displayResult(`❌ Authentication test failed: ${err.message}`, 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        // Test Edge Function call
+        async function testFunction() {
+            showLoading(true);
+            
+            try {
+                // Test calling the health function
+                const { data, error } = await supabase.functions.invoke('health');
+                
+                if (error) {
+                    displayResult(`❌ Function call failed: ${error.message}`, 'error');
+                } else {
+                    displayResult(`✅ Function call successful! Response: ${JSON.stringify(data)}`, 'success');
+                }
+            } catch (err) {
+                console.error('Function test error:', err);
+                displayResult(`❌ Function test failed: ${err.message}`, 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+    </script>
+</body>
+</html>
