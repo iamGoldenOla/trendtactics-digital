@@ -384,9 +384,9 @@ section {
 }
 
 .logo-img {
-    height: 50px;
+    height: 35px;
     width: auto;
-    max-width: 200px;
+    max-width: 150px;
     object-fit: contain;
     transition: all var(--transition-normal);
     display: block !important;
@@ -408,7 +408,7 @@ section {
 }
 
 .footer-logo-img {
-    height: 60px;
+    height: 45px;
     width: auto;
     object-fit: contain;
     transition: all var(--transition-normal);
@@ -3011,7 +3011,7 @@ section {
         font-size: 1.1rem;
     }
     .logo-img {
-        height: 40px;
+        height: 30px;
     }
     .btn {
         padding: var(--spacing-sm) var(--spacing-lg);
@@ -4777,16 +4777,16 @@ footer.footer > .container {
 /* Logo contrast helper */
 .navbar .logo-img {
     background: #ffffff;
-    padding: 6px 10px;
-    border-radius: 10px;
+    padding: 4px 8px;
+    border-radius: 8px;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
     display: inline-block;
 }
 
 .footer .footer-logo-img {
     background: #ffffff;
-    padding: 8px 12px;
-    border-radius: 12px;
+    padding: 6px 10px;
+    border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     display: inline-block;
 }
