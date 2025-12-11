@@ -393,10 +393,10 @@ section {
     background: transparent;
     visibility: visible !important;
     opacity: 1 !important;
-    /* Minimal border for visibility - reduced thickness */
+    /* Minimal border for visibility - very thin */
     outline: none;
-    border: 0.5px solid rgba(0, 255, 255, 0.1);
-    box-shadow: none;
+    border: none;
+    box-shadow: 0 0 2px rgba(0, 255, 255, 0.05);
     border-radius: 4px;
 }
 
