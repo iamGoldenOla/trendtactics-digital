@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="/styles/compact-header.css">
     <link rel="stylesheet" href="/styles/portfolio.css">
     <link rel="stylesheet" href="/styles/images.css">
+    <link rel="stylesheet" href="/styles/media-optimization.css">
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
@@ -303,8 +304,15 @@
     </div>
 
     <!-- Category Filters -->
-    <section class="portfolio-filters">
-        <div class="container">
+    <section class="portfolio-filters content-block-bg">
+        <div class="content-block-bg-image">
+            <picture>
+                <source srcset="/images/email-marketing-parallele.jpg" type="image/jpeg">
+                <img src="/images/email-marketing-parallele.jpg" alt="Portfolio Filters" loading="lazy" decoding="async" class="image-filter-darken">
+            </picture>
+        </div>
+        <div class="bg-overlay-dark"></div>
+        <div class="container content-block-bg-content">
             <div class="filters-grid" id="portfolio-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="advert">Adverts</button>

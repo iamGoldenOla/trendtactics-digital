@@ -46,12 +46,16 @@
     <link rel="stylesheet" href="/styles/shared-effects.css">
     <link rel="stylesheet" href="/styles/about.css">
     <link rel="stylesheet" href="/styles/images.css">
+    <link rel="stylesheet" href="/styles/media-optimization.css">
     
     <!-- Browser Compatibility -->
     <script src="/js/browser-compat.js"></script>
     
     <!-- Performance Optimizer (Load Early) -->
     <script src="/js/performance-optimizer.js"></script>
+    
+    <!-- Media Optimizer (Image & Video Compression) -->
+    <script src="/js/media-optimizer.js" defer></script>
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
@@ -162,7 +166,9 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-video-background">
-                <video autoplay muted loop playsinline preload="auto">
+                <video autoplay muted loop playsinline preload="metadata" loading="lazy">
+                    <source src="/images/Trendtactics-digital-promo-480p.mp4" type="video/mp4" media="(max-width: 480px)">
+                    <source src="/images/Trendtactics-digital-promo-720p.mp4" type="video/mp4" media="(max-width: 1280px)">
                     <source src="/images/Trendtactics-digital-promo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>

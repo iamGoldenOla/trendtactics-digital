@@ -122,6 +122,39 @@
 
 .portfolio-media video {
   background: #222;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Video Cover Image Refinement - Zoomed and Balanced */
+.portfolio-media video[poster] {
+  background-size: 120% 120%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* Refined video poster styling - less distracting, better scaled */
+.portfolio-media video::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: inherit;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Ensure poster images are properly scaled */
+.portfolio-media video {
+  background-image: var(--poster-image, none);
+  background-size: 120% 120%;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .portfolio-card-body {

@@ -703,6 +703,9 @@ section {
     z-index: 1;
     min-width: 100%;
     min-height: 100%;
+    /* Optimized video loading */
+    preload: metadata;
+    loading: lazy;
 }
 
 .video-overlay {

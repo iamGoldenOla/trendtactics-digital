@@ -103,10 +103,16 @@ function renderCard(asset) {
       </div>
     `;
   } else if (asset.type === 'video') {
+    // Generate optimized video sources with multiple resolutions
+    const videoBasePath = asset.src.replace('.mp4', '');
+    const posterPath = '/images/Trendtactics_logo.jpg';
+    
     return `
       <div class="portfolio-card" data-category="${asset.category}">
         <div class="portfolio-media">
-          <video controls preload="none" poster="/images/Trendtactics_logo.jpg">
+          <video controls preload="metadata" poster="${posterPath}" loading="lazy" style="background-size: 120% 120%; background-position: center;">
+            <source src="${videoBasePath}-480p.mp4" type="video/mp4" media="(max-width: 480px)">
+            <source src="${videoBasePath}-720p.mp4" type="video/mp4" media="(max-width: 1280px)">
             <source src="${asset.src}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
