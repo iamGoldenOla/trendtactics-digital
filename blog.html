@@ -388,7 +388,9 @@
     <nav id="navigation" class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="/images/Trendtactics_logo.jpg" alt="Trendtactics Digital" class="logo-img">
+                <a href="/">
+                    <img src="/images/Trendtactics_logo.jpg" alt="Trendtactics Digital" class="logo-img" onerror="this.src='/images/Trendtactics_logo.jpg'; this.onerror=null;">
+                </a>
             </div>
             <div class="nav-actions">
                 <div class="nav-menu" id="nav-menu">
@@ -425,7 +427,18 @@
                 </div>
                 <div class="nav-cta">
                     <a href="/quiz" class="btn btn-outline">Take Quiz</a>
-                    <a href="/contact" class="btn btn-primary">Get Started</a>
+                    <!-- Updated CTA with dropdown for multiple options -->
+                    <div class="nav-item dropdown">
+                        <a href="#" class="btn btn-primary">Get Started <i class="fas fa-chevron-down" style="font-size:0.8em;margin-left:6px;"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="/client-dashboard">Client Dashboard</a></li>
+                            <li><a href="/academy-enroll">Academy Access</a></li>
+                            <li><a href="/trendy-ai">Trendy AI <span class="badge badge-coming-soon">Coming Soon</span></a></li>
+                            <li class="divider"></li>
+                            <li><a href="/login">Sign In</a></li>
+                            <li><a href="/register">Sign Up</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -621,6 +634,7 @@
                         <li><a href="/contact">Contact</a></li>
                         <li><a href="/pricing">Pricing</a></li>
                         <li><a href="/academy">Academy</a></li>
+                        <li><a href="/trendy-ai">Trendy AI <span class="badge badge-coming-soon">Coming Soon</span></a></li>
                     </ul>
                 </div>
                 

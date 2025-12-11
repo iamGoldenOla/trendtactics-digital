@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supabase Functions Integration Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { border: 1px solid #ccc; padding: 15px; margin: 10px 0; }
+        button { padding: 10px 15px; margin: 5px; background: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .result { margin-top: 10px; padding: 10px; background: #f8f9fa; }
+        .success { border-left: 4px solid green; }
+        .error { border-left: 4px solid red; }
+    </style>
+</head>
+<body>
+    <h1>Supabase Functions Integration Test</h1>
+    
+    <div class="test-section">
+        <h2>Authentication Tests</h2>
+        <button onclick="testRegistration()">Register New User</button>
+        <button onclick="testLogin()">Login Existing User</button>
+        <div id="auth-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Function Tests</h2>
+        <button onclick="testAnalyzeContent()">Test Analyze Content</button>
+        <button onclick="testHealth()">Test Health Function</button>
+        <div id="function-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>User Data Tests</h2>
+        <button onclick="testGetCourses()">Get Courses</button>
+        <button onclick="testGetProfile()">Get User Profile</button>
+        <div id="user-data-result" class="result"></div>
+    </div>
+
+    <script>
+        // Configuration
+        const SUPABASE_URL = 'https://wtgwxnhnqdnbzpetltrt.supabase.co';
+        const FUNCTIONS_URL = `${SUPABASE_URL}/functions/v1`;
+        
+        // Utility functions
+        function displayResult(elementId, data, isSuccess = true) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            element.className = `result ${isSuccess ? 'success' : 'error'}`;
+        }
+        
+        function getStoredToken() {
+            return localStorage.getItem('authToken');
+        }
+        
+        function storeToken(token) {
+            localStorage.setItem('authToken', token);
+        }
+        
+        // Authentication Functions
+        async function testRegistration() {
+            try {
+                const response = await fetch(`${FUNCTIONS_URL}/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: 'test@trendtacticsdigital.com',
+                        password: 'SecurePass123!',
+                        firstName: 'Test',
+                        lastName: 'User'
+                    })
+                });
+                
+                const data = await response.json();
+                displayResult('auth-result', data, response.ok);
+                
+                if (data.success && data.data?.token) {
+                    storeToken(data.data.token);
+                }
+            } catch (error) {
+                console.error('Registration Error Details:', error);
+                displayResult('auth-result', { 
+                    error: error.message, 
+                    type: error.constructor.name,
+                    details: error.toString()
+                }, false);
+            }
+        }
+        
+        async function testLogin() {
+            try {
+                const response = await fetch(`${FUNCTIONS_URL}/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: 'test@trendtacticsdigital.com',
+                        password: 'SecurePass123!'
+                    })
+                });
+                
+                const data = await response.json();
+                displayResult('auth-result', data, response.ok);
+                
+                if (data.success && data.data?.token) {
+                    storeToken(data.data.token);
+                }
+            } catch (error) {
+                console.error('Login Error Details:', error);
+                displayResult('auth-result', { 
+                    error: error.message, 
+                    type: error.constructor.name,
+                    details: error.toString()
+                }, false);
+            }
+        }
+        
+        // Function Tests
+        async function testAnalyzeContent() {
+            try {
+                const token = getStoredToken();
+                if (!token) {
+                    displayResult('function-result', { error: 'Please authenticate first' }, false);
+                    return;
+                }
+                
+                const response = await fetch(`${FUNCTIONS_URL}/analyze-content`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        content: 'This is a sample text to analyze for SEO and content quality.',
+                        contentType: 'text'
+                    })
+                });
+                
+                const data = await response.json();
+                displayResult('function-result', data, response.ok);
+            } catch (error) {
+                console.error('Analyze Content Error Details:', error);
+                displayResult('function-result', { 
+                    error: error.message, 
+                    type: error.constructor.name,
+                    details: error.toString()
+                }, false);
+            }
+        }
+        
+        async function testHealth() {
+            try {
+                // Health function might not require auth, but we'll include it just in case
+                const token = getStoredToken();
+                const headers = {
+                    'Content-Type': 'application/json'
+                };
+                
+                if (token) {
+                    headers['Authorization'] = `Bearer ${token}`;
+                }
+                
+                const response = await fetch(`${FUNCTIONS_URL}/health`, {
+                    method: 'GET',
+                    headers: headers
+                });
+                
+                const data = await response.json();
+                displayResult('function-result', data, response.ok);
+            } catch (error) {
+                console.error('Health Check Error Details:', error);
+                displayResult('function-result', { 
+                    error: error.message, 
+                    type: error.constructor.name,
+                    details: error.toString()
+                }, false);
+            }
+        }
+        
+        // User Data Tests
+        async function testGetCourses() {
+            try {
+                const token = getStoredToken();
+                if (!token) {
+                    displayResult('user-data-result', { error: 'Please authenticate first' }, false);
+                    return;
+                }
+                
+                const response = await fetch(`${FUNCTIONS_URL}/get-courses`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                const data = await response.json();
+                displayResult('user-data-result', data, response.ok);
+            } catch (error) {
+                console.error('Get Courses Error Details:', error);
+                displayResult('user-data-result', { 
+                    error: error.message, 
+                    type: error.constructor.name,
+                    details: error.toString()
+                }, false);
+            }
+        }
+        
+        async function testGetProfile() {
+            try {
+                const token = getStoredToken();
+                if (!token) {
+                    displayResult('user-data-result', { error: 'Please authenticate first' }, false);
+                    return;
+                }
+                
+                const response = await fetch(`${FUNCTIONS_URL}/get-profile`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                const data = await response.json();
+                displayResult('user-data-result', data, response.ok);
+            } catch (error) {
+                console.error('Get Profile Error Details:', error);
+                displayResult('user-data-result', { 
+                    error: error.message, 
+                    type: error.constructor.name,
+                    details: error.toString()
+                }, false);
+            }
+        }
+    </script>
+</body>
+</html>
