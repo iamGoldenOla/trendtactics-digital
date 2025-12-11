@@ -1,0 +1,175 @@
+<!-- CTA Blocks Component -->
+<!-- Reusable call-to-action blocks for lead generation -->
+
+<!-- CTA Block 1: Free Consultation -->
+<div class="cta-block cta-consultation">
+    <div class="cta-content">
+        <h3>Ready to Grow Your Business?</h3>
+        <p>Get a free consultation with our digital marketing experts and discover how we can help you achieve your goals.</p>
+        <div class="cta-buttons">
+            <a href="/contact" class="btn btn-primary">Book Free Consultation</a>
+            <a href="/pricing" class="btn btn-outline">View Pricing</a>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Block 2: Download Guide -->
+<div class="cta-block cta-download">
+    <div class="cta-content">
+        <div class="cta-icon">
+            <i class="fas fa-download"></i>
+        </div>
+        <h3>Download Our Free Guide</h3>
+        <p>Get our comprehensive "Digital Marketing Strategy Guide" and learn how to 3x your online growth.</p>
+        <form class="cta-form" data-newsletter data-source="cta-download">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary">Download Free Guide</button>
+        </form>
+        <p class="cta-note">Join 10,000+ marketers getting exclusive insights</p>
+    </div>
+</div>
+
+<!-- CTA Block 3: Service Inquiry -->
+<div class="cta-block cta-service">
+    <div class="cta-content">
+        <h3>Need Help with Your Project?</h3>
+        <p>Let's discuss how we can help you achieve your digital marketing goals.</p>
+        <div class="cta-features">
+            <div class="cta-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Free Strategy Session</span>
+            </div>
+            <div class="cta-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Custom Solutions</span>
+            </div>
+            <div class="cta-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Proven Results</span>
+            </div>
+        </div>
+        <a href="/contact" class="btn btn-primary btn-large">Get Started Today</a>
+    </div>
+</div>
+
+<style>
+.cta-block {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(10, 30, 63, 0.1) 100%);
+    border: 2px solid rgba(0, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.cta-block:hover {
+    border-color: rgba(0, 255, 255, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 255, 255, 0.15);
+    transform: translateY(-4px);
+}
+
+.cta-content h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--base-dark, #0A1E3F);
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-icon {
+    font-size: 3rem;
+    color: #00FFFF;
+    margin-bottom: 1rem;
+}
+
+.cta-form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 400px;
+    margin: 0 auto 1rem;
+    flex-wrap: wrap;
+}
+
+.cta-form input {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.cta-form button {
+    padding: 12px 24px;
+    white-space: nowrap;
+}
+
+.cta-note {
+    font-size: 0.85rem;
+    color: #999;
+    margin: 0;
+}
+
+.cta-features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.cta-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #0A1E3F;
+    font-weight: 500;
+}
+
+.cta-feature i {
+    color: #00FFFF;
+}
+
+@media (max-width: 768px) {
+    .cta-block {
+        padding: 1.5rem;
+    }
+    
+    .cta-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .cta-form {
+        flex-direction: column;
+    }
+    
+    .cta-form input,
+    .cta-form button {
+        width: 100%;
+    }
+    
+    .cta-features {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+</style>
+

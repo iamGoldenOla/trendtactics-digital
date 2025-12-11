@@ -1,0 +1,102 @@
+<!-- Social Share Buttons Component -->
+<!-- Include this in blog posts and key pages -->
+
+<div class="social-share-buttons" data-share-section>
+    <span class="share-label">Share this:</span>
+    <div class="share-buttons">
+        <button class="share-btn share-facebook" data-share="facebook" aria-label="Share on Facebook">
+            <i class="fab fa-facebook-f"></i>
+            <span>Facebook</span>
+        </button>
+        <button class="share-btn share-linkedin" data-share="linkedin" aria-label="Share on LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+            <span>LinkedIn</span>
+        </button>
+        <button class="share-btn share-twitter" data-share="twitter" aria-label="Share on X (Twitter)">
+            <i class="fab fa-x-twitter"></i>
+            <span>X</span>
+        </button>
+        <button class="share-btn share-whatsapp" data-share="whatsapp" aria-label="Share on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </button>
+        <button class="share-btn share-email" data-share="email" aria-label="Share via Email">
+            <i class="fas fa-envelope"></i>
+            <span>Email</span>
+        </button>
+        <button class="share-btn share-copy" data-share="copy" aria-label="Copy link">
+            <i class="fas fa-link"></i>
+            <span>Copy</span>
+        </button>
+    </div>
+</div>
+
+<style>
+.social-share-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    margin: 2rem 0;
+}
+
+.share-label {
+    font-weight: 600;
+    color: var(--white, #0A1E3F);
+    font-size: 0.9rem;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--primary, #00FFFF);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.share-btn:hover {
+    background: rgba(0, 255, 255, 0.2);
+    border-color: var(--primary, #00FFFF);
+    transform: translateY(-2px);
+}
+
+.share-btn i {
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .social-share-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .share-buttons {
+        width: 100%;
+    }
+    
+    .share-btn {
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .share-btn span {
+        display: none;
+    }
+}
+</style>
+

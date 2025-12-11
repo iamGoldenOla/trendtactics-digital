@@ -50,6 +50,9 @@
     <!-- Browser Compatibility -->
     <script src="/js/browser-compat.js"></script>
     
+    <!-- Performance Optimizer (Load Early) -->
+    <script src="/js/performance-optimizer.js"></script>
+    
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
@@ -58,6 +61,12 @@
         gtag('js', new Date());
         gtag('config', 'GA_MEASUREMENT_ID');
     </script>
+    
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
 
     <!-- JSON-LD Structured Data -->
@@ -1027,7 +1036,17 @@
         });
     });
     </script>
-    <script src="/js/main.js"></script>
-    <script src="/js/parallax.js"></script>
+    <!-- Growth & Conversion Features -->
+    <script src="/js/growth-features.js" defer></script>
+    
+    <!-- Social Sharing -->
+    <script src="/js/social-sharing.js" defer></script>
+    
+    <!-- Newsletter Integration -->
+    <script src="/js/newsletter.js" defer></script>
+    
+    <!-- Main Scripts -->
+    <script src="/js/main.js" defer></script>
+    <script src="/js/parallax.js" defer></script>
 </body>
 </html> 
