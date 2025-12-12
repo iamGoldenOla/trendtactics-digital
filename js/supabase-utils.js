@@ -3,7 +3,7 @@
 
 // Initialize Supabase client
 const supabaseUrl = 'https://wtgwxnhnqdnbzpetltrt.supabase.co';
-const supabaseKey = 'YOUR_ANON_KEY_HERE'; // Replace with your actual anon key
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0Z3d4bmhucWRuYnpwZXRsdHJ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUwNjQ2NjUsImV4cCI6MjA4MDY0MDY2NX0.3eblmq4lsnDQU33M9XqZpBqux9bi9hX2G0yUuPScHJA'; // Replace with your actual anon key
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 /**
@@ -46,7 +46,7 @@ async function loginUser(email, password) {
             email,
             password
         });
-        
+
         if (error) throw error;
         return { success: true, data };
     } catch (error) {
@@ -71,7 +71,7 @@ async function registerUser(email, password, userData = {}) {
                 data: userData
             }
         });
-        
+
         if (error) throw error;
         return { success: true, data };
     } catch (error) {
@@ -87,15 +87,15 @@ async function registerUser(email, password, userData = {}) {
 async function logoutUser() {
     try {
         const { error } = await supabase.auth.signOut();
-        
+
         if (error) throw error;
-        
+
         // Clear localStorage
         localStorage.removeItem('studentLoggedIn');
         localStorage.removeItem('studentName');
         localStorage.removeItem('userId');
         localStorage.removeItem('enrolledCourse');
-        
+
         return { success: true };
     } catch (error) {
         console.error('Logout error:', error);
@@ -114,7 +114,7 @@ async function callEdgeFunction(functionName, payload = {}) {
         const { data, error } = await supabase.functions.invoke(functionName, {
             body: payload
         });
-        
+
         if (error) throw error;
         return { success: true, data };
     } catch (error) {
@@ -135,7 +135,7 @@ async function getUserProfile(userId) {
             .select('*')
             .eq('id', userId)
             .single();
-            
+
         if (error) throw error;
         return { success: true, data };
     } catch (error) {
@@ -156,7 +156,7 @@ async function updateUserProfile(userId, updates) {
             .from('profiles')
             .update(updates)
             .eq('id', userId);
-            
+
         if (error) throw error;
         return { success: true, data };
     } catch (error) {
@@ -179,7 +179,7 @@ async function checkCourseAccess(userId, courseId) {
             .eq('user_id', userId)
             .eq('course_id', courseId)
             .single();
-            
+
         if (error) throw error;
         return { success: true, hasAccess: !!data };
     } catch (error) {
