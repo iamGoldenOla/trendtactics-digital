@@ -1,18 +1,28 @@
 {
-  "name": "trendtactics-supabase-tests",
+  "name": "trendtactics-academy",
   "version": "1.0.0",
-  "description": "Test scripts for Supabase Edge Functions",
-  "main": "supabase-auth-test.js",
+  "description": "Trendtactics Academy - Learning Management System",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "node supabase-auth-test.js",
-    "test-simple": "node simple-connectivity-test.js",
-    "test-robust": "node robust-test-functions.js",
-    "confirm-email": "node handle-email-confirmation.js"
+    "test-server": "node -e \"require('child_process').exec('python -m http.server 8000 || npx serve || php -S localhost:8000', (error, stdout, stderr) => { console.log('Starting local server...'); console.log(stdout); console.error(stderr); })\"",
+    "create-test-user": "node create-test-user.js",
+    "add-sample-courses": "node add-sample-courses.js",
+    "add-course-structure": "node add-course-structure.js",
+    "verify-setup": "node verify-academy-setup.js",
+    "test-backend": "node test-supabase-connection.js"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.38.0",
-    "dotenv": "^16.3.1"
+    "@supabase/supabase-js": "^2.39.0"
   },
+  "devDependencies": {},
+  "keywords": [
+    "lms",
+    "academy",
+    "education",
+    "supabase",
+    "trendtactics"
+  ],
   "author": "Trendtactics Digital",
   "license": "MIT"
 }
