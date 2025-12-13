@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy Setup Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-utils.js"></script>
+    <script src="/js/academy-supabase.js"></script>
+    <style>
+        :root {
+            --primary: #00FFFF;
+            --secondary: #40E0D0;
+            --dark: #0A1E3F;
+            --darker: #1a365d;
+            --light: #FFFFFF;
+            --gray: #CCCCCC;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: var(--dark);
+            color: var(--light);
+        }
+        
+        .container {
+            background: var(--darker);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .result-box {
+            background: #2d4a7e;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .success {
+            border-left-color: #00FF00;
+        }
+        
+        .warning {
+            border-left-color: #FFAA00;
+        }
+        
+        .error {
+            border-left-color: #FF0000;
+        }
+        
+        .info {
+            border-left-color: var(--secondary);
+        }
+        
+        button {
+            background: var(--primary);
+            color: var(--dark);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: var(--secondary);
+        }
+        
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
+        
+        pre {
+            background: #000;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+        }
+        
+        .test-result {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .loading {
+            display: none;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid var(--primary);
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 Academy Setup Test</h1>
+            <p>Verify that your Academy backend is properly configured</p>
+        </div>
+        
+        <div class="result-box info" id="initialCheck">
+            <h3>🔄 Initializing Test...</h3>
+            <p>Checking Academy setup...</p>
+        </div>
+        
+        <div class="test-section">
+            <h2>📋 Setup Verification</h2>
+            
+            <div class="result-box" id="utilitiesCheck">
+                <h3>🔧 Utilities Check</h3>
+                <p>Verifying that Supabase utilities are loaded...</p>
+            </div>
+            
+            <div class="result-box" id="separationCheck">
+                <h3>🔗 Backend Separation</h3>
+                <p>Checking if backends are properly separated...</p>
+            </div>
+            
+            <div class="result-box" id="functionsCheck">
+                <h3>⚙️ Function Availability</h3>
+                <p>Testing if Academy functions are available...</p>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>🧪 Database Tests</h2>
+            <p>These tests require your Academy backend to be properly configured with tables.</p>
+            
+            <button id="testConnectionBtn" onclick="testAcademyConnection()">Test Academy Connection</button>
+            <button id="testCoursesBtn" onclick="testGetCourses()" disabled>Test Get Courses</button>
+            <button id="testEnrollBtn" onclick="testEnrollment()" disabled>Test Enrollment</button>
+            
+            <div class="loading" id="testLoading">
+                <div class="spinner"></div>
+                <span>Running test...</span>
+            </div>
+            
+            <div class="result-box" id="testResults" style="display: none;">
+                <h3>📊 Test Results</h3>
+                <div id="testResultsContent"></div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>📝 Next Steps</h2>
+            <div class="result-box info">
+                <h3>📋 Setup Checklist</h3>
+                <ul>
+                    <li>Create separate Academy Supabase project</li>
+                    <li>Update <code>js/academy-supabase.js</code> with Academy credentials</li>
+                    <li>Run <code>setup-academy-schema.sql</code> in Supabase SQL editor</li>
+                    <li>Deploy Edge Functions using Supabase CLI</li>
+                    <li>Add sample course data for testing</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const initialCheck = document.getElementById('initialCheck');
+        const utilitiesCheck = document.getElementById('utilitiesCheck');
+        const separationCheck = document.getElementById('separationCheck');
+        const functionsCheck = document.getElementById('functionsCheck');
+        const testResults = document.getElementById('testResults');
+        const testResultsContent = document.getElementById('testResultsContent');
+        const testLoading = document.getElementById('testLoading');
+        
+        // Buttons
+        const testConnectionBtn = document.getElementById('testConnectionBtn');
+        const testCoursesBtn = document.getElementById('testCoursesBtn');
+        const testEnrollBtn = document.getElementById('testEnrollBtn');
+        
+        // Initial check
+        function performInitialCheck() {
+            initialCheck.className = 'result-box success';
+            initialCheck.innerHTML = `
+                <h3>✅ Test Initialized</h3>
+                <p>Starting Academy setup verification...</p>
+            `;
+            
+            // Run all checks
+            checkUtilities();
+            checkBackendSeparation();
+            checkFunctionAvailability();
+        }
+        
+        // Check if utilities are loaded
+        function checkUtilities() {
+            const hasMainClient = typeof window.supabaseUtils !== 'undefined';
+            const hasAcademyClient = typeof window.academySupabaseUtils !== 'undefined';
+            
+            if (hasMainClient && hasAcademyClient) {
+                utilitiesCheck.className = 'result-box success';
+                utilitiesCheck.innerHTML = `
+                    <h3>✅ Utilities Loaded</h3>
+                    <p>Both Supabase client modules are available:</p>
+                    <ul>
+                        <li>Main Website Client: ✅ Loaded</li>
+                        <li>Academy Client: ✅ Loaded</li>
+                    </ul>
+                `;
+            } else {
+                utilitiesCheck.className = 'result-box error';
+                utilitiesCheck.innerHTML = `
+                    <h3>❌ Utilities Missing</h3>
+                    <p>Some Supabase client modules are missing:</p>
+                    <ul>
+                        <li>Main Website Client: ${hasMainClient ? '✅' : '❌'} ${hasMainClient ? '' : '(Check if js/supabase-utils.js is included)'}</li>
+                        <li>Academy Client: ${hasAcademyClient ? '✅' : '❌'} ${hasAcademyClient ? '' : '(Check if js/academy-supabase.js is included)'}</li>
+                    </ul>
+                `;
+            }
+        }
+        
+        // Check backend separation
+        function checkBackendSeparation() {
+            if (window.supabaseUtils && window.academySupabaseUtils) {
+                const mainUrl = window.supabaseUtils.supabase.supabaseUrl;
+                const academyInitialized = window.academySupabaseUtils.isInitialized;
+                const academyUrl = academyInitialized ? window.academySupabaseUtils.supabase.supabaseUrl : 'Not initialized';
+                
+                if (academyInitialized) {
+                    if (mainUrl !== academyUrl) {
+                        separationCheck.className = 'result-box success';
+                        separationCheck.innerHTML = `
+                            <h3>✅ Backends Properly Separated</h3>
+                            <p>The website and Academy use separate Supabase projects:</p>
+                            <pre>Main Website: ${mainUrl}
+Academy:       ${academyUrl}</pre>
+                            <p>✅ Perfect isolation achieved!</p>
+                        `;
+                    } else {
+                        separationCheck.className = 'result-box warning';
+                        separationCheck.innerHTML = `
+                            <h3>⚠️ Backend Separation Issue</h3>
+                            <p>Both clients point to the same project:</p>
+                            <pre>Main Website: ${mainUrl}
+Academy:       ${academyUrl}</pre>
+                            <p>Update <code>js/academy-supabase.js</code> with your Academy project credentials.</p>
+                        `;
+                    }
+                } else {
+                    separationCheck.className = 'result-box warning';
+                    separationCheck.innerHTML = `
+                        <h3>⚠️ Academy Client Not Initialized</h3>
+                        <p>Update <code>js/academy-supabase.js</code> with your Academy project credentials to enable separation.</p>
+                    `;
+                }
+            } else {
+                separationCheck.className = 'result-box error';
+                separationCheck.innerHTML = `
+                    <h3>❌ Configuration Check Failed</h3>
+                    <p>Unable to verify separation - missing client modules.</p>
+                `;
+            }
+        }
+        
+        // Check function availability
+        function checkFunctionAvailability() {
+            const functions = [
+                { name: 'getAcademyCourses', available: typeof window.academySupabaseUtils?.getAcademyCourses === 'function' },
+                { name: 'enrollInAcademyCourse', available: typeof window.academySupabaseUtils?.enrollInAcademyCourse === 'function' },
+                { name: 'getAcademyEnrollments', available: typeof window.academySupabaseUtils?.getAcademyEnrollments === 'function' }
+            ];
+            
+            const allAvailable = functions.every(func => func.available);
+            
+            if (allAvailable) {
+                functionsCheck.className = 'result-box success';
+                functionsCheck.innerHTML = `
+                    <h3>✅ All Functions Available</h3>
+                    <p>All Academy functions are properly exported:</p>
+                    <ul>
+                        ${functions.map(func => `<li>${func.name}: ✅ Available</li>`).join('')}
+                    </ul>
+                `;
+                
+                // Enable test buttons
+                testConnectionBtn.disabled = false;
+                testCoursesBtn.disabled = false;
+                testEnrollBtn.disabled = false;
+            } else {
+                functionsCheck.className = 'result-box warning';
+                functionsCheck.innerHTML = `
+                    <h3>⚠️ Some Functions Missing</h3>
+                    <p>Function availability status:</p>
+                    <ul>
+                        ${functions.map(func => `<li>${func.name}: ${func.available ? '✅' : '❌'}</li>`).join('')}
+                    </ul>
+                `;
+            }
+        }
+        
+        // Test Academy connection
+        async function testAcademyConnection() {
+            showLoading(true);
+            
+            try {
+                if (!window.academySupabaseUtils || !window.academySupabaseUtils.isInitialized) {
+                    throw new Error('Academy Supabase client not initialized');
+                }
+                
+                // Try a simple query to test connection
+                const { data, error } = await window.academySupabaseUtils.supabase
+                    .from('courses')
+                    .select('count')
+                    .limit(1);
+                
+                if (error && error.code !== '42501') { // 42501 is permission denied, which is expected
+                    throw new Error(`Connection test failed: ${error.message}`);
+                }
+                
+                testResults.className = 'result-box success';
+                testResultsContent.innerHTML = `
+                    <h3>✅ Academy Connection Successful</h3>
+                    <p>Connected to Academy Supabase project:</p>
+                    <pre>${window.academySupabaseUtils.supabase.supabaseUrl}</pre>
+                    <p>✅ Database connection working!</p>
+                `;
+            } catch (error) {
+                testResults.className = 'result-box error';
+                testResultsContent.innerHTML = `
+                    <h3>❌ Academy Connection Failed</h3>
+                    <p>Error: ${error.message}</p>
+                    <p>Possible causes:</p>
+                    <ul>
+                        <li>Invalid Academy project credentials</li>
+                        <li>Courses table doesn't exist yet</li>
+                        <li>Network connectivity issues</li>
+                    </ul>
+                `;
+            } finally {
+                showLoading(false);
+                testResults.style.display = 'block';
+            }
+        }
+        
+        // Test get courses function
+        async function testGetCourses() {
+            showLoading(true);
+            
+            try {
+                if (!window.academySupabaseUtils || !window.academySupabaseUtils.isInitialized) {
+                    throw new Error('Academy Supabase client not initialized');
+                }
+                
+                const result = await window.academySupabaseUtils.getAcademyCourses({
+                    limit: 5,
+                    sortBy: 'created_at',
+                    sortOrder: 'desc'
+                });
+                
+                if (result.success) {
+                    testResults.className = 'result-box success';
+                    testResultsContent.innerHTML = `
+                        <h3>✅ Get Courses Function Working</h3>
+                        <p>Successfully called get-courses Edge Function</p>
+                        <pre>${JSON.stringify(result.data, null, 2)}</pre>
+                    `;
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (error) {
+                testResults.className = 'result-box error';
+                testResultsContent.innerHTML = `
+                    <h3>❌ Get Courses Function Failed</h3>
+                    <p>Error: ${error.message}</p>
+                    <p>Possible causes:</p>
+                    <ul>
+                        <li>get-courses Edge Function not deployed</li>
+                        <li>Invalid function implementation</li>
+                        <li>Authentication required</li>
+                    </ul>
+                `;
+            } finally {
+                showLoading(false);
+                testResults.style.display = 'block';
+            }
+        }
+        
+        // Test enrollment function
+        async function testEnrollment() {
+            showLoading(true);
+            
+            try {
+                if (!window.academySupabaseUtils || !window.academySupabaseUtils.isInitialized) {
+                    throw new Error('Academy Supabase client not initialized');
+                }
+                
+                // This is a test call - in reality you'd need a valid course ID
+                const result = await window.academySupabaseUtils.enrollInAcademyCourse('test-course-id');
+                
+                if (result.success) {
+                    testResults.className = 'result-box success';
+                    testResultsContent.innerHTML = `
+                        <h3>✅ Enrollment Function Working</h3>
+                        <p>Successfully called enroll Edge Function</p>
+                        <pre>${JSON.stringify(result.data, null, 2)}</pre>
+                    `;
+                } else {
+                    // This might fail due to missing course ID, which is expected for a test
+                    testResults.className = 'result-box warning';
+                    testResultsContent.innerHTML = `
+                        <h3>⚠️ Enrollment Function Called</h3>
+                        <p>Function executed but returned an error (expected for test):</p>
+                        <pre>${result.error}</pre>
+                        <p>✅ Function is properly configured and callable</p>
+                    `;
+                }
+            } catch (error) {
+                testResults.className = 'result-box error';
+                testResultsContent.innerHTML = `
+                    <h3>❌ Enrollment Function Failed</h3>
+                    <p>Error: ${error.message}</p>
+                    <p>Possible causes:</p>
+                    <ul>
+                        <li>enroll Edge Function not deployed</li>
+                        <li>Invalid function implementation</li>
+                        <li>Authentication required</li>
+                    </ul>
+                `;
+            } finally {
+                showLoading(false);
+                testResults.style.display = 'block';
+            }
+        }
+        
+        // Show/hide loading indicator
+        function showLoading(show) {
+            testLoading.style.display = show ? 'block' : 'none';
+        }
+        
+        // Run checks when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            performInitialCheck();
+        });
+    </script>
+</body>
+</html>

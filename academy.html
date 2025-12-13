@@ -24,7 +24,10 @@
     
     <!-- Supabase CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Main website Supabase utilities -->
     <script src="/js/supabase-utils.js"></script>
+    <!-- Academy-specific Supabase utilities -->
+    <script src="/js/academy-supabase.js"></script>
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/styles/main.css">
@@ -451,69 +454,31 @@
     <section class="academy-main">
         <div class="container">
             <div class="section-header">
-                <h2>Upcoming Courses</h2>
-                <p>Here's a preview of the courses we're developing for you</p>
+                <h2>Our Courses</h2>
+                <p>Learn from industry experts and get certified</p>
             </div>
             
-            <div class="courses-grid">
-                <div class="course-card">
-                    <div class="course-image">
-                        <i class="fas fa-chart-line"></i>
+            <!-- Loading indicator -->
+            <div id="courses-loading" class="loading-indicator" style="text-align: center; padding: 2rem; display: none;">
+                <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: var(--primary);"></i>
+                <p style="margin-top: 1rem; color: var(--white);">Loading courses...</p>
+            </div>
+            
+            <!-- Courses grid - will be populated by JavaScript -->
+            <div id="courses-container" class="courses-grid">
+                <!-- Courses will be dynamically inserted here -->
+            </div>
+            
+            <!-- Fallback content when no courses are available -->
+            <div id="no-courses-message" class="coming-soon" style="display: none;">
+                <div class="container">
+                    <div class="coming-soon-icon">
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <div class="course-content">
-                        <span class="course-badge">Digital Marketing</span>
-                        <h3>Complete Digital Marketing Mastery</h3>
-                        <p>Master SEO, social media, content marketing, email campaigns, and analytics. Learn proven strategies to grow your business online.</p>
-                        <div class="course-meta">
-                            <span><i class="fas fa-clock"></i> 40+ Hours</span>
-                            <span><i class="fas fa-certificate"></i> Certificate</span>
-                            <span><i class="fas fa-users"></i> Beginner Friendly</span>
-                        </div>
-                        <div class="course-price">Coming Soon</div>
-                        <div class="course-cta">
-                            <button class="btn btn-outline" disabled>Enroll Now</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="course-card">
-                    <div class="course-image">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="course-content">
-                        <span class="course-badge">Web Development</span>
-                        <h3>Full-Stack Web Development</h3>
-                        <p>Build modern, responsive websites and web applications. Learn HTML, CSS, JavaScript, and popular frameworks from scratch.</p>
-                        <div class="course-meta">
-                            <span><i class="fas fa-clock"></i> 60+ Hours</span>
-                            <span><i class="fas fa-certificate"></i> Certificate</span>
-                            <span><i class="fas fa-users"></i> All Levels</span>
-                        </div>
-                        <div class="course-price">Coming Soon</div>
-                        <div class="course-cta">
-                            <button class="btn btn-outline" disabled>Enroll Now</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="course-card">
-                    <div class="course-image">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="course-content">
-                        <span class="course-badge">AI Solutions</span>
-                        <h3>AI for Business Growth</h3>
-                        <p>Learn how to leverage AI tools and automation to streamline operations, improve customer experience, and drive business growth.</p>
-                        <div class="course-meta">
-                            <span><i class="fas fa-clock"></i> 30+ Hours</span>
-                            <span><i class="fas fa-certificate"></i> Certificate</span>
-                            <span><i class="fas fa-users"></i> Intermediate</span>
-                        </div>
-                        <div class="course-price">Coming Soon</div>
-                        <div class="course-cta">
-                            <button class="btn btn-outline" disabled>Enroll Now</button>
-                        </div>
-                    </div>
+                    <h2>No Courses Available Yet</h2>
+                    <p>
+                        We're working on creating amazing courses for you! Check back soon for our premium content on digital marketing, web development, and AI solutions.
+                    </p>
                 </div>
             </div>
         </div>
@@ -641,7 +606,128 @@
                 document.getElementById('academyEmail').focus();
             });
         });
+        
+        // Function to render courses
+        function renderCourses(courses) {
+            const container = document.getElementById('courses-container');
+            container.innerHTML = '';
+            
+            if (!courses || courses.length === 0) {
+                document.getElementById('no-courses-message').style.display = 'block';
+                return;
+            }
+            
+            document.getElementById('no-courses-message').style.display = 'none';
+            
+            courses.forEach(course => {
+                const courseCard = document.createElement('div');
+                courseCard.className = 'course-card';
+                
+                // Determine course level display
+                let levelDisplay = 'All Levels';
+                if (course.level === 'beginner') levelDisplay = 'Beginner Friendly';
+                else if (course.level === 'intermediate') levelDisplay = 'Intermediate';
+                else if (course.level === 'advanced') levelDisplay = 'Advanced';
+                
+                // Format price
+                let priceDisplay = '$' + (course.price || '0');
+                if (course.price === 0) priceDisplay = 'FREE';
+                
+                courseCard.innerHTML = `
+                    <div class="course-image">
+                        <i class="${getCourseIcon(course.category)}"></i>
+                    </div>
+                    <div class="course-content">
+                        <span class="course-badge">${course.category || 'General'}</span>
+                        <h3>${course.title}</h3>
+                        <p>${course.description || 'No description available.'}</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> ${course.duration || 'N/A'} Hours</span>
+                            <span><i class="fas fa-certificate"></i> Certificate</span>
+                            <span><i class="fas fa-users"></i> ${levelDisplay}</span>
+                        </div>
+                        <div class="course-price">${priceDisplay}</div>
+                        <div class="course-cta">
+                            <button class="btn btn-primary" onclick="enrollInCourse('${course.id}')">Enroll Now</button>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(courseCard);
+            });
+        }
+        
+        // Function to get appropriate icon based on category
+        function getCourseIcon(category) {
+            const icons = {
+                'Digital Marketing': 'fas fa-chart-line',
+                'Web Development': 'fas fa-code',
+                'AI Solutions': 'fas fa-robot',
+                'Business Growth': 'fas fa-chart-bar',
+                'Content Creation': 'fas fa-edit'
+            };
+            
+            return icons[category] || 'fas fa-graduation-cap';
+        }
+        
+        // Function to enroll in a course
+        async function enrollInCourse(courseId) {
+            try {
+                // Check if user is logged in
+                const isLoggedIn = await supabaseUtils.isUserLoggedIn();
+                if (!isLoggedIn) {
+                    alert('Please log in to enroll in courses.');
+                    window.location.href = '/login.html';
+                    return;
+                }
+                
+                // Use Academy-specific Supabase client for enrollment
+                const result = await academySupabaseUtils.enrollInAcademyCourse(courseId);
+                if (result.success) {
+                    alert('Successfully enrolled in the course!');
+                } else {
+                    alert('Error enrolling in course: ' + result.error);
+                }
+            } catch (error) {
+                console.error('Enrollment error:', error);
+                alert('An error occurred while enrolling in the course.');
+            }
+        }
+        
+        // Function to load courses
+        async function loadCourses() {
+            try {
+                // Show loading indicator
+                document.getElementById('courses-loading').style.display = 'block';
+                document.getElementById('courses-container').style.display = 'none';
+                
+                // Use Academy-specific Supabase client to fetch courses
+                const result = await academySupabaseUtils.getAcademyCourses({
+                    limit: 10,
+                    sortBy: 'created_at',
+                    sortOrder: 'desc'
+                });
+                
+                if (result.success && result.data.courses) {
+                    renderCourses(result.data.courses);
+                } else {
+                    console.error('Failed to load courses:', result.error);
+                    document.getElementById('no-courses-message').style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error loading courses:', error);
+                document.getElementById('no-courses-message').style.display = 'block';
+            } finally {
+                // Hide loading indicator
+                document.getElementById('courses-loading').style.display = 'none';
+                document.getElementById('courses-container').style.display = 'grid';
+            }
+        }
+        
+        // Load courses when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCourses();
+        });
     </script>
 </body>
 </html>
-

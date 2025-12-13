@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase Client Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-utils.js"></script>
+    <script src="js/academy-supabase.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .result {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Supabase Client Test</h1>
+        <p>This page tests if both Supabase clients are properly loaded and initialized.</p>
+        
+        <div id="results"></div>
+        
+        <button onclick="runTest()">Run Test</button>
+        <button onclick="testConnection()">Test Academy Connection</button>
+        
+        <div id="output" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        function addResult(message, type = 'info') {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `result ${type}`;
+            div.textContent = message;
+            results.appendChild(div);
+        }
+        
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+            document.getElementById('output').innerHTML = '';
+        }
+        
+        async function runTest() {
+            clearResults();
+            addResult('🔍 Running Supabase Client Test...', 'info');
+            
+            // Check main website client
+            if (typeof window.supabaseUtils !== 'undefined') {
+                addResult('✅ Main website Supabase client loaded', 'success');
+                addResult(`   URL: ${window.supabaseUtils.supabase.supabaseUrl}`, 'info');
+            } else {
+                addResult('❌ Main website Supabase client NOT loaded', 'error');
+            }
+            
+            // Check Academy client
+            if (typeof window.academySupabaseUtils !== 'undefined') {
+                addResult('✅ Academy Supabase client loaded', 'success');
+                if (window.academySupabaseUtils.isInitialized) {
+                    addResult('   Status: ✅ Initialized', 'success');
+                    addResult(`   URL: ${window.academySupabaseUtils.supabase.supabaseUrl}`, 'info');
+                } else {
+                    addResult('   Status: ⚠️  Not initialized (check credentials)', 'warning');
+                }
+            } else {
+                addResult('❌ Academy Supabase client NOT loaded', 'error');
+            }
+            
+            addResult('📋 Test complete!', 'info');
+        }
+        
+        async function testConnection() {
+            const output = document.getElementById('output');
+            output.innerHTML = '<p>Testing Academy connection...</p>';
+            
+            try {
+                if (!window.academySupabaseUtils || !window.academySupabaseUtils.isInitialized) {
+                    throw new Error('Academy Supabase client not initialized');
+                }
+                
+                // Try a simple query to test connection
+                const { data, error } = await window.academySupabaseUtils.supabase
+                    .from('courses')
+                    .select('count')
+                    .limit(1);
+                
+                if (error && error.code !== '42501') { // 42501 is permission denied, which is expected
+                    throw new Error(`Connection test failed: ${error.message}`);
+                }
+                
+                output.innerHTML = `
+                    <div class="result success">
+                        <h3>✅ Academy Connection Successful</h3>
+                        <p>Connected to Academy Supabase project:</p>
+                        <pre>${window.academySupabaseUtils.supabase.supabaseUrl}</pre>
+                        <p>✅ Database connection working!</p>
+                    </div>
+                `;
+            } catch (error) {
+                output.innerHTML = `
+                    <div class="result error">
+                        <h3>❌ Academy Connection Failed</h3>
+                        <p>Error: ${error.message}</p>
+                        <p>Possible causes:</p>
+                        <ul>
+                            <li>Invalid Academy project credentials</li>
+                            <li>Courses table doesn't exist yet</li>
+                            <li>Network connectivity issues</li>
+                        </ul>
+                    </div>
+                `;
+            }
+        }
+        
+        // Run test automatically when page loads
+        window.addEventListener('load', runTest);
+    </script>
+</body>
+</body>
+</html>

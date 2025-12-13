@@ -1,6 +1,6 @@
 // Import the serve function from the standard library
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { supabase } from "../_utils/supabaseClient.ts";
+import { supabase } from "./_utils/supabaseClient.ts";
 
 interface GetCourseParams {
   id: string;

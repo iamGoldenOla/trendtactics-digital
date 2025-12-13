@@ -5,11 +5,11 @@
     'use strict';
     
     const SUPABASE_URL = 'https://wtgwxnhnqdnbzpetltrt.supabase.co';
-    const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY_HERE'; // Replace with actual key
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0Z3d4bmhucWRuYnpwZXRsdHJ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUwNjQ2NjUsImV4cCI6MjA4MDY0MDY2NX0.3eblmq4lsnDQU33M9XqZpBqux9bi9hX2G0yUuPScHJA'; // Replace with actual key
     
     // Initialize Supabase client if available
     let supabase = null;
-    if (window.supabase && SUPABASE_ANON_KEY !== 'YOUR_ANON_KEY_HERE') {
+    if (window.supabase && SUPABASE_ANON_KEY !== 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0Z3d4bmhucWRuYnpwZXRsdHJ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUwNjQ2NjUsImV4cCI6MjA4MDY0MDY2NX0.3eblmq4lsnDQU33M9XqZpBqux9bi9hX2G0yUuPScHJA') {
         supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     }
     

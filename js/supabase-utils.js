@@ -3,7 +3,7 @@
 
 // Initialize Supabase client
 const supabaseUrl = 'https://wtgwxnhnqdnbzpetltrt.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0Z3d4bmhucWRuYnpwZXRsdHJ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUwNjQ2NjUsImV4cCI6MjA4MDY0MDY2NX0.3eblmq4lsnDQU33M9XqZpBqux9bi9hX2G0yUuPScHJA'; // Replace with your actual anon key
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0Z3d4bmhucWRuYnpwZXRsdHJ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUwNjQ2NjUsImV4cCI6MjA4MDY0MDY2NX0.3eblmq4lsnDQU33M9XqZpBqux9bi9hX2G0yUuPScHJA'; // Your actual Supabase anon key
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 /**
@@ -188,6 +188,44 @@ async function checkCourseAccess(userId, courseId) {
     }
 }
 
+/**
+ * Fetch courses from Supabase Edge Functions
+ * @param {Object} params - Query parameters
+ * @returns {Promise<Object>} Courses data
+ */
+async function getCourses(params = {}) {
+    try {
+        const { data, error } = await supabase.functions.invoke('get-courses', {
+            body: params
+        });
+
+        if (error) throw error;
+        return { success: true, data };
+    } catch (error) {
+        console.error('Error fetching courses:', error);
+        return { success: false, error: error.message };
+    }
+}
+
+/**
+ * Enroll user in a course
+ * @param {string} courseId - Course ID to enroll in
+ * @returns {Promise<Object>} Enrollment result
+ */
+async function enrollInCourse(courseId) {
+    try {
+        const { data, error } = await supabase.functions.invoke('enroll', {
+            body: { courseId }
+        });
+
+        if (error) throw error;
+        return { success: true, data };
+    } catch (error) {
+        console.error('Error enrolling in course:', error);
+        return { success: false, error: error.message };
+    }
+}
+
 // Export functions
 window.supabaseUtils = {
     isUserLoggedIn,
@@ -199,5 +237,7 @@ window.supabaseUtils = {
     getUserProfile,
     updateUserProfile,
     checkCourseAccess,
+    getCourses,
+    enrollInCourse,
     supabase
 };

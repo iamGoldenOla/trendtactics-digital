@@ -1,7 +1,7 @@
 // Import the serve function from the standard library
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { supabase } from "../_utils/supabaseClient.ts";
-import { requireAuth, getUserFromToken } from "../_utils/auth.ts";
+import { supabase } from "./_utils/supabaseClient.ts";
+import { requireAuth, getUserFromToken } from "./_utils/auth.ts";
 
 interface EnrollPayload {
   courseId: string;
