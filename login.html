@@ -543,6 +543,14 @@
                 localStorage.setItem('userId', data.user.id);
                 localStorage.setItem('userEmail', data.user.email);
                 
+                // For testing purposes, set admin flag if email contains "admin"
+                // In a real implementation, this would come from your backend
+                if (email.includes('admin')) {
+                    localStorage.setItem('isAdmin', 'true');
+                } else {
+                    localStorage.setItem('isAdmin', 'false');
+                }
+                
                 // Redirect to client dashboard after a short delay
                 setTimeout(() => {
                     window.location.href = '/client-dashboard';

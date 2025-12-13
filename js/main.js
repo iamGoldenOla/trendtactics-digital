@@ -1,3 +1,131 @@
+// Main JavaScript file for Trendtactics Digital
+
+// Mobile Navigation Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    }
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!navToggle.contains(event.target) && !navMenu.contains(event.target)) {
+            navMenu.classList.remove('active');
+        }
+    });
+});
+
+// Dropdown Menus
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('.nav-link');
+        
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            }
+        });
+    });
+});
+
+// Smooth Scrolling for Anchor Links
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+
+// Form Submission Handling
+document.addEventListener('DOMContentLoaded', function() {
+    // Newsletter Form
+    const newsletterForms = document.querySelectorAll('.newsletter-form');
+    newsletterForms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const emailInput = form.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            
+            if (email) {
+                // In a real implementation, you would send this to your backend
+                alert('Thank you for subscribing! We will send updates to ' + email);
+                form.reset();
+            }
+        });
+    });
+});
+
+// Dynamic Year for Copyright
+document.addEventListener('DOMContentLoaded', function() {
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+});
+
+// Add Admin and Analytics links for authenticated admin users
+document.addEventListener('DOMContentLoaded', async function() {
+    // This is a simplified implementation
+    // In a real application, you would check user roles from your backend
+    const isAdmin = localStorage.getItem('isAdmin') === 'true';
+    
+    if (isAdmin) {
+        // Add Admin Dashboard link to navigation
+        const navMenu = document.getElementById('nav-menu');
+        if (navMenu) {
+            const adminLink = document.createElement('a');
+            adminLink.href = '/admin-dashboard.html';
+            adminLink.className = 'nav-link';
+            adminLink.textContent = 'Admin';
+            adminLink.style.color = '#00FFFF';
+            adminLink.style.fontWeight = 'bold';
+            
+            // Insert before the last few items
+            const contactLink = navMenu.querySelector('a[href="/contact"]');
+            if (contactLink) {
+                navMenu.insertBefore(adminLink, contactLink.parentNode);
+            }
+        }
+    }
+});
+
+// Enhanced smooth scrolling with offset for fixed headers
+function scrollToSection(targetId) {
+    const target = document.getElementById(targetId);
+    if (target) {
+        const headerOffset = 80;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    }
+}
+
+// Initialize all interactive elements
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Trendtactics Digital JavaScript initialized');
+});
+
 // ===== MAIN JAVASCRIPT FUNCTIONALITY =====
 
 // DOM Content Loaded

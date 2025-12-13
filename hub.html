@@ -345,22 +345,22 @@
         </div>
 
         <div class="cards-container">
-            <div class="hub-card" id="client-dashboard-card" onclick="window.location.href='client-dashboard.html'">
+            <div class="hub-card" id="client-dashboard-card">
                 <div class="card-icon">
                     <i class="fas fa-chart-line"></i>
                 </div>
                 <h2 class="card-title">Client Dashboard</h2>
                 <p class="card-description">Manage your campaigns and services</p>
-                <a href="client-dashboard.html" class="btn btn-primary">Access Dashboard</a>
+                <a href="#" class="btn btn-primary" id="client-dashboard-btn">Access Dashboard</a>
             </div>
 
-            <div class="hub-card" id="academy-card" onclick="window.location.href='academy.html'">
+            <div class="hub-card" id="academy-card">
                 <div class="card-icon">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
                 <h2 class="card-title">Academy</h2>
                 <p class="card-description">Learn digital marketing and grow your skills</p>
-                <a href="academy.html" class="btn btn-primary">Access Academy</a>
+                <a href="#" class="btn btn-primary" id="academy-btn">Access Academy</a>
             </div>
         </div>
 
@@ -476,45 +476,44 @@
         }
 
         // Handle button clicks - ensure DOM is ready
-        document.addEventListener('DOMContentLoaded', function () {
-            const clientBtn = document.querySelector('#client-dashboard-card .btn');
-            const academyBtn = document.querySelector('#academy-card .btn');
+        document.addEventListener('DOMContentLoaded', async function () {
+            const clientBtn = document.getElementById('client-dashboard-btn');
+            const academyBtn = document.getElementById('academy-btn');
             const clientCard = document.getElementById('client-dashboard-card');
             const academyCard = document.getElementById('academy-card');
 
-            // Button listeners removed to allow default anchor navigation
-
-
-            // Make cards clickable for better UX
-            if (clientCard) {
-                clientCard.addEventListener('click', async function (e) {
-                    // Don't trigger if clicking the button
-                    if (e.target.closest('.btn')) return;
-
-                    const session = await checkAuthStatus();
-
-                    if (session) {
-                        window.location.href = '/client-dashboard.html';
-                    } else {
-                        localStorage.setItem('redirectAfterLogin', '/client-dashboard.html');
-                        window.location.href = '/login.html';
-                    }
+            // Check authentication status on page load
+            const session = await checkAuthStatus();
+            
+            if (!session) {
+                // If not authenticated, set buttons to redirect to login
+                clientBtn.textContent = 'Sign In to Access';
+                clientBtn.href = '/login.html';
+                academyBtn.textContent = 'Sign In to Access';
+                academyBtn.href = '/login.html';
+                
+                // Update card click handlers to go to login
+                clientCard.addEventListener('click', function() {
+                    window.location.href = '/login.html';
                 });
-            }
-
-            if (academyCard) {
-                academyCard.addEventListener('click', async function (e) {
-                    // Don't trigger if clicking the button
-                    if (e.target.closest('.btn')) return;
-
-                    const session = await checkAuthStatus();
-
-                    if (session) {
-                        window.location.href = '/academy.html';
-                    } else {
-                        localStorage.setItem('redirectAfterLogin', '/academy.html');
-                        window.location.href = '/login.html';
-                    }
+                
+                academyCard.addEventListener('click', function() {
+                    window.location.href = '/login.html';
+                });
+            } else {
+                // If authenticated, set buttons to go to respective dashboards
+                clientBtn.textContent = 'Access Dashboard';
+                clientBtn.href = '/client-dashboard.html';
+                academyBtn.textContent = 'Access Academy';
+                academyBtn.href = '/academy.html';
+                
+                // Update card click handlers to go to respective dashboards
+                clientCard.addEventListener('click', function() {
+                    window.location.href = '/client-dashboard.html';
+                });
+                
+                academyCard.addEventListener('click', function() {
+                    window.location.href = '/academy.html';
                 });
             }
         });

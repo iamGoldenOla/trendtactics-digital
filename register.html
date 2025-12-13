@@ -499,7 +499,20 @@
                 
                 // Registration successful
                 document.getElementById('successMessage').style.display = 'block';
-                document.getElementById('successMessage').textContent = 'Account created successfully! Please check your email for verification.';
+                document.getElementById('successMessage').innerHTML = 'Account created successfully! Please check your email for verification.<br><br>' +
+                    '<strong>Note:</strong> For admin access, register with an email containing "admin" (e.g., admin@trendtactics.com)';
+                
+                // Store user data in localStorage for dashboard access
+                localStorage.setItem('userId', data.user.id);
+                localStorage.setItem('userEmail', data.user.email);
+                
+                // For testing purposes, set admin flag if email contains "admin"
+                // In a real implementation, this would come from your backend
+                if (email.includes('admin')) {
+                    localStorage.setItem('isAdmin', 'true');
+                } else {
+                    localStorage.setItem('isAdmin', 'false');
+                }
                 
                 // Redirect to login after a short delay
                 setTimeout(() => {
