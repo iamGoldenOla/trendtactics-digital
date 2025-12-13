@@ -2647,8 +2647,8 @@
 
 .story-premium-grid {
     display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    /* Reverted to original balance (Image smaller) */
+    grid-template-columns: 1.2fr 0.8fr;
+    /* Image Larger (60%), Content Smaller (40%) */
     gap: var(--spacing-4xl);
     align-items: center;
     position: relative;
