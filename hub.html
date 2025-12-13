@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -8,6 +9,8 @@
     <title>Welcome to TrendTactics | Choose Your Path</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/styles/main.css">
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         :root {
             --primary: #00FFFF;
@@ -113,7 +116,7 @@
             background: linear-gradient(135deg, var(--base-dark-light) 0%, var(--base-dark-lighter) 100%);
             border-radius: var(--radius-2xl);
             padding: var(--spacing-3xl);
-            box-shadow: 
+            box-shadow:
                 0 8px 32px rgba(0, 0, 0, 0.3),
                 0 4px 16px rgba(0, 255, 255, 0.1),
                 0 0 0 1px rgba(0, 255, 255, 0.2);
@@ -131,7 +134,7 @@
 
         .hub-card:hover {
             transform: translateY(-10px);
-            box-shadow: 
+            box-shadow:
                 0 20px 40px rgba(0, 0, 0, 0.4),
                 0 10px 20px rgba(0, 255, 255, 0.2),
                 0 0 0 1px rgba(0, 255, 255, 0.3);
@@ -231,24 +234,24 @@
             .hub-container {
                 padding: var(--spacing-2xl) var(--spacing-sm);
             }
-            
+
             .hub-header h1 {
                 font-size: 2rem;
             }
-            
+
             .hub-header p {
                 font-size: 1.1rem;
             }
-            
+
             .cards-container {
                 grid-template-columns: 1fr;
                 gap: var(--spacing-2xl);
             }
-            
+
             .hub-card {
                 padding: var(--spacing-2xl);
             }
-            
+
             .card-icon {
                 width: 80px;
                 height: 80px;
@@ -260,33 +263,36 @@
             .hub-header h1 {
                 font-size: 1.75rem;
             }
-            
+
             .hub-header p {
                 font-size: 1rem;
             }
-            
+
             .card-title {
                 font-size: 1.5rem;
             }
-            
+
             .card-description {
                 font-size: 1rem;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Header Navigation -->
     <nav id="navigation" class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                                <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
                     <div style="display: flex; gap: 2px; align-items: flex-end;">
                         <div style="width: 4px; height: 16px; background: #00FFFF; border-radius: 1px;"></div>
                         <div style="width: 4px; height: 20px; background: #00FFFF; border-radius: 1px;"></div>
                         <div style="width: 4px; height: 24px; background: #00FFFF; border-radius: 1px;"></div>
                     </div>
-                    <span style="font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.1rem; color: #FFFFFF; letter-spacing: -0.5px;">Trendtactics Digital</span>
+                    <span
+                        style="font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.1rem; color: #FFFFFF; letter-spacing: -0.5px;">Trendtactics
+                        Digital</span>
                 </a>
             </div>
             <div class="nav-actions">
@@ -294,7 +300,8 @@
                     <a href="/" class="nav-link">Home</a>
                     <a href="/about" class="nav-link">About</a>
                     <div class="nav-item dropdown">
-                        <a href="/services" class="nav-link">Services <i class="fas fa-chevron-down" style="font-size:0.8em;margin-left:6px;"></i></a>
+                        <a href="/services" class="nav-link">Services <i class="fas fa-chevron-down"
+                                style="font-size:0.8em;margin-left:6px;"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="/service-email-marketing">Email Marketing</a></li>
                             <li><a href="/service-content-creation">Content Creation</a></li>
@@ -303,7 +310,8 @@
                         </ul>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="/resources" class="nav-link">Resources <i class="fas fa-chevron-down" style="font-size:0.8em;margin-left:6px;"></i></a>
+                        <a href="/resources" class="nav-link">Resources <i class="fas fa-chevron-down"
+                                style="font-size:0.8em;margin-left:6px;"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="/ebooks">Free Books</a></li>
                             <li><a href="/tools">Marketing Tools</a></li>
@@ -329,13 +337,13 @@
             </div>
         </div>
     </nav>
-    
+
     <div class="hub-container">
         <div class="hub-header">
             <h1>Welcome to TrendTactics</h1>
             <p>Choose your path to digital success</p>
         </div>
-        
+
         <div class="cards-container">
             <div class="hub-card" id="client-dashboard-card">
                 <div class="card-icon">
@@ -345,7 +353,7 @@
                 <p class="card-description">Manage your campaigns and services</p>
                 <button class="btn btn-primary">Access Dashboard</button>
             </div>
-            
+
             <div class="hub-card" id="academy-card">
                 <div class="card-icon">
                     <i class="fas fa-graduation-cap"></i>
@@ -355,7 +363,7 @@
                 <button class="btn btn-primary">Access Academy</button>
             </div>
         </div>
-        
+
         <div class="hub-footer">
             <p>Unified authentication system - one login works for both dashboard and academy</p>
             <a href="/" class="back-to-home">← Back to Homepage</a>
@@ -371,11 +379,12 @@
                         <img src="/images/Trendtactics_logo.jpg" alt="Trendtactics Digital" class="footer-logo-img">
                     </div>
                     <p class="footer-description">
-                        We don't just market brands — we engineer digital growth. 
+                        We don't just market brands — we engineer digital growth.
                         Unlock strategy, creativity, and AI power — all in one studio.
                     </p>
                     <div class="social-links">
-                        <a href="https://linkedin.com/company/trendtactics-digital" target="_blank" rel="noopener noreferrer">
+                        <a href="https://linkedin.com/company/trendtactics-digital" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fab fa-linkedin"></i>
                         </a>
                         <a href="https://twitter.com/trendtactics" target="_blank" rel="noopener noreferrer">
@@ -393,7 +402,7 @@
                     </div>
                     <div id="google_translate_element"></div>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul>
@@ -402,7 +411,7 @@
                         <li><a href="/services#digital-marketing">Digital Marketing</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>Company</h3>
                     <ul>
@@ -412,10 +421,11 @@
                         <li><a href="/contact">Contact</a></li>
                         <li><a href="/pricing">Pricing</a></li>
                         <li><a href="/academy">Academy</a></li>
-                        <li><a href="/trendy-ai">Trendy AI <span class="badge badge-coming-soon">Coming Soon</span></a></li>
+                        <li><a href="/trendy-ai">Trendy AI <span class="badge badge-coming-soon">Coming Soon</span></a>
+                        </li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column footer-resources">
                     <h3>Resources</h3>
                     <ul>
@@ -436,7 +446,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 Trendtactics Digital. All rights reserved.</p>
                 <div class="footer-legal">
@@ -453,7 +463,7 @@
         const supabaseUrl = 'https://wtgwxnhnqdnbzpetltrt.supabase.co';
         const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0Z3d4bmhucWRuYnpwZXRsdHJ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUwNjQ2NjUsImV4cCI6MjA4MDY0MDY2NX0.3eblmq4lsnDQU33M9XqZpBqux9bi9hX2G0yUuPScHJA';
         const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
-        
+
         // Check authentication status
         async function checkAuthStatus() {
             try {
@@ -464,21 +474,21 @@
                 return null;
             }
         }
-        
+
         // Handle button clicks - ensure DOM is ready
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const clientBtn = document.querySelector('#client-dashboard-card .btn');
             const academyBtn = document.querySelector('#academy-card .btn');
             const clientCard = document.getElementById('client-dashboard-card');
             const academyCard = document.getElementById('academy-card');
-            
+
             // Client Dashboard Button
             if (clientBtn) {
-                clientBtn.addEventListener('click', async function(e) {
+                clientBtn.addEventListener('click', async function (e) {
                     e.stopPropagation();
                     e.preventDefault();
                     const session = await checkAuthStatus();
-                    
+
                     if (session) {
                         window.location.href = '/client-dashboard.html';
                     } else {
@@ -487,14 +497,14 @@
                     }
                 });
             }
-            
+
             // Academy Button
             if (academyBtn) {
-                academyBtn.addEventListener('click', async function(e) {
+                academyBtn.addEventListener('click', async function (e) {
                     e.stopPropagation();
                     e.preventDefault();
                     const session = await checkAuthStatus();
-                    
+
                     if (session) {
                         window.location.href = '/academy.html';
                     } else {
@@ -503,15 +513,15 @@
                     }
                 });
             }
-            
+
             // Make cards clickable for better UX
             if (clientCard) {
-                clientCard.addEventListener('click', async function(e) {
+                clientCard.addEventListener('click', async function (e) {
                     // Don't trigger if clicking the button
                     if (e.target.closest('.btn')) return;
-                    
+
                     const session = await checkAuthStatus();
-                    
+
                     if (session) {
                         window.location.href = '/client-dashboard.html';
                     } else {
@@ -520,14 +530,14 @@
                     }
                 });
             }
-            
+
             if (academyCard) {
-                academyCard.addEventListener('click', async function(e) {
+                academyCard.addEventListener('click', async function (e) {
                     // Don't trigger if clicking the button
                     if (e.target.closest('.btn')) return;
-                    
+
                     const session = await checkAuthStatus();
-                    
+
                     if (session) {
                         window.location.href = '/academy.html';
                     } else {
@@ -537,9 +547,9 @@
                 });
             }
         });
-        
+
         // Check for redirect after login
-        document.addEventListener('DOMContentLoaded', async function() {
+        document.addEventListener('DOMContentLoaded', async function () {
             const redirectUrl = localStorage.getItem('redirectAfterLogin');
             if (redirectUrl) {
                 localStorage.removeItem('redirectAfterLogin');
@@ -550,13 +560,12 @@
             }
         });
     </script>
-    
+
     <!-- Main JavaScript -->
     <script src="/js/main.js"></script>
-    
+
     <!-- Browser Compatibility -->
     <script src="/js/browser-compat.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </body>
+
 </html>
