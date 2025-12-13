@@ -11,9 +11,16 @@
       "author": "Akinola Olujobi",
       "authorBio": "Founder and CEO of Trendtactics Digital, with over 10 years of experience in digital marketing and AI solutions.",
       "date": "2025-06-15",
-      "image": "/images/blog1.jpg",
+      "image": "images/blog1.jpg",
       "featured": true,
-      "tags": ["AI", "SEO", "E-commerce", "Traffic", "Case Study", "ROI"],
+      "tags": [
+        "AI",
+        "SEO",
+        "E-commerce",
+        "Traffic",
+        "Case Study",
+        "ROI"
+      ],
       "readTime": "8 min read",
       "views": 1247,
       "comments": 23,
@@ -30,9 +37,15 @@
       "author": "Sarah Johnson",
       "authorBio": "Social Media Strategist at Trendtactics Digital, specializing in community building and engagement optimization.",
       "date": "2025-05-20",
-      "image": "/images/blog1.jpg",
+      "image": "images/blog1.jpg",
       "featured": false,
-      "tags": ["Social Media", "Engagement", "Strategy", "2025", "Content"],
+      "tags": [
+        "Social Media",
+        "Engagement",
+        "Strategy",
+        "2025",
+        "Content"
+      ],
       "readTime": "6 min read",
       "views": 892,
       "comments": 15,
@@ -49,9 +62,15 @@
       "author": "Michael Chen",
       "authorBio": "SEO Specialist with expertise in technical SEO and algorithm analysis.",
       "date": "2025-04-10",
-      "image": "/images/blog2.jpg",
+      "image": "images/blog2.jpg",
       "featured": false,
-      "tags": ["Google", "Algorithm", "SEO", "Update", "Technical SEO"],
+      "tags": [
+        "Google",
+        "Algorithm",
+        "SEO",
+        "Update",
+        "Technical SEO"
+      ],
       "readTime": "7 min read",
       "views": 1567,
       "comments": 31,
@@ -68,9 +87,15 @@
       "author": "Emily Rodriguez",
       "authorBio": "Content Marketing Manager with expertise in content strategy and audience development.",
       "date": "2025-03-15",
-      "image": "/images/blog3.jpg",
+      "image": "images/blog3.jpg",
       "featured": false,
-      "tags": ["Content Marketing", "Beginner", "Strategy", "2025", "Guide"],
+      "tags": [
+        "Content Marketing",
+        "Beginner",
+        "Strategy",
+        "2025",
+        "Guide"
+      ],
       "readTime": "10 min read",
       "views": 743,
       "comments": 12,
@@ -87,9 +112,15 @@
       "author": "David Kim",
       "authorBio": "Digital Marketing Analyst specializing in emerging technologies and market trends.",
       "date": "2025-02-28",
-      "image": "/images/blog1.jpg",
+      "image": "images/blog1.jpg",
       "featured": false,
-      "tags": ["AI", "Automation", "Future", "Trends", "Technology"],
+      "tags": [
+        "AI",
+        "Automation",
+        "Future",
+        "Trends",
+        "Technology"
+      ],
       "readTime": "9 min read",
       "views": 1123,
       "comments": 18,
@@ -106,9 +137,15 @@
       "author": "Lisa Wang",
       "authorBio": "Brand Strategist with expertise in digital brand development and identity design.",
       "date": "2025-01-20",
-      "image": "/images/blog2.jpg",
+      "image": "images/blog2.jpg",
       "featured": false,
-      "tags": ["Branding", "Identity", "Digital", "Strategy", "Design"],
+      "tags": [
+        "Branding",
+        "Identity",
+        "Digital",
+        "Strategy",
+        "Design"
+      ],
       "readTime": "8 min read",
       "views": 678,
       "comments": 9,
@@ -125,9 +162,15 @@
       "author": "Akinola Olujobi",
       "authorBio": "Founder and CEO of Trendtactics Digital, with over 10 years of experience in digital marketing and AI solutions.",
       "date": "2025-01-15",
-      "image": "/images/blog1.jpg",
+      "image": "images/blog1.jpg",
       "featured": false,
-      "tags": ["E-commerce", "SEO", "Sales", "Conversion", "Strategy"],
+      "tags": [
+        "E-commerce",
+        "SEO",
+        "Sales",
+        "Conversion",
+        "Strategy"
+      ],
       "readTime": "12 min read",
       "views": 2341,
       "comments": 45,
@@ -144,9 +187,15 @@
       "author": "Sarah Johnson",
       "authorBio": "Social Media Strategist at Trendtactics Digital, specializing in community building and engagement optimization.",
       "date": "2025-01-10",
-      "image": "/images/blog1.jpg",
+      "image": "images/blog1.jpg",
       "featured": false,
-      "tags": ["Digital Marketing", "Mistakes", "ROI", "Strategy", "Tips"],
+      "tags": [
+        "Digital Marketing",
+        "Mistakes",
+        "ROI",
+        "Strategy",
+        "Tips"
+      ],
       "readTime": "8 min read",
       "views": 1892,
       "comments": 67,
@@ -163,9 +212,15 @@
       "author": "Emily Rodriguez",
       "authorBio": "Content Marketing Manager with expertise in content strategy and audience development.",
       "date": "2025-01-05",
-      "image": "/images/blog3.jpg",
+      "image": "images/blog3.jpg",
       "featured": false,
-      "tags": ["Landing Page", "Conversion", "Design", "CRO", "Strategy"],
+      "tags": [
+        "Landing Page",
+        "Conversion",
+        "Design",
+        "CRO",
+        "Strategy"
+      ],
       "readTime": "9 min read",
       "views": 1456,
       "comments": 28,
@@ -182,9 +237,15 @@
       "author": "David Kim",
       "authorBio": "Digital Marketing Analyst specializing in emerging technologies and market trends.",
       "date": "2024-12-28",
-      "image": "/images/blog2.jpg",
+      "image": "images/blog2.jpg",
       "featured": false,
-      "tags": ["Marketing Automation", "Lead Nurturing", "Efficiency", "ROI", "Strategy"],
+      "tags": [
+        "Marketing Automation",
+        "Lead Nurturing",
+        "Efficiency",
+        "ROI",
+        "Strategy"
+      ],
       "readTime": "11 min read",
       "views": 987,
       "comments": 22,
@@ -201,9 +262,15 @@
       "author": "Sarah Johnson",
       "authorBio": "Social Media Strategist at Trendtactics Digital, specializing in community building and engagement optimization.",
       "date": "2024-12-20",
-      "image": "/images/blog1.jpg",
+      "image": "images/blog1.jpg",
       "featured": false,
-      "tags": ["Social Media", "Trends", "2025", "AI", "Video"],
+      "tags": [
+        "Social Media",
+        "Trends",
+        "2025",
+        "AI",
+        "Video"
+      ],
       "readTime": "7 min read",
       "views": 1345,
       "comments": 34,
@@ -220,9 +287,15 @@
       "author": "Akinola Olujobi",
       "authorBio": "Founder and CEO of Trendtactics Digital, with over 10 years of experience in digital marketing and AI solutions.",
       "date": "2024-12-15",
-      "image": "/images/blog1.jpg",
+      "image": "images/blog1.jpg",
       "featured": false,
-      "tags": ["ROI", "Digital Marketing", "Strategy", "Analytics", "Growth"],
+      "tags": [
+        "ROI",
+        "Digital Marketing",
+        "Strategy",
+        "Analytics",
+        "Growth"
+      ],
       "readTime": "10 min read",
       "views": 2156,
       "comments": 89,
@@ -275,19 +348,34 @@
     "TOFU": {
       "name": "Top of Funnel",
       "description": "Awareness stage content that attracts and educates",
-      "posts": [3, 4, 5, 8, 11],
+      "posts": [
+        3,
+        4,
+        5,
+        8,
+        11
+      ],
       "cta_type": "lead_magnet"
     },
     "MOFU": {
       "name": "Middle of Funnel",
       "description": "Consideration stage content that nurtures and builds trust",
-      "posts": [2, 6, 7, 10],
+      "posts": [
+        2,
+        6,
+        7,
+        10
+      ],
       "cta_type": "consultation"
     },
     "BOFU": {
       "name": "Bottom of Funnel",
       "description": "Decision stage content that converts and closes",
-      "posts": [1, 9, 12],
+      "posts": [
+        1,
+        9,
+        12
+      ],
       "cta_type": "service_offer"
     }
   },
@@ -329,4 +417,4 @@
       "avatar": "/images/akinola.jpg.jpg"
     }
   ]
-} 
+}

@@ -345,22 +345,22 @@
         </div>
 
         <div class="cards-container">
-            <div class="hub-card" id="client-dashboard-card">
+            <div class="hub-card" id="client-dashboard-card" onclick="window.location.href='client-dashboard.html'">
                 <div class="card-icon">
                     <i class="fas fa-chart-line"></i>
                 </div>
                 <h2 class="card-title">Client Dashboard</h2>
                 <p class="card-description">Manage your campaigns and services</p>
-                <button class="btn btn-primary">Access Dashboard</button>
+                <a href="client-dashboard.html" class="btn btn-primary">Access Dashboard</a>
             </div>
 
-            <div class="hub-card" id="academy-card">
+            <div class="hub-card" id="academy-card" onclick="window.location.href='academy.html'">
                 <div class="card-icon">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
                 <h2 class="card-title">Academy</h2>
                 <p class="card-description">Learn digital marketing and grow your skills</p>
-                <button class="btn btn-primary">Access Academy</button>
+                <a href="academy.html" class="btn btn-primary">Access Academy</a>
             </div>
         </div>
 
@@ -482,37 +482,8 @@
             const clientCard = document.getElementById('client-dashboard-card');
             const academyCard = document.getElementById('academy-card');
 
-            // Client Dashboard Button
-            if (clientBtn) {
-                clientBtn.addEventListener('click', async function (e) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    const session = await checkAuthStatus();
+            // Button listeners removed to allow default anchor navigation
 
-                    if (session) {
-                        window.location.href = '/client-dashboard.html';
-                    } else {
-                        localStorage.setItem('redirectAfterLogin', '/client-dashboard.html');
-                        window.location.href = '/login.html';
-                    }
-                });
-            }
-
-            // Academy Button
-            if (academyBtn) {
-                academyBtn.addEventListener('click', async function (e) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    const session = await checkAuthStatus();
-
-                    if (session) {
-                        window.location.href = '/academy.html';
-                    } else {
-                        localStorage.setItem('redirectAfterLogin', '/academy.html');
-                        window.location.href = '/login.html';
-                    }
-                });
-            }
 
             // Make cards clickable for better UX
             if (clientCard) {
