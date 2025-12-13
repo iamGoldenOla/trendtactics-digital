@@ -83,8 +83,7 @@
 .brand-card-custom img {
     max-width: 120px;
     max-height: 60px;
-    filter: brightness(0) invert(1);
-    /* Make logos white */
+    /* Removed white filter to show original logo colors */
     object-fit: contain;
     width: auto;
     height: auto;
