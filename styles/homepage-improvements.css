@@ -87,6 +87,7 @@
     object-fit: contain;
     width: auto;
     height: auto;
+    mix-blend-mode: multiply;
 }
 
 /* Specific Brand Colors */
