@@ -2400,7 +2400,7 @@ section {
 /* ===== LATEST BLOG SECTION ===== */
 .latest-blog {
     padding: var(--section-padding-vertical) 0;
-    background: var(--white);
+    background: transparent;
     color: var(--base-dark);
 }
 

@@ -1,58 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Trendtactics Digital</title>
-    <meta name="description" content="Comprehensive digital marketing services including web design, SEO, social media, AI solutions, and more. Transform your business with our expert strategies.">
+    <meta name="description"
+        content="Comprehensive digital marketing services including web design, SEO, social media, AI solutions, and more. Transform your business with our expert strategies.">
     <meta name="keywords" content="digital marketing, web design, AI solutions, SEO, branding, growth marketing">
     <meta name="author" content="Akinola Olujobi">
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Services - Trendtactics Digital">
-    <meta property="og:description" content="Comprehensive digital marketing services including web design, SEO, social media, AI solutions, and more. Transform your business with our expert strategies.">
+    <meta property="og:description"
+        content="Comprehensive digital marketing services including web design, SEO, social media, AI solutions, and more. Transform your business with our expert strategies.">
     <meta property="og:url" content="https://trendtacticsdigital.com/services">
     <meta property="og:type" content="website">
     <meta property="og:image" content="/images/Trendtactics_logo.jpg">
-    
+
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Services - Trendtactics Digital">
-    <meta name="twitter:description" content="Comprehensive digital marketing services including web design, SEO, social media, AI solutions, and more. Transform your business with our expert strategies.">
+    <meta name="twitter:description"
+        content="Comprehensive digital marketing services including web design, SEO, social media, AI solutions, and more. Transform your business with our expert strategies.">
     <meta name="twitter:image" content="/images/Trendtactics_logo.jpg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/images/favicon.jpg">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Supabase CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-utils.js"></script>
-    
+
     <!-- React CDN -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/shared-effects.css">
     <link rel="stylesheet" href="/styles/about.css">
     <link rel="stylesheet" href="/styles/services.css">
     <link rel="stylesheet" href="/styles/images.css">
-    
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'GA_MEASUREMENT_ID');
     </script>
@@ -96,7 +102,7 @@
             overflow: hidden;
             perspective: 1200px;
         }
-        
+
         .services-hero::before {
             content: '';
             position: absolute;
@@ -104,7 +110,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: 
+            background:
                 radial-gradient(circle at 25% 25%, rgba(0, 255, 255, 0.25) 0%, transparent 50%),
                 radial-gradient(circle at 75% 75%, rgba(64, 224, 208, 0.2) 0%, transparent 50%),
                 radial-gradient(circle at 50% 50%, rgba(10, 30, 63, 0.4) 0%, transparent 70%),
@@ -112,7 +118,7 @@
             animation: servicesRotate 25s linear infinite;
             transform-style: preserve-3d;
         }
-        
+
         .services-hero::after {
             content: '';
             position: absolute;
@@ -120,12 +126,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
+            background:
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="services-3d" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="2.5" fill="%2300FFFF" opacity="0.12"/><circle cx="10" cy="10" r="1.5" fill="%2340E0D0" opacity="0.1"/><circle cx="40" cy="40" r="2" fill="%2300FFFF" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23services-3d)"/></svg>');
             opacity: 0.5;
             animation: servicesFloat 18s ease-in-out infinite;
         }
-        
+
         .services-hero-3d-shapes {
             position: absolute;
             width: 100%;
@@ -135,13 +141,13 @@
             pointer-events: none;
             z-index: 1;
         }
-        
+
         .services-shape-3d {
             position: absolute;
             opacity: 0.35;
             animation: servicesFloat3D 22s ease-in-out infinite;
         }
-        
+
         .services-shape-3d.shape-1 {
             width: 180px;
             height: 180px;
@@ -152,7 +158,7 @@
             transform: rotateZ(45deg);
             animation-delay: 0s;
         }
-        
+
         .services-shape-3d.shape-2 {
             width: 120px;
             height: 120px;
@@ -162,7 +168,7 @@
             right: 12%;
             animation-delay: 3s;
         }
-        
+
         .services-shape-3d.shape-3 {
             width: 140px;
             height: 140px;
@@ -172,7 +178,7 @@
             left: 15%;
             animation-delay: 6s;
         }
-        
+
         .services-shape-3d.shape-4 {
             width: 100px;
             height: 100px;
@@ -183,91 +189,114 @@
             transform: rotateZ(45deg);
             animation-delay: 9s;
         }
-        
+
         @keyframes servicesRotate {
-            0% { transform: rotate(0deg) translateZ(0); }
-            100% { transform: rotate(360deg) translateZ(0); }
+            0% {
+                transform: rotate(0deg) translateZ(0);
+            }
+
+            100% {
+                transform: rotate(360deg) translateZ(0);
+            }
         }
-        
+
         @keyframes servicesFloat {
-            0%, 100% { transform: translateY(0) translateZ(0); }
-            50% { transform: translateY(-25px) translateZ(15px); }
+
+            0%,
+            100% {
+                transform: translateY(0) translateZ(0);
+            }
+
+            50% {
+                transform: translateY(-25px) translateZ(15px);
+            }
         }
-        
+
         @keyframes servicesFloat3D {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0) translateX(0) rotateZ(0deg) translateZ(0);
             }
+
             25% {
                 transform: translateY(-35px) translateX(25px) rotateZ(90deg) translateZ(25px);
             }
+
             50% {
                 transform: translateY(-70px) translateX(-25px) rotateZ(180deg) translateZ(50px);
             }
+
             75% {
                 transform: translateY(-35px) translateX(15px) rotateZ(270deg) translateZ(25px);
             }
         }
-        
+
         .services-hero .hero-content {
             position: relative;
             z-index: 2;
             transform-style: preserve-3d;
         }
-        
+
         .services-hero .hero-title {
             transform: translateZ(60px);
             text-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
         }
-        
+
         .services-hero .hero-subtitle {
             transform: translateZ(35px);
         }
     </style>
 </head>
+
 <body>
     <!-- Floating Language Selector -->
-    <div id="floating-translate-btn" style="position:fixed;bottom:30px;left:30px;z-index:9999;display:flex;align-items:center;gap:8px;">
-        <button id="toggle-translate" style="background:#0A1E3F;color:#00FFFF;border:none;border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(10,30,63,0.18);cursor:pointer;font-size:1.6rem;transition:background 0.2s;">
+    <div id="floating-translate-btn"
+        style="position:fixed;bottom:30px;left:30px;z-index:9999;display:flex;align-items:center;gap:8px;">
+        <button id="toggle-translate"
+            style="background:#0A1E3F;color:#00FFFF;border:none;border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(10,30,63,0.18);cursor:pointer;font-size:1.6rem;transition:background 0.2s;">
             <i class="fas fa-globe"></i>
         </button>
         <div id="floating-translate-widget" style="display:none;"></div>
     </div>
     <div id="google_translate_element" style="display:none;"></div>
     <script>
-    // Move Google Translate widget into floating widget and toggle visibility
-    document.addEventListener('DOMContentLoaded', function() {
-        var translateWidget = document.getElementById('google_translate_element');
-        var floatingWidget = document.getElementById('floating-translate-widget');
-        var toggleBtn = document.getElementById('toggle-translate');
-        if (translateWidget && floatingWidget && toggleBtn) {
-            floatingWidget.appendChild(translateWidget);
-            toggleBtn.addEventListener('click', function() {
-                if (floatingWidget.style.display === 'none' || floatingWidget.style.display === '') {
-                    floatingWidget.style.display = 'block';
-                } else {
-                    floatingWidget.style.display = 'none';
-                }
-            });
-        }
-    });
+        // Move Google Translate widget into floating widget and toggle visibility
+        document.addEventListener('DOMContentLoaded', function () {
+            var translateWidget = document.getElementById('google_translate_element');
+            var floatingWidget = document.getElementById('floating-translate-widget');
+            var toggleBtn = document.getElementById('toggle-translate');
+            if (translateWidget && floatingWidget && toggleBtn) {
+                floatingWidget.appendChild(translateWidget);
+                toggleBtn.addEventListener('click', function () {
+                    if (floatingWidget.style.display === 'none' || floatingWidget.style.display === '') {
+                        floatingWidget.style.display = 'block';
+                    } else {
+                        floatingWidget.style.display = 'none';
+                    }
+                });
+            }
+        });
     </script>
     <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-    }
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <nav id="navigation" class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                                <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
                     <div style="display: flex; gap: 2px; align-items: flex-end;">
                         <div style="width: 4px; height: 16px; background: #00FFFF; border-radius: 1px;"></div>
                         <div style="width: 4px; height: 20px; background: #00FFFF; border-radius: 1px;"></div>
                         <div style="width: 4px; height: 24px; background: #00FFFF; border-radius: 1px;"></div>
                     </div>
-                    <span style="font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.1rem; color: #FFFFFF; letter-spacing: -0.5px;">Trendtactics Digital</span>
+                    <span
+                        style="font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.1rem; color: #FFFFFF; letter-spacing: -0.5px;">Trendtactics
+                        Digital</span>
                 </a>
             </div>
             <div class="nav-actions">
@@ -275,7 +304,8 @@
                     <a href="/index" class="nav-link">Home</a>
                     <a href="/about" class="nav-link">About</a>
                     <div class="nav-item dropdown">
-                        <a href="/services" class="nav-link active">Services <i class="fas fa-chevron-down" style="font-size:0.8em;margin-left:6px;"></i></a>
+                        <a href="/services" class="nav-link active">Services <i class="fas fa-chevron-down"
+                                style="font-size:0.8em;margin-left:6px;"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="/service-email-marketing">Email Marketing</a></li>
                             <li><a href="/service-content-creation">Content Creation</a></li>
@@ -284,7 +314,8 @@
                         </ul>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="/resources" class="nav-link">Resources <i class="fas fa-chevron-down" style="font-size:0.8em;margin-left:6px;"></i></a>
+                        <a href="/resources" class="nav-link">Resources <i class="fas fa-chevron-down"
+                                style="font-size:0.8em;margin-left:6px;"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="/ebooks">Free Books</a></li>
                             <li><a href="/tools">Marketing Tools</a></li>
@@ -329,9 +360,11 @@
                         Comprehensive Digital Marketing Services
                     </h1>
                     <p class="hero-subtitle">
-                        From strategy to execution, we provide end-to-end digital marketing solutions that drive real business growth. Choose from our specialized services or get a custom package tailored to your needs.
+                        From strategy to execution, we provide end-to-end digital marketing solutions that drive real
+                        business growth. Choose from our specialized services or get a custom package tailored to your
+                        needs.
                     </p>
-                    
+
                     <div class="hero-cta">
                         <a href="#services-grid" class="btn btn-primary btn-large">Explore Services</a>
                         <a href="/contact" class="btn btn-outline btn-large">Get Free Audit</a>
@@ -371,7 +404,7 @@
                         <div class="stat-label">Years Experience</div>
                     </div>
                 </div>
-                
+
                 <!-- Service Showcase -->
                 <div class="service-showcase">
                     <div class="showcase-title">Our Core Services</div>
@@ -385,7 +418,8 @@
                                 <i class="fas fa-mobile-alt"></i>
                                 <span>App Development</span>
                             </div>
-                            <div class="service-icon-item service-icon-item-expandable" data-service="digital-marketing">
+                            <div class="service-icon-item service-icon-item-expandable"
+                                data-service="digital-marketing">
                                 <i class="fas fa-chart-line"></i>
                                 <span>Digital Marketing</span>
                             </div>
@@ -419,7 +453,8 @@
                         </div>
                     </div>
                     <div class="service-description">
-                        <p id="service-desc">Custom, responsive websites that convert visitors into customers with modern design and seamless user experience.</p>
+                        <p id="service-desc">Custom, responsive websites that convert visitors into customers with
+                            modern design and seamless user experience.</p>
                     </div>
                 </div>
             </div>
@@ -431,7 +466,8 @@
                 <div class="parallax-inner">
                     <picture>
                         <source srcset="/images/web-deve-parallex.jpg" type="image/jpeg">
-                        <img src="/images/web-deve-parallex.jpg" alt="Modern web development environment" loading="lazy" decoding="async">
+                        <img src="/images/web-deve-parallex.jpg" alt="Modern web development environment" loading="lazy"
+                            decoding="async">
                     </picture>
                 </div>
                 <div class="bg-overlay-dark"></div>
@@ -443,14 +479,15 @@
                         Comprehensive digital solutions designed to transform your business and drive measurable growth.
                     </p>
                 </div>
-                
+
                 <div class="services-categories">
                     <div class="category-card" data-category="web-design">
                         <div class="category-icon">
                             <i class="fas fa-code"></i>
                         </div>
                         <h3>Web Development</h3>
-                        <p>Custom websites that convert visitors into customers with modern design and seamless user experience.</p>
+                        <p>Custom websites that convert visitors into customers with modern design and seamless user
+                            experience.</p>
                         <div class="category-features">
                             <div class="features-track">
                                 <span>Responsive Design</span>
@@ -469,13 +506,14 @@
                         </div>
                         <a href="/service-web-development" class="category-link">Learn More →</a>
                     </div>
-                    
+
                     <div class="category-card" data-category="app-development">
                         <div class="category-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
                         <h3>App Development</h3>
-                        <p>Cross-platform and native mobile apps designed for user retention and scalability. Intuitive apps that scale with your business.</p>
+                        <p>Cross-platform and native mobile apps designed for user retention and scalability. Intuitive
+                            apps that scale with your business.</p>
                         <div class="category-features">
                             <div class="features-track">
                                 <span>iOS Apps</span>
@@ -488,13 +526,14 @@
                         </div>
                         <a href="/service-app-development" class="category-link">Learn More →</a>
                     </div>
-                    
+
                     <div class="category-card" data-category="digital-marketing">
                         <div class="category-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <h3>Digital Marketing</h3>
-                        <p>Strategic marketing campaigns across all digital channels to increase brand awareness and drive conversions.</p>
+                        <p>Strategic marketing campaigns across all digital channels to increase brand awareness and
+                            drive conversions.</p>
                         <div class="category-features">
                             <div class="features-track">
                                 <span>Email Marketing</span>
@@ -518,7 +557,8 @@
             <div class="content-block-bg-image">
                 <picture>
                     <source srcset="/images/website-development-parallex.jpg" type="image/jpeg">
-                    <img src="/images/website-development-parallex.jpg" alt="Detailed Services" loading="lazy" decoding="async" class="image-filter-darken">
+                    <img src="/images/website-development-parallex.jpg" alt="Detailed Services" loading="lazy"
+                        decoding="async" class="image-filter-darken">
                 </picture>
             </div>
             <div class="bg-overlay-dark"></div>
@@ -530,7 +570,8 @@
             <div class="content-block-bg-image">
                 <picture>
                     <source srcset="/images/content-creation-parallex.jpg" type="image/jpeg">
-                    <img src="/images/content-creation-parallex.jpg" alt="Our Process" loading="lazy" decoding="async" class="image-filter-darken">
+                    <img src="/images/content-creation-parallex.jpg" alt="Our Process" loading="lazy" decoding="async"
+                        class="image-filter-darken">
                 </picture>
             </div>
             <div class="bg-overlay-dark"></div>
@@ -541,45 +582,50 @@
                         A proven methodology that ensures successful project delivery and measurable results.
                     </p>
                 </div>
-                
+
                 <div class="process-steps">
                     <div class="process-step">
                         <div class="step-number">01</div>
                         <div class="step-content">
                             <h3>Discovery & Strategy</h3>
-                            <p>We start by understanding your business, goals, and challenges to develop a tailored strategy that aligns with your objectives.</p>
+                            <p>We start by understanding your business, goals, and challenges to develop a tailored
+                                strategy that aligns with your objectives.</p>
                         </div>
                     </div>
-                    
+
                     <div class="process-step">
                         <div class="step-number">02</div>
                         <div class="step-content">
                             <h3>Planning & Design</h3>
-                            <p>Create detailed plans and designs that align with your strategy and brand requirements, ensuring every element serves a purpose.</p>
+                            <p>Create detailed plans and designs that align with your strategy and brand requirements,
+                                ensuring every element serves a purpose.</p>
                         </div>
                     </div>
-                    
+
                     <div class="process-step">
                         <div class="step-number">03</div>
                         <div class="step-content">
                             <h3>Development & Implementation</h3>
-                            <p>Execute the plan with precision, using the latest technologies and best practices to bring your vision to life.</p>
+                            <p>Execute the plan with precision, using the latest technologies and best practices to
+                                bring your vision to life.</p>
                         </div>
                     </div>
-                    
+
                     <div class="process-step">
                         <div class="step-number">04</div>
                         <div class="step-content">
                             <h3>Testing & Launch</h3>
-                            <p>Rigorous testing and optimization to ensure peak performance, followed by a successful launch with full support.</p>
+                            <p>Rigorous testing and optimization to ensure peak performance, followed by a successful
+                                launch with full support.</p>
                         </div>
                     </div>
-                    
+
                     <div class="process-step">
                         <div class="step-number">05</div>
                         <div class="step-content">
                             <h3>Growth & Support</h3>
-                            <p>Ongoing support, monitoring, continuous optimization, and scaling strategies to maximize your ROI and ensure sustained growth.</p>
+                            <p>Ongoing support, monitoring, continuous optimization, and scaling strategies to maximize
+                                your ROI and ensure sustained growth.</p>
                         </div>
                     </div>
                 </div>
@@ -591,7 +637,8 @@
             <div class="content-block-bg-image">
                 <picture>
                     <source srcset="/images/social-media-parallelx.jpg" type="image/jpeg">
-                    <img src="/images/social-media-parallelx.jpg" alt="Why Choose Us" loading="lazy" decoding="async" class="image-filter-darken">
+                    <img src="/images/social-media-parallelx.jpg" alt="Why Choose Us" loading="lazy" decoding="async"
+                        class="image-filter-darken">
                 </picture>
             </div>
             <div class="bg-overlay-dark"></div>
@@ -602,54 +649,60 @@
                         What sets us apart in delivering exceptional digital solutions that drive real business results.
                     </p>
                 </div>
-                
+
                 <div class="differentiators-grid">
                     <div class="differentiator-card">
                         <div class="differentiator-icon">
                             <i class="fas fa-brain"></i>
                         </div>
                         <h3>AI-Powered Solutions</h3>
-                        <p>Leverage cutting-edge AI technology to automate processes, optimize campaigns, and drive intelligent decision-making for maximum efficiency.</p>
+                        <p>Leverage cutting-edge AI technology to automate processes, optimize campaigns, and drive
+                            intelligent decision-making for maximum efficiency.</p>
                     </div>
-                    
+
                     <div class="differentiator-card">
                         <div class="differentiator-icon">
                             <i class="fas fa-chart-bar"></i>
                         </div>
                         <h3>Data-Driven Approach</h3>
-                        <p>Every strategy is backed by comprehensive analytics and real-time insights to ensure measurable, impactful results that move the needle.</p>
+                        <p>Every strategy is backed by comprehensive analytics and real-time insights to ensure
+                            measurable, impactful results that move the needle.</p>
                     </div>
-                    
+
                     <div class="differentiator-card">
                         <div class="differentiator-icon">
                             <i class="fas fa-trophy"></i>
                         </div>
                         <h3>Proven Track Record</h3>
-                        <p>98% client satisfaction rate with consistent growth across all campaigns. We deliver exceptional ROI that speaks for itself.</p>
+                        <p>98% client satisfaction rate with consistent growth across all campaigns. We deliver
+                            exceptional ROI that speaks for itself.</p>
                     </div>
-                    
+
                     <div class="differentiator-card">
                         <div class="differentiator-icon">
                             <i class="fas fa-layer-group"></i>
                         </div>
                         <h3>Full-Service Solutions</h3>
-                        <p>From strategy to execution, we handle every aspect of your digital presence with seamless integration and comprehensive support.</p>
+                        <p>From strategy to execution, we handle every aspect of your digital presence with seamless
+                            integration and comprehensive support.</p>
                     </div>
-                    
+
                     <div class="differentiator-card">
                         <div class="differentiator-icon">
                             <i class="fas fa-users"></i>
                         </div>
                         <h3>Expert Team</h3>
-                        <p>Certified professionals with years of experience, continuously trained on the latest tools and methodologies in digital marketing and development.</p>
+                        <p>Certified professionals with years of experience, continuously trained on the latest tools
+                            and methodologies in digital marketing and development.</p>
                     </div>
-                    
+
                     <div class="differentiator-card">
                         <div class="differentiator-icon">
                             <i class="fas fa-handshake"></i>
                         </div>
                         <h3>Client-Focused</h3>
-                        <p>Your success is our priority. We build long-term partnerships and provide dedicated support to ensure your business thrives.</p>
+                        <p>Your success is our priority. We build long-term partnerships and provide dedicated support
+                            to ensure your business thrives.</p>
                     </div>
                 </div>
             </div>
@@ -660,7 +713,8 @@
             <div class="content-block-bg-image">
                 <picture>
                     <source srcset="/images/portfolio_parallele.jpg" type="image/jpeg">
-                    <img src="/images/portfolio_parallele.jpg" alt="Success Stories" loading="lazy" decoding="async" class="image-filter-darken">
+                    <img src="/images/portfolio_parallele.jpg" alt="Success Stories" loading="lazy" decoding="async"
+                        class="image-filter-darken">
                 </picture>
             </div>
             <div class="bg-overlay-dark"></div>
@@ -671,7 +725,7 @@
                         Real results from real clients. See how we've helped businesses achieve remarkable growth.
                     </p>
                 </div>
-                
+
                 <div class="case-studies-grid">
                     <div class="case-study-card">
                         <div class="case-study-header">
@@ -681,11 +735,13 @@
                         <div class="case-study-content">
                             <div class="case-study-item">
                                 <h4><i class="fas fa-exclamation-triangle"></i> Problem</h4>
-                                <p>An outdated e-commerce platform with slow load times, poor mobile experience, and low conversion rates was losing potential customers daily.</p>
+                                <p>An outdated e-commerce platform with slow load times, poor mobile experience, and low
+                                    conversion rates was losing potential customers daily.</p>
                             </div>
                             <div class="case-study-item">
                                 <h4><i class="fas fa-lightbulb"></i> Solution</h4>
-                                <p>We redesigned and rebuilt the platform with modern technology, optimized for speed and mobile responsiveness, and implemented advanced analytics tracking.</p>
+                                <p>We redesigned and rebuilt the platform with modern technology, optimized for speed
+                                    and mobile responsiveness, and implemented advanced analytics tracking.</p>
                             </div>
                             <div class="case-study-item">
                                 <h4><i class="fas fa-chart-line"></i> Results</h4>
@@ -720,7 +776,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="case-study-card">
                         <div class="case-study-header">
                             <h3>Digital Marketing Campaign Success</h3>
@@ -729,11 +785,13 @@
                         <div class="case-study-content">
                             <div class="case-study-item">
                                 <h4><i class="fas fa-exclamation-triangle"></i> Problem</h4>
-                                <p>A startup struggling with low brand awareness, minimal online presence, and limited lead generation needed to scale quickly.</p>
+                                <p>A startup struggling with low brand awareness, minimal online presence, and limited
+                                    lead generation needed to scale quickly.</p>
                             </div>
                             <div class="case-study-item">
                                 <h4><i class="fas fa-lightbulb"></i> Solution</h4>
-                                <p>We developed a comprehensive digital marketing strategy including social media marketing, content creation, email campaigns, and targeted Facebook Ads.</p>
+                                <p>We developed a comprehensive digital marketing strategy including social media
+                                    marketing, content creation, email campaigns, and targeted Facebook Ads.</p>
                             </div>
                             <div class="case-study-item">
                                 <h4><i class="fas fa-chart-line"></i> Results</h4>
@@ -768,7 +826,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="case-study-card">
                         <div class="case-study-header">
                             <h3>Mobile App Launch Success</h3>
@@ -777,11 +835,13 @@
                         <div class="case-study-content">
                             <div class="case-study-item">
                                 <h4><i class="fas fa-exclamation-triangle"></i> Problem</h4>
-                                <p>A business needed a mobile presence but lacked technical expertise to build a user-friendly app that could compete in the market.</p>
+                                <p>A business needed a mobile presence but lacked technical expertise to build a
+                                    user-friendly app that could compete in the market.</p>
                             </div>
                             <div class="case-study-item">
                                 <h4><i class="fas fa-lightbulb"></i> Solution</h4>
-                                <p>We developed a cross-platform mobile app with intuitive UX/UI design, seamless performance, and integrated analytics for user behavior tracking.</p>
+                                <p>We developed a cross-platform mobile app with intuitive UX/UI design, seamless
+                                    performance, and integrated analytics for user behavior tracking.</p>
                             </div>
                             <div class="case-study-item">
                                 <h4><i class="fas fa-chart-line"></i> Results</h4>
@@ -829,14 +889,17 @@
                         Don't just take our word for it. Here's what our clients have to say about working with us.
                     </p>
                 </div>
-                
+
                 <div class="testimonials-slider-wrapper">
                     <div class="testimonials-slider" id="services-testimonials-slider">
                         <div class="testimonial-slide">
                             <div class="testimonial-quote-icon">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="testimonial-text">"Trendtactics Digital transformed our online presence completely. Our website traffic increased by 300% and our conversion rate doubled within just 3 months. The team is professional, responsive, and truly understands digital marketing."</p>
+                            <p class="testimonial-text">"Trendtactics Digital transformed our online presence
+                                completely. Our website traffic increased by 300% and our conversion rate doubled within
+                                just 3 months. The team is professional, responsive, and truly understands digital
+                                marketing."</p>
                             <div class="testimonial-author">
                                 <div class="author-info">
                                     <h4>John Smith</h4>
@@ -851,12 +914,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="testimonial-slide">
                             <div class="testimonial-quote-icon">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="testimonial-text">"The team at Trendtactics Digital is exceptional. They delivered our e-commerce platform on time and exceeded our expectations. Our online sales have increased by 400% since launch! Highly recommend their services."</p>
+                            <p class="testimonial-text">"The team at Trendtactics Digital is exceptional. They delivered
+                                our e-commerce platform on time and exceeded our expectations. Our online sales have
+                                increased by 400% since launch! Highly recommend their services."</p>
                             <div class="testimonial-author">
                                 <div class="author-info">
                                     <h4>Sarah Johnson</h4>
@@ -871,12 +936,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="testimonial-slide">
                             <div class="testimonial-quote-icon">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="testimonial-text">"Working with Trendtactics Digital has been a game-changer. Their AI-powered strategies helped us reduce costs by 40% while increasing our ROI by 250%. The data-driven approach makes all the difference."</p>
+                            <p class="testimonial-text">"Working with Trendtactics Digital has been a game-changer.
+                                Their AI-powered strategies helped us reduce costs by 40% while increasing our ROI by
+                                250%. The data-driven approach makes all the difference."</p>
                             <div class="testimonial-author">
                                 <div class="author-info">
                                     <h4>Michael Chen</h4>
@@ -891,12 +958,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="testimonial-slide">
                             <div class="testimonial-quote-icon">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="testimonial-text">"Outstanding service from start to finish. They built our mobile app with such attention to detail and user experience. We've seen incredible user engagement and retention rates. Truly professional team!"</p>
+                            <p class="testimonial-text">"Outstanding service from start to finish. They built our mobile
+                                app with such attention to detail and user experience. We've seen incredible user
+                                engagement and retention rates. Truly professional team!"</p>
                             <div class="testimonial-author">
                                 <div class="author-info">
                                     <h4>Emily Rodriguez</h4>
@@ -911,12 +980,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="testimonial-slide">
                             <div class="testimonial-quote-icon">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="testimonial-text">"The digital marketing campaigns they created for us have been phenomenal. Our lead generation increased by 500% and we're seeing consistent growth month over month. Best investment we've made!"</p>
+                            <p class="testimonial-text">"The digital marketing campaigns they created for us have been
+                                phenomenal. Our lead generation increased by 500% and we're seeing consistent growth
+                                month over month. Best investment we've made!"</p>
                             <div class="testimonial-author">
                                 <div class="author-info">
                                     <h4>David Thompson</h4>
@@ -932,7 +1003,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="testimonials-controls">
                         <button class="testimonial-btn prev-btn" id="services-testimonial-prev">
                             <i class="fas fa-chevron-left"></i>
@@ -955,7 +1026,7 @@
                         Everything you need to know about our services and how we work.
                     </p>
                 </div>
-                
+
                 <div class="faq-container">
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleServicesFAQ(this)">
@@ -963,57 +1034,70 @@
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>We offer comprehensive digital solutions including Web Development, App Development, and Digital Marketing services. Our digital marketing services include Email Marketing, Content Creation, Social Media Marketing, and Facebook Ads.</p>
+                            <p>We offer comprehensive digital solutions including Web Development, App Development, and
+                                Digital Marketing services. Our digital marketing services include Email Marketing,
+                                Content Creation, Social Media Marketing, and Facebook Ads.</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleServicesFAQ(this)">
                             <h3>How long does a typical project take?</h3>
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>Project timelines vary based on scope and complexity. A standard website typically takes 4-8 weeks, mobile apps 8-12 weeks, and digital marketing campaigns can show results within 30-90 days. We'll provide a detailed timeline during our initial consultation.</p>
+                            <p>Project timelines vary based on scope and complexity. A standard website typically takes
+                                4-8 weeks, mobile apps 8-12 weeks, and digital marketing campaigns can show results
+                                within 30-90 days. We'll provide a detailed timeline during our initial consultation.
+                            </p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleServicesFAQ(this)">
                             <h3>Do you provide ongoing support after launch?</h3>
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>Yes! We offer comprehensive post-launch support including maintenance, updates, monitoring, and optimization. Our Growth & Support phase ensures your digital presence continues to perform at its best.</p>
+                            <p>Yes! We offer comprehensive post-launch support including maintenance, updates,
+                                monitoring, and optimization. Our Growth & Support phase ensures your digital presence
+                                continues to perform at its best.</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleServicesFAQ(this)">
                             <h3>What is your pricing model?</h3>
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>We offer custom pricing based on your specific needs and project requirements. We provide detailed quotes after understanding your goals and scope. Contact us for a free consultation and personalized quote.</p>
+                            <p>We offer custom pricing based on your specific needs and project requirements. We provide
+                                detailed quotes after understanding your goals and scope. Contact us for a free
+                                consultation and personalized quote.</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleServicesFAQ(this)">
                             <h3>Can you work with our existing team?</h3>
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>Absolutely! We excel at collaborating with in-house teams. We can integrate seamlessly with your existing workflows, provide training, and work as an extension of your team to achieve your digital goals.</p>
+                            <p>Absolutely! We excel at collaborating with in-house teams. We can integrate seamlessly
+                                with your existing workflows, provide training, and work as an extension of your team to
+                                achieve your digital goals.</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleServicesFAQ(this)">
                             <h3>What makes your approach different?</h3>
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>Our approach combines AI-powered solutions, data-driven strategies, and proven methodologies. We focus on measurable results, maintain 98% client satisfaction, and provide full-service solutions from strategy to execution with dedicated support.</p>
+                            <p>Our approach combines AI-powered solutions, data-driven strategies, and proven
+                                methodologies. We focus on measurable results, maintain 98% client satisfaction, and
+                                provide full-service solutions from strategy to execution with dedicated support.</p>
                         </div>
                     </div>
                 </div>
@@ -1025,14 +1109,16 @@
             <div class="cta-bg-image">
                 <picture>
                     <source srcset="/images/digital-marketing-parallex.jpg" type="image/jpeg">
-                    <img src="/images/digital-marketing-parallex.jpg" alt="Transform Your Business" loading="lazy" decoding="async">
+                    <img src="/images/digital-marketing-parallex.jpg" alt="Transform Your Business" loading="lazy"
+                        decoding="async">
                 </picture>
             </div>
             <div class="bg-overlay-gradient"></div>
             <div class="container cta-bg-content">
                 <h2 class="cta-title">Ready to Transform Your Business?</h2>
                 <p class="cta-subtitle">
-                    Let's discuss how our services can help you achieve your digital growth goals and drive real results.
+                    Let's discuss how our services can help you achieve your digital growth goals and drive real
+                    results.
                 </p>
                 <div class="cta-buttons">
                     <a href="/contact" class="btn btn-primary btn-large">Get Free Consultation</a>
@@ -1056,11 +1142,12 @@
                         <img src="/images/Trendtactics_logo.jpg" alt="Trendtactics Digital" class="footer-logo-img">
                     </div>
                     <p class="footer-description">
-                        We don't just market brands — we engineer digital growth. 
+                        We don't just market brands — we engineer digital growth.
                         Unlock strategy, creativity, and AI power — all in one studio.
                     </p>
                     <div class="social-links">
-                        <a href="https://linkedin.com/company/trendtactics-digital" target="_blank" rel="noopener noreferrer">
+                        <a href="https://linkedin.com/company/trendtactics-digital" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fab fa-linkedin"></i>
                         </a>
                         <a href="https://twitter.com/trendtactics" target="_blank" rel="noopener noreferrer">
@@ -1078,7 +1165,7 @@
                     </div>
                     <div id="google_translate_element"></div>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul>
@@ -1087,7 +1174,7 @@
                         <li><a href="services.html#digital-marketing">Digital Marketing</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>Company</h3>
                     <ul>
@@ -1097,10 +1184,11 @@
                         <li><a href="/contact">Contact</a></li>
                         <li><a href="/pricing">Pricing</a></li>
                         <li><a href="/academy">Academy</a></li>
-                        <li><a href="/trendy-ai">Trendy AI <span class="badge badge-coming-soon">Coming Soon</span></a></li>
+                        <li><a href="/trendy-ai">Trendy AI <span class="badge badge-coming-soon">Coming Soon</span></a>
+                        </li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column footer-resources">
                     <h3>Resources</h3>
                     <ul>
@@ -1114,14 +1202,14 @@
                     <div class="footer-newsletter-inline">
                         <h4>Stay Updated</h4>
                         <p>Get insights delivered to your inbox.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" required>
-                        <button type="submit">Subscribe</button>
-                    </form>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Enter your email" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 Trendtactics Digital. All rights reserved.</p>
                 <div class="footer-legal">
@@ -1137,20 +1225,22 @@
     <script src="/js/services.js"></script>
     <script src="/js/parallax.js"></script>
     <script>
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-    window.addEventListener('scroll', function() {
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        if (window.pageYOffset > 300) {
-            scrollToTopBtn.classList.add('visible');
-        } else {
-            scrollToTopBtn.classList.remove('visible');
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
-    });
+        window.addEventListener('scroll', function () {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
     </script>
+    <script src="/js/chat-widget.js" defer></script>
 </body>
-</html> 
+
+</html>
