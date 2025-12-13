@@ -2627,8 +2627,8 @@
 .story-premium {
     position: relative;
     padding: var(--spacing-4xl) 0;
-    margin-top: 80px;
-    /* Reduced spacing per feedback */
+    margin-top: 100px;
+    /* Reverted to original Premium spacing */
     overflow: hidden;
 }
 
@@ -2647,8 +2647,8 @@
 
 .story-premium-grid {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    /* Image larger (60%), Content smaller (40%) */
+    grid-template-columns: 0.8fr 1.2fr;
+    /* Reverted to original balance (Image smaller) */
     gap: var(--spacing-4xl);
     align-items: center;
     position: relative;
@@ -2719,8 +2719,8 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 30px;
-    /* Reduced from 40px to make card smaller */
+    padding: 40px;
+    /* Restored to original padding */
     border-radius: 24px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
