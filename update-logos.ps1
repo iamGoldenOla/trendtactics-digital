@@ -10,6 +10,7 @@ $logoHTML = @'
 '@
 
 $files = @(
+    "C:\Users\Akinola Olujobi\Documents\TrendtacticsDigitalClean\index.html",
     "C:\Users\Akinola Olujobi\Documents\TrendtacticsDigitalClean\about.html",
     "C:\Users\Akinola Olujobi\Documents\TrendtacticsDigitalClean\services.html",
     "C:\Users\Akinola Olujobi\Documents\TrendtacticsDigitalClean\pricing.html",
