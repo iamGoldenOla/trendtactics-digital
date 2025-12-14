@@ -459,7 +459,7 @@
                 
                 if (!session) {
                     // Redirect to login page
-                    window.location.href = '/login';
+                    window.location.href = '/login.html';
                     return;
                 }
                 
@@ -469,7 +469,7 @@
             } catch (error) {
                 console.error('Error checking authentication:', error);
                 // Redirect to login page on error
-                window.location.href = '/login';
+                window.location.href = '/login.html';
             }
         });
         
@@ -488,13 +488,13 @@
                 localStorage.removeItem('userEmail');
                 
                 // Redirect to login page
-                window.location.href = '/login';
+                window.location.href = '/login.html';
                 
             } catch (error) {
                 console.error('Logout error:', error);
                 // Fallback to localStorage clear and redirect
                 localStorage.clear();
-                window.location.href = '/login';
+                window.location.href = '/login.html';
             }
         }
     </script>

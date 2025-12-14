@@ -313,7 +313,7 @@
                     const localStorageLoggedIn = localStorage.getItem('userId');
                     if (!localStorageLoggedIn) {
                         // Redirect to login page
-                        window.location.href = '/login';
+                        window.location.href = '/login.html';
                         return;
                     }
                 }
@@ -324,7 +324,7 @@
             } catch (error) {
                 console.error('Error checking authentication:', error);
                 // Redirect to login page on error
-                window.location.href = '/login';
+                window.location.href = '/login.html';
             }
         });
     </script>
