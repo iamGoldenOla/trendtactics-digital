@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Link Debug</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0A1E3F;
+            color: white;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .btn {
+            display: inline-block;
+            background: #00FFFF;
+            color: #0A1E3F;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .test-area {
+            background: #162447;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hub Link Debug Page</h1>
+        
+        <div class="test-area">
+            <h2>Direct Links (Should Work)</h2>
+            <a href="/hub.html" class="btn">Go to Hub (Direct Link)</a>
+            <a href="/client-dashboard.html" class="btn">Go to Client Dashboard</a>
+            <a href="/academy.html" class="btn">Go to Academy</a>
+        </div>
+        
+        <div class="test-area">
+            <h2>JavaScript Navigation (Testing)</h2>
+            <button class="btn" onclick="goToHub()">Go to Hub (JS Navigation)</button>
+            <button class="btn" onclick="goToDashboard()">Go to Dashboard (JS Navigation)</button>
+            <button class="btn" onclick="goToAcademy()">Go to Academy (JS Navigation)</button>
+        </div>
+        
+        <div class="test-area">
+            <h2>Current URL Info</h2>
+            <p>Current URL: <span id="current-url"></span></p>
+            <p>Hash: <span id="current-hash"></span></p>
+        </div>
+    </div>
+    
+    <script>
+        // Display current URL info
+        document.getElementById('current-url').textContent = window.location.href;
+        document.getElementById('current-hash').textContent = window.location.hash;
+        
+        // Navigation functions
+        function goToHub() {
+            window.location.href = '/hub.html';
+        }
+        
+        function goToDashboard() {
+            window.location.href = '/client-dashboard.html';
+        }
+        
+        function goToAcademy() {
+            window.location.href = '/academy.html';
+        }
+    </script>
+</body>
+</html>
