@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Hub Test</title>
+</head>
+<body>
+    <h1>Simple Hub Test Page</h1>
+    <p>This is a minimal test page to see if the hash issue occurs with a simple HTML file.</p>
+    
+    <div id="info">
+        <p><strong>Current URL:</strong> <span id="current-url"></span></p>
+        <p><strong>Hash:</strong> <span id="current-hash"></span></p>
+    </div>
+    
+    <div id="controls">
+        <button onclick="checkUrl()">Check URL</button>
+        <button onclick="clearHash()">Clear Hash</button>
+        <button onclick="navigateToHub()">Navigate to /hub</button>
+        <button onclick="navigateToHubHtml()">Navigate to /hub.html</button>
+    </div>
+    
+    <script>
+        function updateInfo() {
+            document.getElementById('current-url').textContent = window.location.href;
+            document.getElementById('current-hash').textContent = window.location.hash || 'None';
+        }
+        
+        function checkUrl() {
+            updateInfo();
+        }
+        
+        function clearHash() {
+            window.location.hash = '';
+            updateInfo();
+        }
+        
+        function navigateToHub() {
+            window.location.href = '/hub';
+        }
+        
+        function navigateToHubHtml() {
+            window.location.href = '/hub.html';
+        }
+        
+        // Initialize
+        updateInfo();
+        
+        // Update on hash change
+        window.addEventListener('hashchange', updateInfo);
+    </script>
+</body>
+</html>
