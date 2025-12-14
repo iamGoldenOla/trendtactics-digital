@@ -485,48 +485,79 @@
             // Check authentication status on page load
             const session = await checkAuthStatus();
             
+            // Prevent default behavior for buttons to ensure proper navigation
+            if (clientBtn) {
+                clientBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = this.href;
+                });
+            }
+            
+            if (academyBtn) {
+                academyBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = this.href;
+                });
+            }
+            
             if (!session) {
                 // If not authenticated, set buttons to redirect to login
-                clientBtn.textContent = 'Sign In to Access';
-                clientBtn.href = '/login.html';
-                academyBtn.textContent = 'Sign In to Access';
-                academyBtn.href = '/login.html';
+                if (clientBtn) {
+                    clientBtn.textContent = 'Sign In to Access';
+                    clientBtn.href = '/login.html';
+                }
+                if (academyBtn) {
+                    academyBtn.textContent = 'Sign In to Access';
+                    academyBtn.href = '/login.html';
+                }
                 
                 // Update card click handlers to go to login
-                clientCard.addEventListener('click', function(event) {
-                    // Only redirect if the click wasn't on the button itself
-                    if (event.target !== clientBtn) {
-                        window.location.href = '/login.html';
-                    }
-                });
+                if (clientCard) {
+                    clientCard.addEventListener('click', function(event) {
+                        // Only redirect if the click wasn't on the button itself
+                        if (!clientBtn || event.target !== clientBtn) {
+                            window.location.href = '/login.html';
+                        }
+                    });
+                }
                 
-                academyCard.addEventListener('click', function(event) {
-                    // Only redirect if the click wasn't on the button itself
-                    if (event.target !== academyBtn) {
-                        window.location.href = '/login.html';
-                    }
-                });
+                if (academyCard) {
+                    academyCard.addEventListener('click', function(event) {
+                        // Only redirect if the click wasn't on the button itself
+                        if (!academyBtn || event.target !== academyBtn) {
+                            window.location.href = '/login.html';
+                        }
+                    });
+                }
             } else {
                 // If authenticated, set buttons to go to respective dashboards
-                clientBtn.textContent = 'Access Dashboard';
-                clientBtn.href = '/client-dashboard.html';
-                academyBtn.textContent = 'Access Academy';
-                academyBtn.href = '/academy.html';
+                if (clientBtn) {
+                    clientBtn.textContent = 'Access Dashboard';
+                    clientBtn.href = '/client-dashboard.html';
+                }
+                if (academyBtn) {
+                    academyBtn.textContent = 'Access Academy';
+                    academyBtn.href = '/academy.html';
+                }
                 
                 // Update card click handlers to go to respective dashboards
-                clientCard.addEventListener('click', function(event) {
-                    // Only redirect if the click wasn't on the button itself
-                    if (event.target !== clientBtn) {
-                        window.location.href = '/client-dashboard.html';
-                    }
-                });
+                if (clientCard) {
+                    clientCard.addEventListener('click', function(event) {
+                        // Only redirect if the click wasn't on the button itself
+                        if (!clientBtn || event.target !== clientBtn) {
+                            window.location.href = '/client-dashboard.html';
+                        }
+                    });
+                }
                 
-                academyCard.addEventListener('click', function(event) {
-                    // Only redirect if the click wasn't on the button itself
-                    if (event.target !== academyBtn) {
-                        window.location.href = '/academy.html';
-                    }
-                });
+                if (academyCard) {
+                    academyCard.addEventListener('click', function(event) {
+                        // Only redirect if the click wasn't on the button itself
+                        if (!academyBtn || event.target !== academyBtn) {
+                            window.location.href = '/academy.html';
+                        }
+                    });
+                }
             }
         });
 
