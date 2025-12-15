@@ -724,9 +724,32 @@
             }
         }
         
-        // Load courses when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            loadCourses();
+        // Check authentication and load courses when page loads
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                // Check if user is logged in
+                const isLoggedIn = await supabaseUtils.isUserLoggedIn();
+                
+                // Store session info for demo mode fallback
+                const { data: { session } } = await supabase.auth.getSession();
+                if (session) {
+                    localStorage.setItem('userId', session.user.id);
+                    localStorage.setItem('userEmail', session.user.email);
+                }
+                
+                // If not logged in, redirect to login page
+                if (!isLoggedIn && !localStorage.getItem('userId')) {
+                    window.location.href = '/login.html';
+                    return;
+                }
+                
+                // User is authenticated, load courses
+                loadCourses();
+            } catch (error) {
+                console.error('Error checking authentication:', error);
+                // Fallback to login page
+                window.location.href = '/login.html';
+            }
         });
     </script>
 </body>
