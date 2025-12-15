@@ -274,8 +274,8 @@
                 </div>
                 
                 <div class="form-group password-toggle">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Create a password" required minlength="6">
+                    <label for="password">Password <small>(min. 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special char)</small></label>
+                    <input type="password" id="password" class="form-control" placeholder="Create a strong password" required minlength="8">
                     <button type="button" class="toggle-password" id="togglePassword">
                         <i class="fas fa-eye"></i>
                     </button>
@@ -302,13 +302,7 @@
                 </button>
             </form>
             
-            <div class="divider">
-                <span>OR</span>
-            </div>
-            
-            <button class="btn" style="background: #f1f5f9; color: #334155; margin-bottom: 20px;" id="demoLoginBtn">
-                Demo Login (No Signup Required)
-            </button>
+            <!-- Demo login removed for production security -->
             
             <div class="form-footer">
                 <p>Already have an account? <a href="/login.html">Sign in</a></p>
@@ -316,11 +310,10 @@
         </div>
     </div>
 
+    <script src="/js/supabase-utils.js"></script>
     <script>
-        // Initialize Supabase client
-        const supabaseUrl = 'https://wtgwxnhnqdnbzpetltrt.supabase.co';
-        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0Z3d4bmhucWRuYnpwZXRsdHJ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUwNjQ2NjUsImV4cCI6MjA4MDY0MDY2NX0.3eblmq4lsnDQU33M9XqZpBqux9bi9hX2G0yUuPScHJA';
-        const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+        // Use the shared Supabase client from supabase-utils.js
+        const supabase = window.supabaseUtils.supabase;
         
         // Toggle password visibility
         document.getElementById('togglePassword').addEventListener('click', function() {
@@ -373,6 +366,13 @@
                 return;
             }
             
+            // Validate password strength
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(password)) {
+                showAlert('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.', 'error');
+                return;
+            }
+            
             // Show loading state
             registerText.style.display = 'none';
             loadingSpinner.style.display = 'inline';
@@ -396,12 +396,8 @@
                 
                 if (error) throw error;
                 
-                // Store user info in localStorage for demo mode fallback
+                // Show success message based on response
                 if (data.user) {
-                    localStorage.setItem('userId', data.user.id);
-                    localStorage.setItem('userEmail', data.user.email);
-                    
-                    // Show success message
                     showAlert('Account created successfully! Redirecting to dashboard...', 'success');
                     
                     // Redirect to dashboard after a short delay
@@ -415,7 +411,11 @@
                 
             } catch (error) {
                 console.error('Registration error:', error);
-                showAlert('Registration failed: ' + error.message, 'error');
+                if (error.message.includes('already registered')) {
+                    showAlert('This email is already registered. Please try logging in instead.', 'error');
+                } else {
+                    showAlert('Registration failed: ' + error.message, 'error');
+                }
                 
                 // Reset loading state
                 registerText.style.display = 'inline';
@@ -424,37 +424,7 @@
             }
         });
         
-        // Handle demo login
-        document.getElementById('demoLoginBtn').addEventListener('click', async function() {
-            const loginBtn = this;
-            const originalText = loginBtn.textContent;
-            
-            // Show loading state
-            loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in as demo user...';
-            loginBtn.disabled = true;
-            
-            try {
-                // Simulate demo login
-                localStorage.setItem('userId', 'demo-user-id');
-                localStorage.setItem('userEmail', 'demo@trendtactics.com');
-                
-                // Show success message
-                showAlert('Demo login successful! Redirecting...', 'success');
-                
-                // Redirect to dashboard after a short delay
-                setTimeout(() => {
-                    window.location.href = '/client-dashboard.html';
-                }, 1500);
-                
-            } catch (error) {
-                console.error('Demo login error:', error);
-                showAlert('Demo login failed. Please try again.', 'error');
-                
-                // Reset button
-                loginBtn.textContent = originalText;
-                loginBtn.disabled = false;
-            }
-        });
+        // Demo login removed for production security
         
         // Show alert message
         function showAlert(message, type) {
