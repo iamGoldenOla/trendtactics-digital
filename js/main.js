@@ -37,21 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Dropdown Menus
-document.addEventListener('DOMContentLoaded', function() {
-    const dropdowns = document.querySelectorAll('.dropdown');
-    
-    dropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('.nav-link');
-        
-        link.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
-            }
-        });
-    });
-});
+// Dropdown Menus - Handled in initializeNavigation function below
 
 // Smooth Scrolling for Anchor Links
 document.addEventListener('DOMContentLoaded', function() {
@@ -208,20 +194,27 @@ function initializeNavigation() {
 
                 // Toggle dropdown on click (for mobile)
                 dropdownLink.addEventListener('click', function (e) {
-                    if (window.innerWidth <= 768) {
+                    // Always prevent default for dropdown toggle links
+                    if (dropdownLink.classList.contains('dropdown-toggle')) {
                         e.preventDefault();
                         e.stopPropagation();
-                        const isActive = item.classList.contains('active');
+                        
+                        // On mobile, toggle the dropdown
+                        if (window.innerWidth <= 768) {
+                            const isActive = item.classList.contains('active');
 
-                        // Close other dropdowns first
-                        dropdownItems.forEach(otherItem => {
-                            if (otherItem !== item) {
-                                otherItem.classList.remove('active');
-                            }
-                        });
+                            // Close other dropdowns first
+                            dropdownItems.forEach(otherItem => {
+                                if (otherItem !== item) {
+                                    otherItem.classList.remove('active');
+                                }
+                            });
 
-                        // Toggle current dropdown
-                        item.classList.toggle('active');
+                            // Toggle current dropdown
+                            item.classList.toggle('active');
+                        }
+                        // On desktop, let the hover handle it but still prevent default
+                        return;
                     }
                 });
 
@@ -229,7 +222,6 @@ function initializeNavigation() {
                 item.addEventListener('mouseenter', function () {
                     if (window.innerWidth > 768) {
                         item.classList.add('active');
-                        dropdownMenu.style.display = 'block';
                     }
                 });
 
@@ -238,7 +230,6 @@ function initializeNavigation() {
                         setTimeout(() => {
                             if (!item.matches(':hover')) {
                                 item.classList.remove('active');
-                                dropdownMenu.style.display = 'none';
                             }
                         }, 200);
                     }
@@ -248,7 +239,6 @@ function initializeNavigation() {
                 document.addEventListener('click', function (e) {
                     if (!item.contains(e.target) && window.innerWidth <= 768) {
                         item.classList.remove('active');
-                        dropdownMenu.style.display = 'none';
                     }
                 });
             }
