@@ -260,13 +260,22 @@
         
         .placeholder-chart {
             text-align: center;
+            padding: 2rem;
             color: rgba(255, 255, 255, 0.5);
+            background: rgba(10, 30, 63, 0.3);
+            border-radius: var(--radius-md);
+            border: 1px dashed rgba(0, 255, 255, 0.2);
         }
         
         .placeholder-chart i {
             font-size: 3rem;
             margin-bottom: 1rem;
             color: rgba(0, 255, 255, 0.3);
+        }
+        
+        .placeholder-chart h3 {
+            margin: 1rem 0 0.5rem 0;
+            color: #00FFFF;
         }
         
         /* ===== RECENT ACTIVITY ===== */
@@ -468,23 +477,22 @@
                 const { data: { session } } = await supabase.auth.getSession();
                 
                 if (!session) {
-                    // Check localStorage fallback for demo mode
-                    const localStorageLoggedIn = localStorage.getItem('userId');
-                    if (!localStorageLoggedIn) {
-                        // Redirect to login page
-                        window.location.href = '/login.html';
-                        return;
-                    }
+                    // Redirect to login page
+                    window.location.href = '/login.html';
+                    return;
                 }
                 
                 // User is authenticated, continue loading dashboard
                 console.log('User is authenticated');
                 
                 // Update user info in header
-                const userEmail = localStorage.getItem('userEmail') || (session ? session.user.email : 'demo@trendtactics.com');
+                const userEmail = session.user.email;
                 const userInitials = userEmail.charAt(0).toUpperCase();
                 document.querySelector('.user-avatar').textContent = userInitials;
-                document.querySelector('.user-info div:first-child').textContent = userEmail.split('@')[0];
+                document.querySelector('.dashboard-user div:first-child').innerHTML = `<div style="font-weight: 600; color: var(--white);">${userEmail.split('@')[0]}</div>`;
+                
+                // Show default dashboard section
+                showSection('dashboard');
                 
             } catch (error) {
                 console.error('Error checking authentication:', error);
@@ -496,8 +504,20 @@
         // Logout function
         // Function to show different sections
         function showSection(sectionId) {
-            // Hide all sections (you would implement this based on your actual sections)
-            console.log('Showing section:', sectionId);
+            // Hide all sections
+            const sections = document.querySelectorAll('.dashboard-section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show the selected section
+            const targetSection = document.getElementById(sectionId + '-section');
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            } else {
+                // If section doesn't exist, show dashboard as default
+                document.getElementById('dashboard-section').style.display = 'block';
+            }
             
             // Update active class on sidebar links
             const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
@@ -508,9 +528,6 @@
                     link.classList.remove('active');
                 }
             });
-            
-            // Show the selected section (implement based on your actual content)
-            alert('Section "' + sectionId + '" would be displayed here.');
         }
 
         async function logout() {
@@ -672,57 +689,158 @@
                 </div>
             </div>
 
-            <!-- Recent Activity -->
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <h2 class="card-title">Recent Activity</h2>
-                    <a href="javascript:void(0);" style="color: #00FFFF; text-decoration: none; font-size: 0.9rem;">View All</a>
+            <!-- Dashboard Section (Default) -->
+            <div id="dashboard-section" class="dashboard-section">
+                <!-- Recent Activity -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Recent Activity</h2>
+                        <a href="javascript:void(0);" style="color: #00FFFF; text-decoration: none; font-size: 0.9rem;">View All</a>
+                    </div>
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h3 class="activity-title">New Campaign Launched</h3>
+                                <p class="activity-desc">Summer Sale Email Campaign has been launched successfully</p>
+                                <p class="activity-time">2 hours ago</p>
+                            </div>
+                        </li>
+                        
+                        <li class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h3 class="activity-title">Performance Report</h3>
+                                <p class="activity-desc">Monthly analytics report is now available for review</p>
+                                <p class="activity-time">Yesterday</p>
+                            </div>
+                        </li>
+                        
+                        <li class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-comment"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h3 class="activity-title">Support Ticket Closed</h3>
+                                <p class="activity-desc">Ticket #1245 regarding landing page optimization has been resolved</p>
+                                <p class="activity-time">2 days ago</p>
+                            </div>
+                        </li>
+                        
+                        <li class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h3 class="activity-title">Invoice Generated</h3>
+                                <p class="activity-desc">Q2 service invoice #INV-2025-004 has been generated</p>
+                                <p class="activity-time">3 days ago</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="activity-list">
-                    <li class="activity-item">
-                        <div class="activity-icon">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                        <div class="activity-content">
-                            <h3 class="activity-title">New Campaign Launched</h3>
-                            <p class="activity-desc">Summer Sale Email Campaign has been launched successfully</p>
-                            <p class="activity-time">2 hours ago</p>
-                        </div>
-                    </li>
-                    
-                    <li class="activity-item">
-                        <div class="activity-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="activity-content">
-                            <h3 class="activity-title">Performance Report</h3>
-                            <p class="activity-desc">Monthly analytics report is now available for review</p>
-                            <p class="activity-time">Yesterday</p>
-                        </div>
-                    </li>
-                    
-                    <li class="activity-item">
-                        <div class="activity-icon">
-                            <i class="fas fa-comment"></i>
-                        </div>
-                        <div class="activity-content">
-                            <h3 class="activity-title">Support Ticket Closed</h3>
-                            <p class="activity-desc">Ticket #1245 regarding landing page optimization has been resolved</p>
-                            <p class="activity-time">2 days ago</p>
-                        </div>
-                    </li>
-                    
-                    <li class="activity-item">
-                        <div class="activity-icon">
-                            <i class="fas fa-file-invoice"></i>
-                        </div>
-                        <div class="activity-content">
-                            <h3 class="activity-title">Invoice Generated</h3>
-                            <p class="activity-desc">Q2 service invoice #INV-2025-004 has been generated</p>
-                            <p class="activity-time">3 days ago</p>
-                        </div>
-                    </li>
-                </ul>
+            </div>
+            
+            <!-- Analytics Section -->
+            <div id="analytics-section" class="dashboard-section" style="display: none;">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Analytics Dashboard</h2>
+                    </div>
+                    <div class="placeholder-chart">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Analytics Data</h3>
+                        <p>Detailed analytics and reporting features would be displayed here.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Campaigns Section -->
+            <div id="campaigns-section" class="dashboard-section" style="display: none;">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Campaign Management</h2>
+                    </div>
+                    <div class="placeholder-chart">
+                        <i class="fas fa-bullhorn"></i>
+                        <h3>Campaign Tools</h3>
+                        <p>Create, manage, and track your marketing campaigns here.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Email Marketing Section -->
+            <div id="email-marketing-section" class="dashboard-section" style="display: none;">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Email Marketing</h2>
+                    </div>
+                    <div class="placeholder-chart">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Campaigns</h3>
+                        <p>Design and send email campaigns to your audience.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Media Section -->
+            <div id="social-media-section" class="dashboard-section" style="display: none;">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Social Media Management</h2>
+                    </div>
+                    <div class="placeholder-chart">
+                        <i class="fas fa-share-alt"></i>
+                        <h3>Social Media Tools</h3>
+                        <p>Manage your social media presence and scheduling.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Invoices Section -->
+            <div id="invoices-section" class="dashboard-section" style="display: none;">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Invoices & Billing</h2>
+                    </div>
+                    <div class="placeholder-chart">
+                        <i class="fas fa-file-invoice"></i>
+                        <h3>Billing Information</h3>
+                        <p>View and manage your invoices and payment history.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Support Section -->
+            <div id="support-section" class="dashboard-section" style="display: none;">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Support Center</h2>
+                    </div>
+                    <div class="placeholder-chart">
+                        <i class="fas fa-headset"></i>
+                        <h3>Customer Support</h3>
+                        <p>Get help and support for your services.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Settings Section -->
+            <div id="settings-section" class="dashboard-section" style="display: none;">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Account Settings</h2>
+                    </div>
+                    <div class="placeholder-chart">
+                        <i class="fas fa-cog"></i>
+                        <h3>Configuration</h3>
+                        <p>Manage your account preferences and settings.</p>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
