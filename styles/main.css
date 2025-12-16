@@ -460,6 +460,8 @@ section {
     border: none;
     box-shadow: none;
     outline: none;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .footer-logo:hover .footer-logo-img {
@@ -2461,8 +2463,8 @@ section {
 
 .latest-blog .section-subtitle {
     font-size: 1.1rem;
-    color: var(--base-dark);
-    opacity: 0.8;
+    color: var(--white);
+    opacity: 0.9;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -5293,6 +5295,8 @@ footer.footer>.container {
     height: 100%;
     object-fit: cover;
     transition: transform 0.4s ease;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .blog-card-home:hover .blog-card-image-home img {
@@ -5324,8 +5328,9 @@ footer.footer>.container {
     justify-content: space-between;
     margin-bottom: var(--spacing-md);
     font-size: 0.9rem;
-    opacity: 0.8;
+    opacity: 0.9;
     color: var(--white);
+    visibility: visible !important;
 }
 
 .date-home,
@@ -5340,6 +5345,7 @@ footer.footer>.container {
     font-weight: 700;
     margin-bottom: var(--spacing-md);
     color: var(--white);
+    visibility: visible !important;
 }
 
 .blog-card-content-home h3 a {
@@ -5354,10 +5360,11 @@ footer.footer>.container {
 
 .blog-card-content-home p {
     color: var(--white);
-    opacity: 0.8;
+    opacity: 0.9;
     line-height: 1.6;
     margin-bottom: var(--spacing-xl);
     flex: 1;
+    visibility: visible !important;
 }
 
 .blog-card-footer-home {

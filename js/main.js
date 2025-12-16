@@ -718,6 +718,8 @@ function initializeSmoothScrolling() {
                 .sort((a, b) => new Date(b.date) - new Date(a.date))
                 .slice(0, 3);
 
+            console.log('Latest posts to display:', latestPosts);
+
             blogGrid.innerHTML = latestPosts.map(post => `
             <article class="blog-card-home">
                 <div class="blog-card-image-home">
