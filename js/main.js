@@ -1,41 +1,6 @@
 // Main JavaScript file for Trendtactics Digital
 
-// Mobile Navigation Toggle - Consolidated Implementation
-document.addEventListener('DOMContentLoaded', function() {
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    
-    if (navToggle && navMenu) {
-        // Remove any existing event listeners by cloning the element
-        const newNavToggle = navToggle.cloneNode(true);
-        navToggle.parentNode.replaceChild(newNavToggle, navToggle);
-        
-        newNavToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Toggle active classes
-            this.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            
-            // Toggle body scroll lock
-            if (navMenu.classList.contains('active')) {
-                document.body.classList.add('menu-open');
-            } else {
-                document.body.classList.remove('menu-open');
-            }
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!newNavToggle.contains(event.target) && !navMenu.contains(event.target)) {
-                newNavToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            }
-        });
-    }
-});
+
 
 // Dropdown Menus - Handled in initializeNavigation function below
 

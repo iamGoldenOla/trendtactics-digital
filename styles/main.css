@@ -239,6 +239,14 @@ section {
     }
 }
 
+/* Desktop Hero Padding Fix */
+.hero,
+.hero-content-centered,
+.page-hero {
+    padding-top: calc(70px + var(--spacing-xl));
+    /* 70px nav + extra spacing */
+}
+
 /* Reduce padding for the footer container on large screens */
 .footer .container {
     padding-left: 0 !important;
@@ -539,8 +547,7 @@ section {
     margin-left: 0.5rem;
     z-index: 1001;
     position: relative;
-    background: #87CEEB;
-    /* Sky blue background */
+    background: transparent;
     border: 2px solid rgba(10, 30, 63, 0.3);
     border-radius: 8px;
     outline: none;
@@ -573,8 +580,7 @@ section {
 }
 
 .nav-toggle.active {
-    background: #87CEEB;
-    /* Sky blue when active */
+    background: transparent;
 }
 
 .nav-toggle.active span {
@@ -599,7 +605,7 @@ section {
         top: 70px;
         left: 0;
         right: 0;
-        background: #87CEEB;
+        background: rgba(10, 30, 63, 0.95); /* Dark navy background */
         /* Sky blue background */
         backdrop-filter: blur(20px);
         flex-direction: column;
@@ -2998,7 +3004,7 @@ section {
         top: 70px;
         left: 0;
         right: 0;
-        background: #87CEEB;
+        background: rgba(10, 30, 63, 0.95); /* Dark navy background */
         /* Sky blue background */
         backdrop-filter: blur(20px);
         flex-direction: column;
