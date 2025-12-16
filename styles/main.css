@@ -1387,6 +1387,8 @@ section {
     gap: var(--spacing-2xl);
     animation: scroll-brands 30s linear infinite;
     width: max-content;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .brands-grid:hover {
@@ -1406,6 +1408,8 @@ section {
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
     border: 1px solid rgba(10, 30, 63, 0.05);
     /* Navy blue border */
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .brand-item:hover {
@@ -1423,7 +1427,8 @@ section {
     object-fit: contain;
     filter: contrast(1.8) saturate(1.5) drop-shadow(2px 2px 4px rgba(10, 30, 63, 0.4));
     font-weight: bold;
-    opacity: 1;
+    opacity: 1 !important;
+    visibility: visible !important;
     /* Navy blue drop shadow */
     transition: filter 0.3s ease;
 }
@@ -1460,6 +1465,8 @@ section {
     position: relative;
     overflow: hidden;
     padding: var(--spacing-md) 0;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .brands-container::before,
@@ -1475,12 +1482,12 @@ section {
 
 .brands-container::before {
     left: 0;
-    background: linear-gradient(to right, var(--base-dark) 0%, transparent 100%);
+    background: linear-gradient(to right, var(--white) 0%, transparent 100%);
 }
 
 .brands-container::after {
     right: 0;
-    background: linear-gradient(to left, var(--base-dark) 0%, transparent 100%);
+    background: linear-gradient(to left, var(--white) 0%, transparent 100%);
 }
 
 /* ===== SERVICES SECTION ===== */

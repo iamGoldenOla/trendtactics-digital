@@ -121,7 +121,7 @@
 }
 
 .portfolio-media video {
-  background: #222;
+  background: #000;
   object-fit: cover;
   object-position: center;
 }
@@ -279,4 +279,12 @@
 .portfolio-card[data-category="spoken-word"] .portfolio-media video {
   object-fit: contain;
   background: #000;
+}
+
+/* Ensure all portfolio media elements are visible */
+.portfolio-media img,
+.portfolio-media video,
+.portfolio-media iframe {
+  opacity: 1 !important;
+  visibility: visible !important;
 } 

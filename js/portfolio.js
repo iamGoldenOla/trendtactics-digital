@@ -1,13 +1,13 @@
 // Portfolio asset definitions (replace/add as needed)
 const portfolioAssets = [
   // Adverts (videos/images)
-  { type: 'video', src: '/images/videos-for-advert/advert-for-our-sponsors.mp4', title: 'Advert For Our Sponsors', category: 'advert', description: '' },
-  { type: 'video', src: '/images/videos-for-advert/BF-FARMS-ADVERT.mp4', title: 'BF Farms Advert', category: 'advert', description: '' },
+  { type: 'video', src: '/images/videos-for-advert/ADVERT FOR OUR SPONSORS.mp4', title: 'Advert For Our Sponsors', category: 'advert', description: '' },
+  { type: 'video', src: '/images/videos-for-advert/BF FARMS ADVERT.mp4', title: 'BF Farms Advert', category: 'advert', description: '' },
   { type: 'video', src: '/images/videos-for-advert/Edvoura_advert2.mp4', title: 'Edvoura Advert', category: 'advert', description: '' },
-  { type: 'video', src: '/images/videos-for-advert/GABSON-ENGINEERING-ADVERT.mp4', title: 'Gabson Engineering Advert', category: 'advert', description: '' },
-  { type: 'video', src: '/images/videos-for-advert/GCS-EDUCATION-ADVERT.mp4', title: 'GCS Education Advert', category: 'advert', description: '' },
-  { type: 'video', src: '/images/videos-for-advert/GREENTICK-AD2.mp4', title: 'Greentick Advert', category: 'advert', description: '' },
-  { type: 'video', src: '/images/videos-for-advert/OSUPA-INTEGRATED-SERVICES-ADVERT.mp4', title: 'Osupa Integrated Services Advert', category: 'advert', description: '' },
+  { type: 'video', src: '/images/videos-for-advert/GABSON ENGINEERING ADVERT.mp4', title: 'Gabson Engineering Advert', category: 'advert', description: '' },
+  { type: 'video', src: '/images/videos-for-advert/GCS EDUCATION ADVERT.mp4', title: 'GCS Education Advert', category: 'advert', description: '' },
+  { type: 'video', src: '/images/videos-for-advert/GREENTICK AD2.mp4', title: 'Greentick Advert', category: 'advert', description: '' },
+  { type: 'video', src: '/images/videos-for-advert/OSUPA INTEGRATED SERVICES ADVERT.mp4', title: 'Osupa Integrated Services Advert', category: 'advert', description: '' },
   // Spoken Word (if exists)
   // { type: 'video', src: '/videos/GOD-HEARD-YOU-NOW-WALK-IN-PEACE-spoken-word.mp4', title: 'God Heard You Now Walk In Peace', category: 'spoken-word', description: '' },
   // Music Generation (if exists)
@@ -35,7 +35,7 @@ const portfolioAssets = [
   // Promo Video
   { type: 'video', src: '/images/Trendtactics-digital-promo.mp4', title: 'Trendtactics Digital Promo', category: 'advert', description: '' },
   // Logo
-  { type: 'image', src: '/images/Trendtactics-logo.jpg', title: 'Trendtactics Logo', category: 'website-design', description: '' },
+  { type: 'image', src: '/images/Trendtactics_logo.jpg', title: 'Trendtactics Logo', category: 'website-design', description: '' },
 ];
 
 const categoryLabels = {
@@ -103,16 +103,13 @@ function renderCard(asset) {
       </div>
     `;
   } else if (asset.type === 'video') {
-    // Generate optimized video sources with multiple resolutions
-    const videoBasePath = asset.src.replace('.mp4', '');
+    // Use the actual video file directly since we don't have different resolutions
     const posterPath = '/images/Trendtactics_logo.jpg';
 
     return `
       <div class="portfolio-card" data-category="${asset.category}">
         <div class="portfolio-media">
           <video controls preload="metadata" poster="${posterPath}" loading="lazy" style="background-size: 120% 120%; background-position: center;">
-            <source src="${videoBasePath}-480p.mp4" type="video/mp4" media="(max-width: 480px)">
-            <source src="${videoBasePath}-720p.mp4" type="video/mp4" media="(max-width: 1280px)">
             <source src="${asset.src}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
