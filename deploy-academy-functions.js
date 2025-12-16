@@ -12,7 +12,7 @@ console.log('🎓 Starting Academy Edge Functions Deployment...');
 console.log('================================================');
 
 // Configuration - Update these with your actual project details
-const ACADEMY_PROJECT_ID = 'YOUR_ACADEMY_PROJECT_ID'; // Get this from your Supabase dashboard
+const ACADEMY_PROJECT_ID = 'uimdbodamoeyukrghchb'; // Get this from your Supabase dashboard
 const FUNCTIONS_DIR = './supabase/functions';
 
 // List of functions to deploy

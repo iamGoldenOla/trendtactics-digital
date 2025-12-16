@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Login Functionality</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/supabase/2.39.0/supabase.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-result {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        button:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        .loading {
+            display: none;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Login Functionality</h1>
+        <p>This page tests the login functionality with Supabase.</p>
+        
+        <div id="test-controls">
+            <h2>Login Test</h2>
+            <input type="email" id="email" placeholder="Email" value="test@example.com">
+            <input type="password" id="password" placeholder="Password" value="testpassword123">
+            <button id="testLoginBtn" onclick="testLogin()">Test Login</button>
+            
+            <h2>Function Test</h2>
+            <button id="testFunctionBtn" onclick="testFunction()">Test Edge Function</button>
+        </div>
+        
+        <div id="results"></div>
+        
+        <div class="loading" id="loadingIndicator">
+            <p><i class="fas fa-spinner fa-spin"></i> Testing...</p>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const SUPABASE_URL = 'https://wtgwxnhnqdnbzpetltrt.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0Z3d4bmhucWRuYnpwZXRsdHJ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUwNjQ2NjUsImV4cCI6MjA4MDY0MDY2NX0.3eblmq4lsnDQU33M9XqZpBqux9bi9hX2G0yUuPScHJA';
+    
+        // Initialize Supabase client
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        
+        // DOM elements
+        const resultsDiv = document.getElementById('results');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        
+        // Show loading indicator
+        function showLoading(show) {
+            loadingIndicator.style.display = show ? 'block' : 'none';
+        }
+        
+        // Display result
+        function displayResult(message, type = 'info') {
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `test-result ${type}`;
+            resultDiv.innerHTML = message;
+            resultsDiv.appendChild(resultDiv);
+        }
+        
+        // Test login
+        async function testLogin() {
+            showLoading(true);
+            resultsDiv.innerHTML = '';
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            try {
+                console.log('Attempting login with:', { email, password: '***' });
+                
+                // Sign in with Supabase
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+                
+                console.log('Supabase response:', { data, error });
+                
+                if (error) {
+                    displayResult(`❌ Login failed: ${error.message}`, 'error');
+                } else {
+                    displayResult(`✅ Login successful! User: ${data.user.email}`, 'success');
+                }
+            } catch (err) {
+                console.error('Login error:', err);
+                displayResult(`❌ Login error: ${err.message}`, 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        // Test Edge Function call
+        async function testFunction() {
+            showLoading(true);
+            resultsDiv.innerHTML = '';
+            
+            try {
+                // Test calling the health function
+                const { data, error } = await supabase.functions.invoke('get-courses');
+                
+                if (error) {
+                    displayResult(`❌ Function call failed: ${error.message}`, 'error');
+                } else {
+                    displayResult(`✅ Function call successful! Response: ${JSON.stringify(data)}`, 'success');
+                }
+            } catch (err) {
+                console.error('Function test error:', err);
+                displayResult(`❌ Function test failed: ${err.message}`, 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+    </script>
+</body>
+</html>
