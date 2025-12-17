@@ -1452,13 +1452,13 @@ section {
 
 /* Reduced animation speed for all devices */
 .brands-grid {
-    animation-duration: 40s;
+    animation-duration: 60s;
 }
 
 /* Even slower animation speed for mobile */
 @media (max-width: 768px) {
     .brands-grid {
-        animation-duration: 60s;
+        animation-duration: 90s;
     }
 }
 
@@ -4892,11 +4892,11 @@ blockquote.service-quote {
 }
 
 .feature-comparison {
-    margin-top: var(--spacing-5xl);
+    margin-top: var(--spacing-2xl);
 }
 
 .service-pricing {
-    padding-bottom: 8rem;
+    padding-bottom: 4rem;
 }
 
 .add-ons {

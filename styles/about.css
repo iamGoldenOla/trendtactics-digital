@@ -1260,16 +1260,16 @@
 }
 
 .cta .btn-outline {
-    background: transparent;
-    color: var(--primary);
+    background: var(--primary);
+    color: var(--base-dark);
     border: 2px solid var(--primary);
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .cta .btn-outline:hover {
-    background: var(--primary);
-    color: var(--base-dark);
+    background: var(--white);
+    color: var(--primary);
     transform: translateY(-8px) scale(1.08);
     box-shadow: 0 15px 35px rgba(0, 255, 255, 0.4), 0 0 25px rgba(0, 255, 255, 0.3);
 }
